@@ -12,6 +12,11 @@
 		1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A62B061CD100B33019 /* TabBarController.swift */; };
 		1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A82B061D1600B33019 /* FilmListViewController.swift */; };
 		1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657AA2B061D4100B33019 /* HistoryViewController.swift */; };
+		209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */; };
+		209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB92AF7B60400ED0A8C /* Constants.swift */; };
+		209E7EBC2AF7B61800ED0A8C /* ElementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBB2AF7B61800ED0A8C /* ElementBuilder.swift */; };
+		209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */; };
+		209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */; };
 		66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAB2AEA98E000468958 /* AppDelegate.swift */; };
 		66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAD2AEA98E000468958 /* SceneDelegate.swift */; };
 		66857BB02AEA98E000468958 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAF2AEA98E000468958 /* MainMenuController.swift */; };
@@ -24,9 +29,14 @@
 /* Begin PBXFileReference section */
 		0461219C2B081D0F00ECCF64 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		0461219E2B081D7D00ECCF64 /* FinalFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalFilmViewController.swift; sourceTree = "<group>"; };
+		209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLobbyController.swift; sourceTree = "<group>"; };
+		209E7EB92AF7B60400ED0A8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1AF657A62B061CD100B33019 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1AF657A82B061D1600B33019 /* FilmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewController.swift; sourceTree = "<group>"; };
 		1AF657AA2B061D4100B33019 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		209E7EBB2AF7B61800ED0A8C /* ElementBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementBuilder.swift; sourceTree = "<group>"; };
+		209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEnterLobbyView.swift; sourceTree = "<group>"; };
+		209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLobbyController.swift; sourceTree = "<group>"; };
 		66857BA82AEA98E000468958 /* SwipeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66857BAB2AEA98E000468958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66857BAD2AEA98E000468958 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +253,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66857BB02AEA98E000468958 /* MainMenuController.swift in Sources */,
+				209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */,
+				209E7EBC2AF7B61800ED0A8C /* ElementBuilder.swift in Sources */,
+				66857BB02AEA98E000468958 /* MainMenu.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
 
 				6694AC362B1269C800F6F3CB /* MainMenuView.swift in Sources */,
@@ -250,9 +263,12 @@
 				1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */,
 				0461219D2B081D0F00ECCF64 /* SwipeViewController.swift in Sources */,
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
+				209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */,
 				1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */,
 				1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */,
 				66857BB62AEA98E000468958 /* SwipeMovie.xcdatamodeld in Sources */,
+				209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */,
+				209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
