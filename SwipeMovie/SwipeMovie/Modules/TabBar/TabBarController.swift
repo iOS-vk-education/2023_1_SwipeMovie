@@ -1,8 +1,8 @@
 import UIKit
 
-func createTabBarController(controller: UIViewController, title: String?, image: String, tag: Int) -> UINavigationController {
+func createTabBarController(controller: UIViewController, title: String?, nameImage: String, tag: Int) -> UINavigationController {
     let tabBarElement = UINavigationController(rootViewController: controller)
-    tabBarElement.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: image), tag: tag)
+    tabBarElement.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: nameImage), tag: tag)
     return tabBarElement
 }
 
@@ -15,17 +15,17 @@ final class TabBarController {
         let filmListTabBarController = createTabBarController(
             controller: FilmListViewController(),
             title: "Списки фильмов",
-            image: "film.fill",
+            nameImage: "film.fill",
             tag: 0)
         let mainMenuTabBarController = createTabBarController(
             controller: MainMenuViewController(),
             title: "Главное меню",
-            image: "checkmark.rectangle.stack.fill",
+            nameImage: "checkmark.rectangle.stack.fill",
             tag: 1)
         let historyTabBarController = createTabBarController(
             controller: HistoryViewController(),
             title: "История",
-            image: "clock.fill",
+            nameImage: "clock.fill",
             tag: 2)
         tabBarController.setViewControllers([
             filmListTabBarController,
