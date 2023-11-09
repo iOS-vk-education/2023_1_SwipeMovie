@@ -9,24 +9,9 @@ import Foundation
 import UIKit
 
 class CreateLobbyView: UIView {
-    var topLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor(named: "swipeMovieWhite")
-        label.font = UIFont.systemFont(ofSize: ConstantsMain.mainLabelFontSize, weight: .bold)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byTruncatingTail
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    var foregroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "swipeMovieWhite")
-        view.layer.cornerRadius = ConstantsForWhiteForegroundView.cornerRadius
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    // properties
+    var topLabel = UILabel()
+    var foregroundView = UIView()
     var bottomButton = UIButton()
     var nameTextField = UITextField()
     var lobbyTextField = UITextField()
@@ -35,9 +20,11 @@ class CreateLobbyView: UIView {
     var nameStack = UIStackView()
     var lobbyStack = UIStackView()
     var createBottomButtonBottomConstraint: NSLayoutConstraint?
+    // methods
     init(frame: CGRect, type: String) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(named: "swipeMovieBlue")
+        topLabel = getMainLabel()
         if type == "create" {
             setForegroundView(bottomTitle: "Введите название лобби",
                               bottomPlaceHolder: "Название",
@@ -57,9 +44,11 @@ class CreateLobbyView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    // function of setting up white foreground of this view and it's constraints
     private func setForegroundView(bottomTitle: String = "Error",
                                    bottomPlaceHolder: String = "Error",
                                    buttonTitle: String = "Error") {
+        foregroundView = getForegroundView()
         self.addSubview(foregroundView)
         nameStack = getTextView(textField: nameTextField,
                                 title: "Введите Ваше имя",
@@ -98,6 +87,7 @@ class CreateLobbyView: UIView {
                                                                      constant: ConstantsMain.bottomIndent)
         createBottomButtonBottomConstraint?.isActive = true
     }
+    // function of setting up label of this view and it's constraints
     private func setCreateLobbyLabel() {
         self.addSubview(topLabel)
         let dimensionBefore = self.safeAreaLayoutGuide.topAnchor.anchorWithOffset(to: topLabel.centerYAnchor)
