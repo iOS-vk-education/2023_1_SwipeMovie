@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// function of setting up buttons
 func getButton(title: String, size: String = "") -> UIButton {
     let button = UIButton()
     button.setTitle(title, for: .normal)
@@ -29,6 +30,7 @@ func getButton(title: String, size: String = "") -> UIButton {
     ])
     return button
 }
+// function of setting up textField with it's label and view
 func getTextView(textField: UITextField, title: String, placeholder: String, button: UIButton) -> UIStackView {
     textField.placeholder = placeholder
     textField.translatesAutoresizingMaskIntoConstraints = false
@@ -79,4 +81,24 @@ func getTextView(textField: UITextField, title: String, placeholder: String, but
         return stack
     }()
     return textFieldStack
+}
+// function of setting up main white label above the foregroundView
+func getMainLabel() -> UILabel {
+    let label = UILabel()
+    label.textColor = UIColor(named: "swipeMovieWhite")
+    label.font = UIFont.systemFont(ofSize: ConstantsMain.mainLabelFontSize, weight: .bold)
+    label.numberOfLines = 0
+    label.lineBreakMode = .byTruncatingTail
+    label.textAlignment = .center
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+}
+// function of setting up white background view
+func getForegroundView() -> UIView {
+    let view = UIView()
+    view.backgroundColor = UIColor(named: "swipeMovieWhite")
+    view.layer.cornerRadius = ConstantsForWhiteForegroundView.cornerRadius
+    view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
 }
