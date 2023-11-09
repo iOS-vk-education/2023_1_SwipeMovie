@@ -37,6 +37,7 @@ class CreateLobbyView: UIView {
     init(frame: CGRect, type: String) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(named: "swipeMovieBlue")
+        topLabel = getMainLabel()
         if type == "create" {
             setForegroundView(bottomTitle: "Введите название лобби",
                               bottomPlaceHolder: "Название",

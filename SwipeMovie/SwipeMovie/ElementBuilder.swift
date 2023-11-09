@@ -63,3 +63,23 @@ func getForegroundView() -> UIView {
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
 }
+// function of setting up main white label above the foregroundView
+func getMainLabel() -> UILabel {
+    let label = UILabel()
+    label.textColor = UIColor(named: "swipeMovieWhite")
+    label.font = UIFont.systemFont(ofSize: ConstantsMain.mainLabelFontSize, weight: .bold)
+    label.numberOfLines = 0
+    label.lineBreakMode = .byTruncatingTail
+    label.textAlignment = .center
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+}
+// function of setting up white background view
+func getForegroundView() -> UIView {
+    let view = UIView()
+    view.backgroundColor = UIColor(named: "swipeMovieWhite")
+    view.layer.cornerRadius = ConstantsForWhiteForegroundView.cornerRadius
+    view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
+}
