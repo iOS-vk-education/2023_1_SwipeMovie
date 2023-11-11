@@ -17,5 +17,3 @@ line_length:
     true
  ignores_comments:
     true
-ignores_interpolated_strings:
-    false
