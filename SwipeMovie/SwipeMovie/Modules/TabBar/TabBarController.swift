@@ -23,7 +23,7 @@ final class TabBarController {
                                                               tag: 0)
         let mainMenuTabBarController = createTabBarController(controller: MainMenuViewController(),
                                                               title: "Главное меню",
-                                                              nameImage: "checkmark.rectangle.stack.fill",
+                                                              nameImage: "checkmark.rectangle.stack",
                                                               tag: 1)
         let historyTabBarController = createTabBarController(controller: HistoryViewController(),
                                                              title: "История",
