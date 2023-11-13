@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045A5A492B02B0010092F751 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A5A482B02B0010092F751 /* SwipeViewController.swift */; };
 		66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAB2AEA98E000468958 /* AppDelegate.swift */; };
 		66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAD2AEA98E000468958 /* SceneDelegate.swift */; };
 		66857BB02AEA98E000468958 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAF2AEA98E000468958 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045A5A482B02B0010092F751 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		66857BA82AEA98E000468958 /* SwipeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66857BAB2AEA98E000468958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66857BAD2AEA98E000468958 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				66857BAB2AEA98E000468958 /* AppDelegate.swift */,
 				66857BAD2AEA98E000468958 /* SceneDelegate.swift */,
 				66857BAF2AEA98E000468958 /* ViewController.swift */,
+				045A5A482B02B0010092F751 /* SwipeViewController.swift */,
 				66857BB12AEA98E000468958 /* Main.storyboard */,
 				66857BB72AEA98E200468958 /* Assets.xcassets */,
 				66857BB92AEA98E200468958 /* LaunchScreen.storyboard */,
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045A5A492B02B0010092F751 /* SwipeViewController.swift in Sources */,
 				66857BB02AEA98E000468958 /* ViewController.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
