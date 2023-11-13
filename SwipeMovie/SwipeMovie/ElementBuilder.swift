@@ -71,6 +71,19 @@ func getMainLabel() -> UILabel {
     label.numberOfLines = 0
     label.lineBreakMode = .byTruncatingTail
     label.textAlignment = .center
+    label.text = text
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+}
+// function of setting up black caption label
+func getCaptionLabel(text: String = "error") -> UILabel {
+    let label = UILabel()
+    label.textColor = UIColor(named: "swipeMovieBlack")
+    label.font = UIFont.systemFont(ofSize: ConstantsForWhiteForegroundView.captionFontSize, weight: .regular)
+    label.numberOfLines = 0
+    label.lineBreakMode = .byTruncatingTail
+    label.textAlignment = .center
+    label.text = text
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
 }

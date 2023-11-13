@@ -23,19 +23,11 @@ enum ConstantsForButton {
 }
 
 enum ConstantsForWhiteForegroundView {
-    static let height = 2.0 / 3.0 * UIScreen.main.bounds.height
     static let cornerRadius: CGFloat = 40
+    static let borderWidth: CGFloat = 4
+    static let captionFontSize: CGFloat = 15
+    static let textFontSize: CGFloat = 22
+    static let spaceBetweenCaptionAndElements: CGFloat = 5
+    static let buttonTextFontSize: CGFloat = 17
 }
 
-enum ConstantsForTextFields {
-    static let height: CGFloat = 44
-    static let width: CGFloat = 353
-    static let borderWidth: CGFloat = 2
-    static let fontSize: CGFloat = 17
-    static let labelFontSize: CGFloat = 22
-    static let margingFromBorder: CGFloat = 32
-    static let spaceUnderLabel: CGFloat = 12
-    static let cornerRadius: CGFloat = 20
-    static let fullHeight: CGFloat = height + spaceUnderLabel + labelFontSize
-    static let spaceBetweenTextFieldsWithLabels: CGFloat = 26
-}
