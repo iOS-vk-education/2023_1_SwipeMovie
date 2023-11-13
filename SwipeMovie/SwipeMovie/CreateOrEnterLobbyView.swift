@@ -9,6 +9,19 @@ import Foundation
 import UIKit
 
 class CreateLobbyView: UIView {
+    // constants
+    private enum ConstantsForTextFields {
+        static let height: CGFloat = 44
+        static let width: CGFloat = 353
+        static let borderWidth: CGFloat = 2
+        static let fontSize: CGFloat = 17
+        static let labelFontSize: CGFloat = 22
+        static let margingFromBorder: CGFloat = 32
+        static let spaceUnderLabel: CGFloat = 12
+        static let cornerRadius: CGFloat = 20
+        static let fullHeight: CGFloat = height + spaceUnderLabel + labelFontSize
+        static let spaceBetweenTextFieldsWithLabels: CGFloat = 26
+    }
     // properties
     var topLabel = UILabel()
     var foregroundView = UIView()
@@ -24,20 +37,19 @@ class CreateLobbyView: UIView {
     init(frame: CGRect, type: String) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(named: "swipeMovieBlue")
-        topLabel = getMainLabel()
         if type == "create" {
             setForegroundView(bottomTitle: "Введите название лобби",
                               bottomPlaceHolder: "Название",
                               buttonTitle: "Создать")
-            topLabel.text = "Создать лобби"
+            topLabel = getMainLabel(text: "Создать лобби")
         } else if type == "enter" {
             setForegroundView(bottomTitle: "Введите код лобби",
                               bottomPlaceHolder: "******",
                               buttonTitle: "Присоединиться")
-            topLabel.text = "Присоединиться к лобби"
+            topLabel = getMainLabel(text: "Присоединиться к лобби")
         } else {
             setForegroundView()
-            topLabel.text = "Error"
+            topLabel = getMainLabel()
         }
         setCreateLobbyLabel()
     }
@@ -98,5 +110,60 @@ class CreateLobbyView: UIView {
             topLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                               constant: ConstantsMain.marginFromSides)
         ])
+    }
+    // function of setting up textField with it's label and view
+    private func getTextView(textField: UITextField,
+                             title: String,
+                             placeholder: String,
+                             button: UIButton) -> UIStackView {
+        textField.placeholder = placeholder
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        button.tintColor = .systemGray
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let titleLabelView: UIView = {
+            let titleLabel = UILabel()
+            titleLabel.text = title
+            titleLabel.textColor = UIColor(named: "swipeMovieBlack")
+            titleLabel.font = UIFont.systemFont(ofSize: ConstantsForTextFields.labelFontSize)
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            let view = UIView()
+            view.addSubview(titleLabel)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                view.heightAnchor.constraint(equalToConstant: ConstantsForTextFields.labelFontSize),
+                titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+            return view
+        }()
+        let textFieldView: UIView = {
+            let view = UIView()
+            view.layer.cornerRadius = ConstantsForTextFields.cornerRadius
+            view.layer.borderColor = UIColor(named: "swipeMovieBlue")?.cgColor
+            view.layer.borderWidth = 2
+            view.addSubview(textField)
+            view.addSubview(button)
+            NSLayoutConstraint.activate([
+                view.heightAnchor.constraint(equalToConstant: ConstantsForTextFields.height),
+                button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                button.widthAnchor.constraint(equalToConstant: ConstantsForTextFields.height),
+                button.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                textField.topAnchor.constraint(equalTo: view.topAnchor),
+                textField.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                textField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                   constant: ConstantsForTextFields.margingFromBorder),
+                textField.trailingAnchor.constraint(equalTo: button.leadingAnchor)
+            ])
+            return view
+        }()
+        let textFieldStack: UIStackView = {
+            let stack = UIStackView()
+            stack.axis = .vertical
+            stack.spacing = ConstantsForTextFields.spaceUnderLabel
+            stack.addArrangedSubview(titleLabelView)
+            stack.addArrangedSubview(textFieldView)
+            return stack
+        }()
+        return textFieldStack
     }
 }

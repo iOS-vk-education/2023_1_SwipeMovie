@@ -30,66 +30,27 @@ func getButton(title: String, size: String = "") -> UIButton {
     ])
     return button
 }
-// function of setting up textField with it's label and view
-func getTextView(textField: UITextField, title: String, placeholder: String, button: UIButton) -> UIStackView {
-    textField.placeholder = placeholder
-    textField.translatesAutoresizingMaskIntoConstraints = false
-    button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
-    button.tintColor = .systemGray
-    button.translatesAutoresizingMaskIntoConstraints = false
-    let titleLabelView: UIView = {
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.textColor = UIColor(named: "swipeMovieBlack")
-        titleLabel.font = UIFont.systemFont(ofSize: ConstantsForTextFields.labelFontSize)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let view = UIView()
-        view.addSubview(titleLabel)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: ConstantsForTextFields.labelFontSize),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        return view
-    }()
-    let textFieldView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = ConstantsForTextFields.cornerRadius
-        view.layer.borderColor = UIColor(named: "swipeMovieBlue")?.cgColor
-        view.layer.borderWidth = 2
-        view.addSubview(textField)
-        view.addSubview(button)
-        NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: ConstantsForTextFields.height),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            button.widthAnchor.constraint(equalToConstant: ConstantsForTextFields.height),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            textField.topAnchor.constraint(equalTo: view.topAnchor),
-            textField.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                               constant: ConstantsForTextFields.margingFromBorder),
-            textField.trailingAnchor.constraint(equalTo: button.leadingAnchor)
-        ])
-        return view
-    }()
-    let textFieldStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = ConstantsForTextFields.spaceUnderLabel
-        stack.addArrangedSubview(titleLabelView)
-        stack.addArrangedSubview(textFieldView)
-        return stack
-    }()
-    return textFieldStack
-}
-// function of setting up main white label above the foregroundView
-func getMainLabel() -> UILabel {
+// function of setting up white top title label
+func getMainLabel(text: String = "error") -> UILabel {
     let label = UILabel()
     label.textColor = UIColor(named: "swipeMovieWhite")
     label.font = UIFont.systemFont(ofSize: ConstantsMain.mainLabelFontSize, weight: .bold)
     label.numberOfLines = 0
     label.lineBreakMode = .byTruncatingTail
     label.textAlignment = .center
+    label.text = text
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+}
+// function of setting up black caption label
+func getCaptionLabel(text: String = "error") -> UILabel {
+    let label = UILabel()
+    label.textColor = UIColor(named: "swipeMovieBlack")
+    label.font = UIFont.systemFont(ofSize: ConstantsForWhiteForegroundView.captionFontSize, weight: .regular)
+    label.numberOfLines = 0
+    label.lineBreakMode = .byTruncatingTail
+    label.textAlignment = .center
+    label.text = text
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
 }
