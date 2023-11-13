@@ -12,6 +12,8 @@
 		209E7EBC2AF7B61800ED0A8C /* ElementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBB2AF7B61800ED0A8C /* ElementBuilder.swift */; };
 		209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */; };
 		209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */; };
+		209E7EC42AFE695900ED0A8C /* DidCreatedLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC32AFE695900ED0A8C /* DidCreatedLobbyController.swift */; };
+		209E7EC62AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */; };
 		66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAB2AEA98E000468958 /* AppDelegate.swift */; };
 		66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAD2AEA98E000468958 /* SceneDelegate.swift */; };
 		66857BB02AEA98E000468958 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAF2AEA98E000468958 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		209E7EBB2AF7B61800ED0A8C /* ElementBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementBuilder.swift; sourceTree = "<group>"; };
 		209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEnterLobbyView.swift; sourceTree = "<group>"; };
 		209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLobbyController.swift; sourceTree = "<group>"; };
+		209E7EC32AFE695900ED0A8C /* DidCreatedLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreatedLobbyController.swift; sourceTree = "<group>"; };
+		209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnteredLobbyController.swift; sourceTree = "<group>"; };
 		66857BA82AEA98E000468958 /* SwipeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66857BAB2AEA98E000468958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66857BAD2AEA98E000468958 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */,
 				209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */,
 				209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */,
+				209E7EC32AFE695900ED0A8C /* DidCreatedLobbyController.swift */,
+				209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */,
 				209E7EB92AF7B60400ED0A8C /* Constants.swift */,
 				209E7EBB2AF7B61800ED0A8C /* ElementBuilder.swift */,
 				66857BB12AEA98E000468958 /* Main.storyboard */,
@@ -185,6 +191,8 @@
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
 				209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */,
 				66857BB62AEA98E000468958 /* SwipeMovie.xcdatamodeld in Sources */,
+				209E7EC62AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift in Sources */,
+				209E7EC42AFE695900ED0A8C /* DidCreatedLobbyController.swift in Sources */,
 				209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */,
 				209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */,
 			);
