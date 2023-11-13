@@ -1,5 +1,4 @@
 import UIKit
-
 func createTabBarController(controller: UIViewController,
                             title: String?,
                             nameImage: String,
@@ -10,7 +9,6 @@ func createTabBarController(controller: UIViewController,
                                             tag: tag)
     return tabBarElement
 }
-
 final class TabBarController {
     static func createTabBar() -> UITabBarController {
         UITabBar.appearance().barTintColor = .white
