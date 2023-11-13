@@ -17,6 +17,7 @@ final class CreateLobbyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCleanTextFieldsButtons()
+        createLobbyView.bottomButton.addTarget(self, action: #selector(createButtonDidTapped), for: .touchUpInside)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyBoardWillShow(notification:)),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -80,5 +81,10 @@ final class CreateLobbyController: UIViewController {
     }
     @objc func clearLobbyTextFieldButtonDidTapped() {
         createLobbyView.lobbyTextField.text = ""
+    }
+    @objc func createButtonDidTapped() {
+        let controller = DidCreatedLobbyController()
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
     }
 }

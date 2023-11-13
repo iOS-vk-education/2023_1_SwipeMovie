@@ -13,6 +13,7 @@ final class EnterLobbyController: UIViewController {
     var enterLobbyView = CreateLobbyView(frame: UIScreen.main.bounds, type: "enter")
     override func loadView() {
         self.view = enterLobbyView
+        enterLobbyView.bottomButton.addTarget(self, action: #selector(enterButtonDidTapped), for: .touchUpInside)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +82,9 @@ final class EnterLobbyController: UIViewController {
     @objc func clearLobbyTextFieldButtonDidTapped() {
         enterLobbyView.lobbyTextField.text = ""
     }
+    @objc func enterButtonDidTapped() {
+        let controller = DidEnteredLobbyController()
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
+    }
 }
-
-
