@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0461219D2B081D0F00ECCF64 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461219C2B081D0F00ECCF64 /* SwipeViewController.swift */; };
+		0461219F2B081D7D00ECCF64 /* FinalFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461219E2B081D7D00ECCF64 /* FinalFilmViewController.swift */; };
 		1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A62B061CD100B33019 /* TabBarController.swift */; };
 		1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A82B061D1600B33019 /* FilmListViewController.swift */; };
 		1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657AA2B061D4100B33019 /* HistoryViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0461219C2B081D0F00ECCF64 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		0461219E2B081D7D00ECCF64 /* FinalFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalFilmViewController.swift; sourceTree = "<group>"; };
 		1AF657A62B061CD100B33019 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1AF657A82B061D1600B33019 /* FilmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewController.swift; sourceTree = "<group>"; };
 		1AF657AA2B061D4100B33019 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -43,9 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0461219B2B081CEE00ECCF64 /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				0461219C2B081D0F00ECCF64 /* SwipeViewController.swift */,
+				0461219E2B081D7D00ECCF64 /* FinalFilmViewController.swift */,
+			);
+			path = Swipe;
+			sourceTree = "<group>";
+		};
 		1AF6579F2B061BF500B33019 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0461219B2B081CEE00ECCF64 /* Swipe */,
 				1AF657A32B061C2300B33019 /* FilmList */,
 				1AF657A22B061C1D00B33019 /* MainMenu */,
 				1AF657A12B061C1100B33019 /* History */,
@@ -227,7 +241,9 @@
 			files = (
 				66857BB02AEA98E000468958 /* MainMenu.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
+				0461219F2B081D7D00ECCF64 /* FinalFilmViewController.swift in Sources */,
 				1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */,
+				0461219D2B081D0F00ECCF64 /* SwipeViewController.swift in Sources */,
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
 				1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */,
 				1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */,
