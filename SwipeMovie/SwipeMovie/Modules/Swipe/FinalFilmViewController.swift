@@ -106,50 +106,49 @@ class FinalFilmViewController: UIViewController {
         
     }
     
-    func createViewGrayConstraint(){
+    func createViewGrayConstraint() {
         viewGray.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         viewGray.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         viewGray.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        viewGray.heightAnchor.constraint(equalToConstant: 750).isActive = true
+        viewGray.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.88).isActive = true
         viewGray.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
     
-    func createLabelWinnerConstraint(){
+    func createLabelWinnerConstraint() {
         labelWinner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        labelWinner.topAnchor.constraint(equalTo: view.topAnchor, constant: 47).isActive = true
+        labelWinner.bottomAnchor.constraint(equalTo: viewGray.topAnchor).isActive = true
         labelWinner.widthAnchor.constraint(equalToConstant: 315).isActive = true
-        labelWinner.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        labelWinner.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func createImageFilmConstraint(){
-        imageFilm.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 29).isActive = true
-        imageFilm.topAnchor.constraint(equalTo: view.topAnchor, constant: 132).isActive = true
-        imageFilm.widthAnchor.constraint(equalToConstant: 335).isActive = true
-        imageFilm.heightAnchor.constraint(equalToConstant: 481).isActive = true
+    func createImageFilmConstraint() {
+        imageFilm.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageFilm.topAnchor.constraint(equalTo: viewGray.topAnchor, constant: 20).isActive = true
+        imageFilm.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
+        imageFilm.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.56).isActive = true
     }
     
-    func createlabelFilmNameConstraint(){
-        labelFilmName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 34).isActive  = true
-        labelFilmName.topAnchor.constraint(equalTo: view.topAnchor, constant: 641).isActive = true
+    func createlabelFilmNameConstraint() {
+        labelFilmName.topAnchor.constraint(equalTo: imageFilm.bottomAnchor, constant: 20).isActive = true
         labelFilmName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
     }
     
-    func createLabelFilmCategoryConstraint(){
+    func createLabelFilmCategoryConstraint() {
         labelFilmCategory.topAnchor.constraint(equalTo: labelFilmName.bottomAnchor).isActive = true
         labelFilmCategory.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    func  createButtonGoToMovePageConstraint(){
-        buttonGoToMovePage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 29).isActive =  true
-        buttonGoToMovePage.topAnchor.constraint(equalTo: view.topAnchor, constant: 704).isActive = true
+    func  createButtonGoToMovePageConstraint() {
+        buttonGoToMovePage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        buttonGoToMovePage.topAnchor.constraint(equalTo: labelFilmCategory.bottomAnchor, constant: 10).isActive = true
         buttonGoToMovePage.widthAnchor.constraint(equalToConstant: 335).isActive = true
         buttonGoToMovePage.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
-    func createButtonGoToMenuConstraint(){
-        buttonGoToMenu.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 29).isActive = true
-        buttonGoToMenu.topAnchor.constraint(equalTo: view.topAnchor, constant: 774).isActive = true
+    func createButtonGoToMenuConstraint() {
+        buttonGoToMenu.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        buttonGoToMenu.topAnchor.constraint(equalTo: labelFilmCategory.bottomAnchor, constant: 70).isActive = true
         buttonGoToMenu.widthAnchor.constraint(equalToConstant: 335).isActive = true
         buttonGoToMenu.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }

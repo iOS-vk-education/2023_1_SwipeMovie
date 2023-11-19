@@ -87,7 +87,8 @@ class SwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = UIColor(named: "Color 2")
         view.addSubview(labelSwipe)
         view.addSubview(viewGray)
         view.addSubview(imageFilm)
@@ -108,58 +109,65 @@ class SwipeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func createViewGrayConstraint(){
-        viewGray.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        viewGray.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    func createViewGrayConstraint() {
+        viewGray.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        viewGray.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         viewGray.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        viewGray.heightAnchor.constraint(equalToConstant: 750).isActive = true
+        viewGray.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.88).isActive = true
         viewGray.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
     }
     
-    func createLabelSwipeConstraint(){
+    func createLabelSwipeConstraint() {
         labelSwipe.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        labelSwipe.topAnchor.constraint(equalTo: view.topAnchor, constant: 47).isActive = true
+        labelSwipe.bottomAnchor.constraint(equalTo: viewGray.topAnchor).isActive = true
         labelSwipe.widthAnchor.constraint(equalToConstant: 315).isActive = true
-        labelSwipe.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        labelSwipe.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func createImageFilmConstraint(){
-        imageFilm.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 29).isActive = true
-        imageFilm.topAnchor.constraint(equalTo: view.topAnchor, constant: 132).isActive = true
-        imageFilm.widthAnchor.constraint(equalToConstant: 335).isActive = true
-        imageFilm.heightAnchor.constraint(equalToConstant: 481).isActive = true
+    func createImageFilmConstraint() {
+        imageFilm.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageFilm.topAnchor.constraint(equalTo: viewGray.topAnchor, constant: 20).isActive = true
+        imageFilm.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
+        imageFilm.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.56).isActive = true
     }
     
-    func createlabelFilmNameConstraint(){
-        labelFilmName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 34).isActive  = true
-        labelFilmName.topAnchor.constraint(equalTo: view.topAnchor, constant: 641).isActive = true
+    func createlabelFilmNameConstraint() {
+        labelFilmName.topAnchor.constraint(equalTo: imageFilm.bottomAnchor, constant: 20).isActive = true
         labelFilmName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
     }
     
-    func createLabelFilmCategoryConstraint(){
+    func createLabelFilmCategoryConstraint() {
         labelFilmCategory.topAnchor.constraint(equalTo: labelFilmName.bottomAnchor).isActive = true
         labelFilmCategory.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    func createButtonDislikeConstraint(){
+    func createButtonDislikeConstraint() {
+        buttonDislike.topAnchor.constraint(equalTo:
+                                            labelFilmCategory.bottomAnchor,
+                                           constant: 40).isActive = true
         buttonDislike.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                constant: 57).isActive = true
-        buttonDislike.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
         buttonDislike.widthAnchor.constraint(equalToConstant: 60).isActive = true
         buttonDislike.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
-    func createButtonInfoConstraint(){
-        buttonInfo.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+    func createButtonInfoConstraint() {
+        buttonInfo.topAnchor.constraint(equalTo:
+                                            labelFilmCategory.bottomAnchor,
+                                        constant: 40).isActive = true
         buttonInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =  true
         buttonInfo.widthAnchor.constraint(equalToConstant: 60).isActive = true
         buttonInfo.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
-    func createButtonLikeConstraint(){
-        buttonLike.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -57).isActive = true
-        buttonLike.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive =  true
+    func createButtonLikeConstraint() {
+        buttonLike.topAnchor.constraint(equalTo:
+                                            labelFilmCategory.bottomAnchor,
+                                        constant: 40).isActive = true
+        buttonLike.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                             constant: -57).isActive = true
         buttonLike.widthAnchor.constraint(equalToConstant: 60).isActive = true
         buttonLike.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
