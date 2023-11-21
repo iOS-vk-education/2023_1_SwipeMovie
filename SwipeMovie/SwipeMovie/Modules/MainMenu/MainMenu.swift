@@ -8,6 +8,9 @@
 import UIKit
 
 class MainMenuViewController: UIViewController {
+    
+    // MARK: - temp buttons for calling next views
+    // start of this block
     private enum Constants {
         static let buttonHeight: CGFloat = 50
         static let buttonWidth: CGFloat = 320
@@ -20,11 +23,13 @@ class MainMenuViewController: UIViewController {
             button.setTitle("Создать лобби", for: .normal)
             return button
         }()
+    
         private var enterLobbyButton: UIButton = {
             let button = UIButton()
             button.setTitle("Присоединиться к лобби", for: .normal)
             return button
         }()
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             configurePlacements()
@@ -32,6 +37,7 @@ class MainMenuViewController: UIViewController {
             configureForms()
             configureFunctionality()
         }
+    
         func configurePlacements() {
             view.addSubview(createLobbyButton)
             createLobbyButton.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +54,7 @@ class MainMenuViewController: UIViewController {
                 enterLobbyButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
             ])
         }
+    
         func configureColors() {
             view.backgroundColor = UIColor(named: "swipeMovieWhite")
             createLobbyButton.setTitleColor(.white, for: .normal)
@@ -55,23 +62,30 @@ class MainMenuViewController: UIViewController {
             enterLobbyButton.setTitleColor(.white, for: .normal)
             enterLobbyButton.backgroundColor = UIColor(named: "swipeMovieBlue")
         }
+    
         func configureForms() {
             createLobbyButton.layer.cornerRadius = Constants.buttonHeight / 2.0
             enterLobbyButton.layer.cornerRadius = Constants.buttonHeight / 2.0
         }
+    
         func configureFunctionality() {
             createLobbyButton.addTarget(self, action: #selector(createLobbyButtonDidTapped), for: .touchUpInside)
             enterLobbyButton.addTarget(self, action: #selector(enterLobbyButtonDidTapped), for: .touchUpInside)
         }
+    
         @objc func createLobbyButtonDidTapped () {
             let controller = CreateLobbyController()
             controller.modalPresentationStyle = .fullScreen
-            present(controller, animated: true, completion: nil)
+//            present(controller, animated: true, completion: nil)
+            navigationController?.pushViewController(controller, animated: true)
         }
+    
         @objc func enterLobbyButtonDidTapped () {
             let controller = EnterLobbyController()
             controller.modalPresentationStyle = .fullScreen
-            present(controller, animated: true, completion: nil)
+//            present(controller, animated: true, completion: nil)
+            navigationController?.pushViewController(controller, animated: true)
         }
+    // end of this block
 
 }

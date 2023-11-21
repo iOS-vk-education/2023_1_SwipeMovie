@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 
 enum ConstantsMain {
+    
     static let mainLabelFontSize: CGFloat = 34
     static let marginFromSides: CGFloat = 20
     static let bottomIndent: CGFloat = -10
 }
 
 enum ConstantsForButton {
+    
     static let height: CGFloat = 44
     static let cornerRadius: CGFloat = height / 2
     static let smallButtonWidth: CGFloat = 237
@@ -23,6 +25,7 @@ enum ConstantsForButton {
 }
 
 enum ConstantsForWhiteForegroundView {
+    
     static let cornerRadius: CGFloat = 40
     static let borderWidth: CGFloat = 4
     static let captionFontSize: CGFloat = 15
@@ -30,4 +33,3 @@ enum ConstantsForWhiteForegroundView {
     static let spaceBetweenCaptionAndElements: CGFloat = 5
     static let buttonTextFontSize: CGFloat = 17
 }
-
