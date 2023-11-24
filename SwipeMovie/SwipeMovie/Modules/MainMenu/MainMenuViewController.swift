@@ -15,38 +15,12 @@ class MainMenuViewController: UIViewController {
         
         setUpWhiteView()
         setUpWelcomeLabel()
-
         setUpCreateDiscription()
         setUpCreateButton()
         setUpJoinDescription()
         setUpJoinButton()
         setUpTimeLabel()
-        print(self.view.frame.width)
     }
-    
-    func dynamicFontSize(_ FontSize: CGFloat) -> CGFloat {
-        let screenWidth = UIScreen.main.bounds.size.width
-        let calculatedFontSize = screenWidth / 375 * FontSize
-        return calculatedFontSize
-    }
-    
-    lazy var fontsize = dynamicFontSize(32)
-    
-    func getActualTimeLabelFont() -> CGFloat {
-        var fontSize: CGFloat
-        // iphone 5s,SE screen width 375
-        // iphone 15 screen width 393
-        switch self.view.frame.width {
-        case 375:
-            fontSize = 32
-        case 393:
-            fontSize = 43
-        default:
-            fontSize = 32
-        }
-        return fontSize
-    }
-    
     
     let whiteView: UIView = {
         let whiteView = UIView()
@@ -63,24 +37,14 @@ class MainMenuViewController: UIViewController {
         let topConstant = self.view.bounds.height / 4
         print(topConstant)
         NSLayoutConstraint.activate([
-                        whiteView.topAnchor.constraint(
-                            equalTo: view.safeAreaLayoutGuide.topAnchor,
-                            constant: topConstant),
-                        whiteView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-                        whiteView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                        whiteView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
+            whiteView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: topConstant),
+            whiteView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            whiteView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            whiteView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
         ])
     }
-    
-//    func setUpWhiteView() {
-//        self.view.addSubview(whiteView)
-//        NSLayoutConstraint.activate([
-//            whiteView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 242),
-//            whiteView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-//            whiteView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            whiteView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
-//        ])
-//    }
     
     let welcomeLabel: UILabel = {
         let welcomeLabel = UILabel()
@@ -104,9 +68,19 @@ class MainMenuViewController: UIViewController {
     }
     
     let timeLabel: UILabel = {
+        let screenWidth = UIScreen.main.bounds.size.width
+        var fontSize: CGFloat
+        switch screenWidth {
+        case 375:
+            fontSize = 34
+        case 393:
+            fontSize = 43
+        default:
+            fontSize = 34
+        }
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.font = UIFont.systemFont(ofSize: , weight: .medium)
+        timeLabel.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         timeLabel.numberOfLines = 0
         timeLabel.textAlignment = .center
         timeLabel.textColor = UIColor(named: "swipeMovieBlack")
@@ -117,14 +91,14 @@ class MainMenuViewController: UIViewController {
     func setUpTimeLabel() {
         view.addSubview(timeLabel)
         NSLayoutConstraint.activate([
-            timeLabel.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: -60),
+            timeLabel.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: 60),
             timeLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -41),
             timeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 41)
         ])
     }
     
     func configureMainButton(title: String) -> UIButton {
-        var mainButton = UIButton()
+        let mainButton = UIButton()
         mainButton.translatesAutoresizingMaskIntoConstraints = false
         mainButton.setTitle(title, for: .normal)
         mainButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
