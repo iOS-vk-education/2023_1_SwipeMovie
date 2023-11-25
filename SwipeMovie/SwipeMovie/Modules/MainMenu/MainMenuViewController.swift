@@ -34,7 +34,7 @@ class MainMenuViewController: UIViewController {
     
     func setUpWhiteView() {
         self.view.addSubview(whiteView)
-        let topConstant = self.view.bounds.height / 4
+        let topConstant = UIScreen.main.bounds.height / 4
         print(topConstant)
         NSLayoutConstraint.activate([
             whiteView.topAnchor.constraint(
@@ -59,7 +59,7 @@ class MainMenuViewController: UIViewController {
     
     func setUpWelcomeLabel() {
         view.addSubview(welcomeLabel)
-        let topConstant = self.view.bounds.height / 8 - (welcomeLabel.bounds.height / 2)
+        let topConstant = UIScreen.main.bounds.height / 8 - (welcomeLabel.bounds.height / 2)
         NSLayoutConstraint.activate([
             welcomeLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstant),
             welcomeLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -38),
