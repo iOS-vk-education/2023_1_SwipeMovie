@@ -19,7 +19,7 @@ final class TabBarController {
                                                               title: "Списки фильмов",
                                                               nameImage: "film.fill",
                                                               tag: 0)
-        let mainMenuTabBarController = createTabBarController(controller: MainMenuViewController(),
+        let mainMenuTabBarController = createTabBarController(controller: MainMenuController(),
                                                               title: "Главное меню",
                                                               nameImage: "checkmark.rectangle.stack.fill",
                                                               tag: 1)
