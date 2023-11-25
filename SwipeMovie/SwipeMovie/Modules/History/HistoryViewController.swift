@@ -18,30 +18,9 @@ class HistoryViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    private func configureLeftBarLabel() {
-        let label = UILabel()
-        label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
-        label.text = "История"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-    }
-    
-    private func configureRightBarButton() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Изменить",
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: #selector(changeButtonDidTapped))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
-    }
-    
-    @objc
-    func changeButtonDidTapped() {
-        //
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureLeftBarLabel()
         configureRightBarButton()
         
@@ -79,15 +58,38 @@ class HistoryViewController: UIViewController {
         searchController.searchBar.delegate = self
         
         // configure search bar
+        configureSearchBar()
+    }
+    
+    @objc
+    func changeButtonDidTapped() {
+        //
+    }
+    
+    private func configureSearchBar() {
         searchController.searchBar.placeholder = "Поиск"
         searchController.searchBar.sizeToFit()
         searchController.searchBar.isTranslucent = true
         searchController.searchBar.barTintColor = UIColor(named: "swipeMovieBlue")
         searchController.searchBar.searchTextField.backgroundColor = .white
         searchController.searchBar.tintColor = .white
-        
     }
     
+    private func configureLeftBarLabel() {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
+        label.text = "История"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+    }
+    
+    private func configureRightBarButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Изменить",
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(changeButtonDidTapped))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
+    }
 }
 
 // MARK: - TableViewDelegate and TableViewDataSource
@@ -98,10 +100,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as!  MovieCustomCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "MovieCell", for: indexPath) as?  MovieCustomCell else {
+            return MovieCustomCell()
+        }
         
         cell.selectionStyle = .none
         // test
