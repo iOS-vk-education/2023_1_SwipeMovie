@@ -10,12 +10,16 @@ import UIKit
 
 final class DidEnteredLobbyController: UIViewController {
     
-    // MARK: temp data for cells
+    // MARK: private properties
+    
+    // temp data for cells
     var tempFilmListNames = ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"]
     
     private var didEnteredLobbyView = DidEnteredLobbyView(frame: UIScreen.main.bounds,
                                                           lobbyName: "Название лобби",
                                                           lobbyCode: "123456")
+    
+    // MARK: methods
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
@@ -33,6 +37,7 @@ final class DidEnteredLobbyController: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(complaintButtonDidTapped))
+        
         didEnteredLobbyView.filmListTableView.delegate = self
         didEnteredLobbyView.filmListTableView.dataSource = self
         didEnteredLobbyView.filmListTableView.register(DidEnterLobbyTableViewCell.self,
@@ -42,13 +47,15 @@ final class DidEnteredLobbyController: UIViewController {
                                                    for: .touchUpInside)
     }
     
+    // MARK: private methods
+    
     // TODO: add full functionality
     
-    @objc func startButtonDidTapped() {
+    @objc private func startButtonDidTapped() {
         print("ready")
     }
     
-    @objc func complaintButtonDidTapped() {
+    @objc private func complaintButtonDidTapped() {
         print("complaint")
     }
 }

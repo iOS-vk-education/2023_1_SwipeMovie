@@ -10,12 +10,16 @@ import UIKit
 
 final class DidCreatedLobbyController: UIViewController {
     
-    // MARK: temp data for cells
+    // MARK: properties
+    
+    // temp data for cells
     var tempFilmListNames = ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"]
     
     private var didCreatedLobbyView = DidCreatedLobbyView(frame: UIScreen.main.bounds,
                                                           lobbyName: "Название лобби",
                                                           lobbyCode: "123456")
+    
+    // MARK: methods
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
@@ -33,46 +37,50 @@ final class DidCreatedLobbyController: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(complaintButtonDidTapped))
+        
         didCreatedLobbyView.filmListTableView.delegate = self
         didCreatedLobbyView.filmListTableView.dataSource = self
         didCreatedLobbyView.filmListTableView.register(DidCreateLobbyTableViewCell.self,
-                                                       forCellReuseIdentifier: "cell")
+                                                                       forCellReuseIdentifier: "cell")
+        
         didCreatedLobbyView.bottomButton.addTarget(self,
                                                    action: #selector(startButtonDidTapped),
                                                    for: .touchUpInside)
         
         didCreatedLobbyView.filmListsButton.addTarget(self,
-                                                   action: #selector(changeFilmListsButtonDidTapped),
-                                                   for: .touchUpInside)
+                                                      action: #selector(changeFilmListsButtonDidTapped),
+                                                      for: .touchUpInside)
         
         didCreatedLobbyView.guestsListButton.addTarget(self,
-                                                   action: #selector(checkAllGuestsButtonDidTapped),
-                                                   for: .touchUpInside)
+                                                       action: #selector(checkAllGuestsButtonDidTapped),
+                                                       for: .touchUpInside)
         
-        didCreatedLobbyView.codeShareButton.addTarget(self,
-                                                   action: #selector(shareButtonDidTapped),
-                                                   for: .touchUpInside)
+        didCreatedLobbyView.topTitleView.codeShareButton.addTarget(self,
+                                                                   action: #selector(shareButtonDidTapped),
+                                                                   for: .touchUpInside)
     }
+    
+    // MARK: private methods
     
     // TODO: add full functionality
     
-    @objc func startButtonDidTapped() {
+    @objc private func startButtonDidTapped() {
         print("started")
     }
     
-    @objc func checkAllGuestsButtonDidTapped() {
+    @objc private func checkAllGuestsButtonDidTapped() {
         print("all guests")
     }
     
-    @objc func changeFilmListsButtonDidTapped() {
+    @objc private func changeFilmListsButtonDidTapped() {
         print("change")
     }
     
-    @objc func shareButtonDidTapped() {
+    @objc private func shareButtonDidTapped() {
         print("share")
     }
     
-    @objc func complaintButtonDidTapped() {
+    @objc private func complaintButtonDidTapped() {
         print("complaint")
     }
 }
