@@ -10,13 +10,14 @@
 		1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A62B061CD100B33019 /* TabBarController.swift */; };
 		1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A82B061D1600B33019 /* FilmListViewController.swift */; };
 		1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657AA2B061D4100B33019 /* HistoryViewController.swift */; };
-		202201232B0D342D00EA1296 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202201222B0D342D00EA1296 /* UIView+Extensions.swift */; };
-		202201252B0D344C00EA1296 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202201242B0D344C00EA1296 /* UIButton+Extensions.swift */; };
-		202201272B0D345B00EA1296 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202201262B0D345B00EA1296 /* UILabel+Extensions.swift */; };
 		202201292B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */; };
 		2038CE3E2B0A8F5100EBE9BC /* DidCreateLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */; };
 		2038CE402B0A8F8500EBE9BC /* DidEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */; };
 		2038CE492B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */; };
+		207C3AEE2B126B7300F82E11 /* TopTitleLobbiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AED2B126B7300F82E11 /* TopTitleLobbiesView.swift */; };
+		207C3AF52B13870000F82E11 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF42B13870000F82E11 /* CustomUIView.swift */; };
+		207C3AF72B13871500F82E11 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF62B13871500F82E11 /* CustomUIButton.swift */; };
+		207C3AFA2B13872F00F82E11 /* CustomUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF92B13872F00F82E11 /* CustomUILabel.swift */; };
 		209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */; };
 		209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB92AF7B60400ED0A8C /* Constants.swift */; };
 		209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */; };
@@ -35,13 +36,14 @@
 		1AF657A62B061CD100B33019 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1AF657A82B061D1600B33019 /* FilmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewController.swift; sourceTree = "<group>"; };
 		1AF657AA2B061D4100B33019 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		202201222B0D342D00EA1296 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		202201242B0D344C00EA1296 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
-		202201262B0D345B00EA1296 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnterLobbyTableViewCell.swift; sourceTree = "<group>"; };
 		2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreateLobbyView.swift; sourceTree = "<group>"; };
 		2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnterLobbyView.swift; sourceTree = "<group>"; };
 		2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreateLobbyTableViewCell.swift; sourceTree = "<group>"; };
+		207C3AED2B126B7300F82E11 /* TopTitleLobbiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleLobbiesView.swift; sourceTree = "<group>"; };
+		207C3AF42B13870000F82E11 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		207C3AF62B13871500F82E11 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		207C3AF92B13872F00F82E11 /* CustomUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabel.swift; sourceTree = "<group>"; };
 		209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLobbyController.swift; sourceTree = "<group>"; };
 		209E7EB92AF7B60400ED0A8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEnterLobbyView.swift; sourceTree = "<group>"; };
@@ -134,16 +136,6 @@
 			path = Applications;
 			sourceTree = "<group>";
 		};
-		202201212B0D33D000EA1296 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				202201222B0D342D00EA1296 /* UIView+Extensions.swift */,
-				202201242B0D344C00EA1296 /* UIButton+Extensions.swift */,
-				202201262B0D345B00EA1296 /* UILabel+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		2038CE3A2B0A8C2E00EBE9BC /* WillCreateOrEnterLobby */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */,
+				207C3AEC2B126B3100F82E11 /* InterfaceElements */,
 				2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */,
 				2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */,
 				202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */,
@@ -213,6 +206,24 @@
 				209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		207C3AEC2B126B3100F82E11 /* InterfaceElements */ = {
+			isa = PBXGroup;
+			children = (
+				207C3AED2B126B7300F82E11 /* TopTitleLobbiesView.swift */,
+			);
+			path = InterfaceElements;
+			sourceTree = "<group>";
+		};
+		207C3AF32B1386D100F82E11 /* CustomElemets */ = {
+			isa = PBXGroup;
+			children = (
+				207C3AF42B13870000F82E11 /* CustomUIView.swift */,
+				207C3AF92B13872F00F82E11 /* CustomUILabel.swift */,
+				207C3AF62B13871500F82E11 /* CustomUIButton.swift */,
+			);
+			path = CustomElemets;
 			sourceTree = "<group>";
 		};
 		66857B9F2AEA98E000468958 = {
@@ -238,7 +249,7 @@
 				1AF657A42B061C3200B33019 /* Resourses */,
 				1AF6579F2B061BF500B33019 /* Modules */,
 				209E7EB92AF7B60400ED0A8C /* Constants.swift */,
-				202201212B0D33D000EA1296 /* Extensions */,
+				207C3AF32B1386D100F82E11 /* CustomElemets */,
 			);
 			path = SwipeMovie;
 			sourceTree = "<group>";
@@ -336,23 +347,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202201252B0D344C00EA1296 /* UIButton+Extensions.swift in Sources */,
 				209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */,
 				2038CE492B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift in Sources */,
+				207C3AEE2B126B7300F82E11 /* TopTitleLobbiesView.swift in Sources */,
 				66857BB02AEA98E000468958 /* MainMenu.swift in Sources */,
 				2038CE3E2B0A8F5100EBE9BC /* DidCreateLobbyView.swift in Sources */,
 				2038CE402B0A8F8500EBE9BC /* DidEnterLobbyView.swift in Sources */,
+				207C3AFA2B13872F00F82E11 /* CustomUILabel.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
 				1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */,
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
 				209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */,
 				1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */,
 				1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */,
-				202201232B0D342D00EA1296 /* UIView+Extensions.swift in Sources */,
 				66857BB62AEA98E000468958 /* SwipeMovie.xcdatamodeld in Sources */,
+				207C3AF52B13870000F82E11 /* CustomUIView.swift in Sources */,
 				202201292B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift in Sources */,
+				207C3AF72B13871500F82E11 /* CustomUIButton.swift in Sources */,
 				209E7EC62AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift in Sources */,
-				202201272B0D345B00EA1296 /* UILabel+Extensions.swift in Sources */,
 				209E7EC42AFE695900ED0A8C /* DidCreatedLobbyController.swift in Sources */,
 				209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */,
 				209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */,

@@ -10,7 +10,8 @@ import UIKit
 
 class CreateLobbyView: UIView {
     
-    // constants
+    // MARK: private types
+    
     private enum ConstantsForTextFields {
         
         static let height: CGFloat = 44
@@ -18,47 +19,52 @@ class CreateLobbyView: UIView {
         static let fontSize: CGFloat = 17
         static let labelFontSize: CGFloat = 22
         static let margingFromBorder: CGFloat = 32
-        static let spaceUnderLabel: CGFloat = 12
+        static let spaceUnderLabel: CGFloat = 8
         static let cornerRadius: CGFloat = 20
         static let fullHeight: CGFloat = height + spaceUnderLabel + labelFontSize
-        static let spaceBetweenTextFieldsWithLabels: CGFloat = 26
+        static let spaceBetweenTextFieldsWithLabels: CGFloat = 10
     }
     
     enum ViewType {
         case create
         case enter
     }
+
+    // MARK: properties
     
-    // properties
-    private var topLabel = UILabel()
-    private var foregroundView = UIView()
-    private var nameStack = UIStackView()
-    private var lobbyStack = UIStackView()
-    
-    var bottomButton = UIButton()
+    var bottomButton = CustomUIButton()
     var nameTextFieldButton = UIButton()
     var lobbyTextFieldButton = UIButton()
     
     var nameTextField = UITextField()
     var lobbyTextField = UITextField()
     
-    // methods
+    // MARK: private properties
+    
+    private var topLabel = CustomUILabel()
+    private var foregroundView = CustomUIView()
+    private var nameStack = UIStackView()
+    private var lobbyStack = UIStackView()
+    
+    // MARK: methods
+    
     init(frame: CGRect, type: ViewType) {
+        
         super.init(frame: frame)
         self.backgroundColor = UIColor(named: "swipeMovieBlue")
         
         switch type {
         case .create:
             configureForegroundView(bottomTitle: "Введите название лобби",
-                              bottomPlaceHolder: "Название",
-                              buttonTitle: "Создать")
-            topLabel = .makeMainLabel(text: "Создать лобби")
+                                    bottomPlaceHolder: "Название",
+                                    buttonTitle: "Создать")
+            topLabel.makeTitleLabel(text: "Создать лобби")
             
         case .enter:
             configureForegroundView(bottomTitle: "Введите код лобби",
-                              bottomPlaceHolder: "******",
-                              buttonTitle: "Присоединиться")
-            topLabel = .makeMainLabel(text: "Присоединиться к лобби")
+                                    bottomPlaceHolder: "••••••",
+                                    buttonTitle: "Присоединиться")
+            topLabel.makeTitleLabel(text: "Присоединиться к лобби")
         }
         
         configureCreateLobbyLabel()
@@ -68,29 +74,41 @@ class CreateLobbyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // function of setting up white foreground of this view and it's constraints
+    // MARK: private methods
+    
+    // function of setting up white foreground of this view
+    
     private func configureForegroundView(bottomTitle: String = "Error",
                                          bottomPlaceHolder: String = "Error",
                                          buttonTitle: String = "Error") {
-        foregroundView = .makeForegroundView()
-        self.addSubview(foregroundView)
+        
+        foregroundView.makeForegroundView()
         
         nameStack = makeTextView(textField: nameTextField,
-                                title: "Введите Ваше имя",
-                                placeholder: "Имя",
-                                button: nameTextFieldButton)
-        foregroundView.addSubview(nameStack)
+                                 title: "Введите Ваше имя",
+                                 placeholder: "Имя",
+                                 button: nameTextFieldButton)
         nameStack.translatesAutoresizingMaskIntoConstraints = false
         
         lobbyStack = makeTextView(textField: lobbyTextField,
-                                 title: bottomTitle,
-                                 placeholder: bottomPlaceHolder,
-                                 button: lobbyTextFieldButton)
-        foregroundView.addSubview(lobbyStack)
+                                  title: bottomTitle,
+                                  placeholder: bottomPlaceHolder,
+                                  button: lobbyTextFieldButton)
         lobbyStack.translatesAutoresizingMaskIntoConstraints = false
         
-        bottomButton = .makeButton(title: buttonTitle,
-                                   size: .ordinary)
+        bottomButton.makeButton(title: buttonTitle,
+                                size: .ordinary)
+        
+        configureConstraintsOfForegroundViewConstraints()
+    }
+    
+    // function of setting up constraints of white foreground of this view
+    
+    private func configureConstraintsOfForegroundViewConstraints() {
+        
+        self.addSubview(foregroundView)
+        foregroundView.addSubview(nameStack)
+        foregroundView.addSubview(lobbyStack)
         foregroundView.addSubview(bottomButton)
         
         NSLayoutConstraint.activate([
@@ -99,9 +117,9 @@ class CreateLobbyView: UIView {
             foregroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             nameStack.topAnchor.constraint(equalTo: foregroundView.topAnchor,
-                                           constant: ConstantsForWhiteForegroundView.cornerRadius / 2),
+                                           constant: foregroundView.layer.cornerRadius / 2),
             nameStack.leadingAnchor.constraint(equalTo: foregroundView.leadingAnchor,
-                                                constant: ConstantsMain.marginFromSides),
+                                                constant: ConstantsForAllViews.marginFromSides),
             nameStack.centerXAnchor.constraint(equalTo: foregroundView.centerXAnchor),
             
             lobbyStack.topAnchor.constraint(equalTo: nameStack.bottomAnchor,
@@ -113,11 +131,12 @@ class CreateLobbyView: UIView {
                                               constant: ConstantsForTextFields.spaceBetweenTextFieldsWithLabels),
             bottomButton.centerXAnchor.constraint(equalTo: foregroundView.centerXAnchor),
             bottomButton.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor,
-                                                 constant: ConstantsMain.bottomIndent)
+                                                 constant: ConstantsForAllViews.bottomIndent)
         ])
     }
     
     // function of setting up label of this view and it's constraints
+    
     private func configureCreateLobbyLabel() {
         
         self.addSubview(topLabel)
@@ -129,11 +148,12 @@ class CreateLobbyView: UIView {
             dimensionBefore.constraint(equalTo: dimensionAfter),
             topLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             topLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                              constant: ConstantsMain.marginFromSides)
+                                              constant: ConstantsForAllViews.marginFromSides)
         ])
     }
     
     // function of setting up textField with it's label and view
+    
     private func makeTextView(textField: UITextField,
                               title: String,
                               placeholder: String,
@@ -145,28 +165,6 @@ class CreateLobbyView: UIView {
         button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
         button.tintColor = .systemGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        
-        let titleLabelView: UIView = {
-            
-            let titleLabel = UILabel()
-            
-            titleLabel.text = title
-            titleLabel.textColor = UIColor(named: "swipeMovieBlack")
-            titleLabel.font = UIFont.systemFont(ofSize: ConstantsForTextFields.labelFontSize)
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            let view = UIView()
-            
-            view.addSubview(titleLabel)
-            view.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                view.heightAnchor.constraint(equalToConstant: ConstantsForTextFields.labelFontSize),
-                titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ])
-            
-            return view
-        }()
         
         let textFieldView: UIView = {
             
@@ -195,15 +193,29 @@ class CreateLobbyView: UIView {
             return view
         }()
         
+        let titleLabel: UILabel = {
+
+            let label = UILabel()
+
+            label.text = title
+            label.textColor = UIColor(named: "swipeMovieBlack")
+            label.font = UIFont.systemFont(ofSize: ConstantsForTextFields.labelFontSize)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textAlignment = .center
+            return label
+        }()
+        
         let textFieldStack: UIStackView = {
             
             let stack = UIStackView()
             
             stack.axis = .vertical
             stack.spacing = ConstantsForTextFields.spaceUnderLabel
-            stack.addArrangedSubview(titleLabelView)
+            stack.addArrangedSubview(titleLabel)
             stack.addArrangedSubview(textFieldView)
-            
+            titleLabel.bottomAnchor.constraint(equalTo: textFieldView.topAnchor,
+                                               constant: -ConstantsForTextFields.spaceUnderLabel).isActive = true
+
             return stack
         }()
         

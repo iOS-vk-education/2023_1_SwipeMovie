@@ -10,9 +10,11 @@ import UIKit
 
 final class CreateLobbyController: UIViewController {
     
-    private var isKeyboardUnactive = true
+    // MARK: private properties
     
     private var createLobbyView = CreateLobbyView(frame: UIScreen.main.bounds, type: .create)
+    
+    // MARK: methods
     
     override func loadView() {
         self.view = createLobbyView
@@ -27,9 +29,10 @@ final class CreateLobbyController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
+        
         setupCleanTextFieldsButtons()
         createLobbyView.bottomButton.addTarget(self,
                                                action: #selector(createButtonDidTapped),
@@ -39,11 +42,13 @@ final class CreateLobbyController: UIViewController {
         view.addGestureRecognizer(recognizer)
     }
     
-    @objc func didTapWholeView() {
+    // MARK: private properties
+    
+    @objc private func didTapWholeView() {
         view.endEditing(true)
     }
     
-    func setupCleanTextFieldsButtons() {
+    private func setupCleanTextFieldsButtons() {
         createLobbyView.nameTextFieldButton.addTarget(self,
                                                        action: #selector(clearNameTextFieldButtonDidTapped),
                                                        for: .touchUpInside)
@@ -52,16 +57,18 @@ final class CreateLobbyController: UIViewController {
                                                        for: .touchUpInside)
     }
     
-    @objc func clearNameTextFieldButtonDidTapped() {
+    @objc private func clearNameTextFieldButtonDidTapped() {
         createLobbyView.nameTextField.text = ""
     }
     
-    @objc func clearLobbyTextFieldButtonDidTapped() {
+    @objc private func clearLobbyTextFieldButtonDidTapped() {
         createLobbyView.lobbyTextField.text = ""
     }
     
-    @objc func createButtonDidTapped() {
+    @objc private func createButtonDidTapped() {
+        
         let controller = DidCreatedLobbyController()
+        
         controller.modalPresentationStyle = .fullScreen
 //        present(controller, animated: true, completion: nil)
         navigationController?.pushViewController(controller, animated: true)
