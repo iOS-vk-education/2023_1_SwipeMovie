@@ -30,6 +30,7 @@ class MovieCustomCell: UITableViewCell {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 17)
+        nameLabel.textColor = UIColor(named: "swipeMovieBlack")
         nameLabel.numberOfLines = 0
         return nameLabel
     }()

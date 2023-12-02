@@ -18,6 +18,13 @@ class HistoryViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "Поиск",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,7 +74,6 @@ class HistoryViewController: UIViewController {
     }
     
     private func configureSearchBar() {
-        searchController.searchBar.placeholder = "Поиск"
         searchController.searchBar.sizeToFit()
         searchController.searchBar.isTranslucent = true
         searchController.searchBar.barTintColor = UIColor(named: "swipeMovieBlue")
