@@ -67,7 +67,11 @@ class MainMenuView: UIView {
         }
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
+        if #available(iOS 17.0, *) {
+            timeLabel.font = UIFont.preferredFont(forTextStyle: .extraLargeTitle)
+        } else {
+            timeLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        }
         timeLabel.numberOfLines = 0
         timeLabel.textAlignment = .center
         timeLabel.textColor = UIColor(named: "swipeMovieBlack")
@@ -98,6 +102,7 @@ class MainMenuView: UIView {
         setUpJoinButton()
         setUpTimeLabel()
     }
+    
     private func setUpWhiteView() {
         self.addSubview(whiteView)
         let topConstant = UIScreen.main.bounds.height / 4
@@ -134,7 +139,8 @@ class MainMenuView: UIView {
         let mainButton = UIButton()
         mainButton.translatesAutoresizingMaskIntoConstraints = false
         mainButton.setTitle(title, for: .normal)
-        mainButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        mainButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        mainButton.titleLabel?.adjustsFontForContentSizeCategory = true
         mainButton.tintColor = UIColor(named: "swipeMovieWhite")
         mainButton.backgroundColor = UIColor(named: "swipeMovieBlue")
         mainButton.layer.cornerRadius = 20
