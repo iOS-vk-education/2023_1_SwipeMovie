@@ -31,6 +31,7 @@ final class EnterLobbyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
         self.navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
         
         setupCleanTextFieldsButtons()

@@ -34,7 +34,6 @@ class DidEnteredLobbyView: UIView {
     // MARK: private properties
     
     private var foregroundView = CustomUIView()
-    var topTitleView = TopTitleLobbiesView()
     
     // MARK: properties
     
@@ -49,8 +48,6 @@ class DidEnteredLobbyView: UIView {
         self.backgroundColor = UIColor(named: "swipeMovieBlue")
         configureTableView()
         configureForegroundView()
-        configureTopView(lobbyName: lobbyName,
-                         lobbyCode: lobbyCode)
     }
     
     required init?(coder: NSCoder) {
@@ -61,29 +58,16 @@ class DidEnteredLobbyView: UIView {
     
     private func configureTableView() {
         
-        let tableLabel = CustomUILabel()
-        tableLabel.makeSubtitleLabel(text: "Списки фильмов")
-        tableLabel.font = UIFont.systemFont(ofSize: tableLabel.font.pointSize,
-                                            weight: .medium)
-        addSubview(tableLabel)
-        
         filmListTableView.backgroundColor = UIColor(named: "swipeMovieBlue")
         filmListTableView.rowHeight = ConstantsForTable.heightOfCellWithSpace
         addSubview(filmListTableView)
         filmListTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            
-            tableLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
-                                                constant: -ConstantsForTable.heightOfTable),
-            tableLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
-                                                constant: ConstantsForAllViews.marginFromSides),
-            
             filmListTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
                                                       constant: -70),
             // simple number to put last element of table under white foreground
-            filmListTableView.topAnchor.constraint(equalTo: tableLabel.bottomAnchor,
-                                                   constant: ConstantsForTable.spaceBetweenTableAndLable),
+            filmListTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             filmListTableView.centerXAnchor.constraint(equalTo: centerXAnchor),
             filmListTableView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
@@ -114,24 +98,6 @@ class DidEnteredLobbyView: UIView {
             
             foregroundView.topAnchor.constraint(equalTo: bottomButton.topAnchor,
                                                 constant: 3 * ConstantsForAllViews.bottomIndent)
-        ])
-    }
-    
-    private func configureTopView(lobbyName: String, lobbyCode: String) {
-        
-        topTitleView.makeTopView(lobbyName: lobbyName, lobbyCode: lobbyCode)
-        self.addSubview(topTitleView)
-        topTitleView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let dimensionBefore = safeAreaLayoutGuide.topAnchor.anchorWithOffset(to: topTitleView.centerYAnchor)
-        let dimensionAfter = topTitleView.centerYAnchor.anchorWithOffset(to: filmListTableView.topAnchor)
-        
-        NSLayoutConstraint.activate([
-            dimensionBefore.constraint(equalTo: dimensionAfter,
-                                       constant: -40),
-            topTitleView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            topTitleView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
-                                            constant: ConstantsForAllViews.marginFromSides)
         ])
     }
 }

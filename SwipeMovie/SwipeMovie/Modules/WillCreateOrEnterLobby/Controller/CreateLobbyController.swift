@@ -31,7 +31,8 @@ final class CreateLobbyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
         
         setupCleanTextFieldsButtons()
         createLobbyView.bottomButton.addTarget(self,
@@ -42,7 +43,20 @@ final class CreateLobbyController: UIViewController {
         view.addGestureRecognizer(recognizer)
     }
     
-    // MARK: private properties
+    // MARK: private methods
+    
+    // TODO: this is temp function
+    
+    private func getNameOfLobby() -> String {
+        createLobbyView.lobbyTextField.text == "" || createLobbyView.lobbyTextField.text == nil ? "No name"
+        : createLobbyView.lobbyTextField.text!
+    }
+    
+    // TODO: this is temp function
+    
+    private func generateCodeOfLobby() -> String {
+        String(Int.random(in: 100000..<1000000))
+    }
     
     @objc private func didTapWholeView() {
         view.endEditing(true)
@@ -68,8 +82,8 @@ final class CreateLobbyController: UIViewController {
     @objc private func createButtonDidTapped() {
         
         let controller = DidCreatedLobbyController()
-        
-        controller.modalPresentationStyle = .fullScreen
+        controller.setTitleLabelText(text: getNameOfLobby(),
+                                     code: generateCodeOfLobby())
 //        present(controller, animated: true, completion: nil)
         navigationController?.pushViewController(controller, animated: true)
     }

@@ -15,9 +15,15 @@ final class DidCreatedLobbyController: UIViewController {
     // temp data for cells
     var tempFilmListNames = ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"]
     
+    // MARK: private properties
+    
     private var didCreatedLobbyView = DidCreatedLobbyView(frame: UIScreen.main.bounds,
                                                           lobbyName: "Название лобби",
                                                           lobbyCode: "123456")
+    
+    private var lobbyName = "No name"
+    
+    private var lobbyCode = "000000"
     
     // MARK: methods
     
@@ -30,34 +36,38 @@ final class DidCreatedLobbyController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пожаловаться",
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(complaintButtonDidTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пожаловаться",
+//                                                            style: .plain,
+//                                                            target: self,
+//                                                            action: #selector(complaintButtonDidTapped))
+        navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
         
         didCreatedLobbyView.filmListTableView.delegate = self
         didCreatedLobbyView.filmListTableView.dataSource = self
+        didCreatedLobbyView.filmListTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        didCreatedLobbyView.filmListTableView.register(TopTitleLobbiesTableViewCell.self,
+                                                                       forCellReuseIdentifier: "topTitleCell")
         didCreatedLobbyView.filmListTableView.register(DidCreateLobbyTableViewCell.self,
-                                                                       forCellReuseIdentifier: "cell")
+                                                                       forCellReuseIdentifier: "filmListCell")
+        
+        didCreatedLobbyView.filmListTableView.estimatedRowHeight = 52
+        didCreatedLobbyView.filmListTableView.rowHeight = UITableView.automaticDimension
         
         didCreatedLobbyView.bottomButton.addTarget(self,
                                                    action: #selector(startButtonDidTapped),
                                                    for: .touchUpInside)
         
-        didCreatedLobbyView.filmListsButton.addTarget(self,
-                                                      action: #selector(changeFilmListsButtonDidTapped),
-                                                      for: .touchUpInside)
-        
         didCreatedLobbyView.guestsListButton.addTarget(self,
                                                        action: #selector(checkAllGuestsButtonDidTapped),
                                                        for: .touchUpInside)
-        
-        didCreatedLobbyView.topTitleView.codeShareButton.addTarget(self,
-                                                                   action: #selector(shareButtonDidTapped),
-                                                                   for: .touchUpInside)
+    }
+    
+    func setTitleLabelText(text: String, code: String) {
+        lobbyName = text
+        lobbyCode = code
     }
     
     // MARK: private methods
@@ -70,10 +80,18 @@ final class DidCreatedLobbyController: UIViewController {
     
     @objc private func checkAllGuestsButtonDidTapped() {
         print("all guests")
+        let controller = UIViewController()
+        present(controller, animated: true, completion: nil)
     }
     
     @objc private func changeFilmListsButtonDidTapped() {
         print("change")
+        tempFilmListNames.append(String(Int.random(in: 10..<100)))
+        didCreatedLobbyView.filmListTableView.beginUpdates()
+        didCreatedLobbyView.filmListTableView.insertRows(at: [IndexPath.init(row: tempFilmListNames.count - 1,
+                                                                             section: 1)],
+                                                         with: .automatic)
+        didCreatedLobbyView.filmListTableView.endUpdates()
     }
     
     @objc private func shareButtonDidTapped() {
@@ -86,26 +104,57 @@ final class DidCreatedLobbyController: UIViewController {
 }
 
 extension DidCreatedLobbyController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tempFilmListNames.count
+        
+        if section == 1 {
+            return tempFilmListNames.count
+            
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                       for: indexPath) as? DidCreateLobbyTableViewCell
-        else { return UITableViewCell() }
         
-        cell.filmListLable.text = tempFilmListNames[indexPath.row]
-        cell.checkBoxButton.tag = indexPath.row
-        cell.checkBoxButton.addTarget(self, action: #selector(didTappedDeleteCellButton(_:)), for: .touchUpInside)
-        
-        return cell
+        if indexPath.section == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmListCell",
+                                                           for: indexPath) as? DidCreateLobbyTableViewCell
+            else { return UITableViewCell() }
+            
+            cell.filmListLable.text = tempFilmListNames[indexPath.row]
+            cell.checkBoxButton.tag = indexPath.row
+            cell.checkBoxButton.addTarget(self,
+                                          action: #selector(didTappedDeleteCellButton(_:)),
+                                          for: .touchUpInside)
+            
+            return cell
+            
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "topTitleCell",
+                                                           for: indexPath) as? TopTitleLobbiesTableViewCell
+            else { return UITableViewCell() }
+            
+            cell.titleLabel.setText(text: lobbyName)
+            cell.codeLabel.setText(text: lobbyCode)
+            cell.codeShareButton.addTarget(self,
+                                           action: #selector(shareButtonDidTapped),
+                                           for: .touchUpInside)
+            cell.filmListsButton.addTarget(self,
+                                           action: #selector(changeFilmListsButtonDidTapped),
+                                           for: .touchUpInside)
+            
+            return cell
+        }
     }
     
     @objc func didTappedDeleteCellButton(_ sender: UIButton) {
         tempFilmListNames.remove(at: sender.tag)
-        didCreatedLobbyView.filmListTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+        didCreatedLobbyView.filmListTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 1)], with: .fade)
         didCreatedLobbyView.filmListTableView.reloadData()
     }
 }

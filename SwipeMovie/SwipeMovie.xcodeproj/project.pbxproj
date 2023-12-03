@@ -20,6 +20,7 @@
 		207C3AF52B13870000F82E11 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF42B13870000F82E11 /* CustomUIView.swift */; };
 		207C3AF72B13871500F82E11 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF62B13871500F82E11 /* CustomUIButton.swift */; };
 		207C3AFA2B13872F00F82E11 /* CustomUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF92B13872F00F82E11 /* CustomUILabel.swift */; };
+		207C3AFE2B1CB95F00F82E11 /* TopTitleLobbiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */; };
 		209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */; };
 		209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB92AF7B60400ED0A8C /* Constants.swift */; };
 		209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */; };
@@ -51,6 +52,7 @@
 		207C3AF42B13870000F82E11 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		207C3AF62B13871500F82E11 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		207C3AF92B13872F00F82E11 /* CustomUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabel.swift; sourceTree = "<group>"; };
+		207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleLobbiesTableViewCell.swift; sourceTree = "<group>"; };
 		209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLobbyController.swift; sourceTree = "<group>"; };
 		209E7EB92AF7B60400ED0A8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEnterLobbyView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */,
 				207C3AEC2B126B3100F82E11 /* InterfaceElements */,
 				2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */,
+				207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */,
 				2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */,
 				202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */,
 			);
@@ -388,6 +391,7 @@
 				207C3AF52B13870000F82E11 /* CustomUIView.swift in Sources */,
 				202201292B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift in Sources */,
 				207C3AF72B13871500F82E11 /* CustomUIButton.swift in Sources */,
+				207C3AFE2B1CB95F00F82E11 /* TopTitleLobbiesTableViewCell.swift in Sources */,
 				209E7EC62AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift in Sources */,
 				209E7EC42AFE695900ED0A8C /* DidCreatedLobbyController.swift in Sources */,
 				209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */,
@@ -528,9 +532,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WPJGH53UNL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwipeMovie/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -542,7 +547,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie.obbrnu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -556,9 +561,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WPJGH53UNL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwipeMovie/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -570,7 +576,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie.obbrnu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
