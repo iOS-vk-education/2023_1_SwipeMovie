@@ -7,12 +7,12 @@
 
 import UIKit
 
-class HistoryMovieTableViewCell: MovieTableViewCell {
+final class HistoryMovieTableViewCell: MovieTableViewCell {
     
     let movieNameLabel: UILabel = {
         let movieLabel = UILabel()
         movieLabel.translatesAutoresizingMaskIntoConstraints = false
-        movieLabel.font = UIFont.systemFont(ofSize: 16)
+        movieLabel.font = UIFont.systemFont(ofSize: 14)
         movieLabel.textColor = .gray
         movieLabel.numberOfLines = 0
         return movieLabel
@@ -21,7 +21,7 @@ class HistoryMovieTableViewCell: MovieTableViewCell {
     let movieDescriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.font = UIFont.systemFont(ofSize: 16)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.textColor = .gray
         descriptionLabel.numberOfLines = 0
         return descriptionLabel
@@ -55,14 +55,12 @@ class HistoryMovieTableViewCell: MovieTableViewCell {
         contentView.addSubview(movieDescriptionLabel)
         NSLayoutConstraint.activate([
             movieDescriptionLabel.leftAnchor.constraint(
-                equalTo: movieImage.rightAnchor,
-                constant: 11),
+                equalTo: movieNameLabel.leftAnchor),
             movieDescriptionLabel.topAnchor.constraint(
-                equalTo: movieNameLabel.bottomAnchor,
-                constant: 2),
+                equalTo: movieNameLabel.bottomAnchor),
             movieDescriptionLabel.rightAnchor.constraint(
-                equalTo: newContentView.rightAnchor,
-                constant: -50)
+                equalTo: movieNameLabel.rightAnchor),
+            movieDescriptionLabel.bottomAnchor.constraint(equalTo: movieImage.bottomAnchor)
         ])
     }
 }

@@ -23,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 17)
         nameLabel.textColor = UIColor(named: "swipeMovieBlack")
+        nameLabel.numberOfLines = 1
         return nameLabel
     }()
     
@@ -47,6 +48,7 @@ class MovieTableViewCell: UITableViewCell {
         self.contentView.addSubview(newContentView)
         newContentView.backgroundColor = UIColor(named: "swipeMovieWhite")
         newContentView.translatesAutoresizingMaskIntoConstraints = false
+        newContentView.layer.cornerRadius = 20
         
         NSLayoutConstraint.activate([
             newContentView.topAnchor.constraint(
@@ -62,7 +64,7 @@ class MovieTableViewCell: UITableViewCell {
                 equalTo: self.contentView.bottomAnchor,
                 constant: -6)
         ])
-        newContentView.layer.cornerRadius = 20
+        
         addMovieImage()
         addInfoButton()
         addTitleLabel()
@@ -84,7 +86,7 @@ class MovieTableViewCell: UITableViewCell {
             movieImage.heightAnchor.constraint(equalToConstant: 77),
             movieImage.leftAnchor.constraint(
                 equalTo: self.newContentView.leftAnchor,
-                constant: 20),
+                constant: 14),
             movieImage.topAnchor.constraint(
                 equalTo: self.newContentView.topAnchor,
                 constant: 14)
@@ -100,7 +102,8 @@ class MovieTableViewCell: UITableViewCell {
             titleLabel.topAnchor.constraint(
                 equalTo: self.newContentView.topAnchor,
                 constant: 14),
-            titleLabel.rightAnchor.constraint(equalTo: newContentView.rightAnchor, constant: -50)
+            titleLabel.rightAnchor.constraint(equalTo: newContentView.rightAnchor, constant: -50),
+            titleLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
