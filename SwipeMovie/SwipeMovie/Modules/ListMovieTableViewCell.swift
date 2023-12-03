@@ -19,6 +19,20 @@ final class ListMovieTableViewCell: MovieTableViewCell {
         return descriptionLabel
     }()
     
+    override var infoButton: UIButton {
+        get {
+            let button = super.infoButton
+            button.addTarget(
+                self,
+                action: #selector(infoButtonDidTapped),
+                for: .touchUpInside)
+            return button
+        }
+        set {
+            //
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpDescription()
@@ -26,6 +40,12 @@ final class ListMovieTableViewCell: MovieTableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func infoButtonDidTapped() {
+        // enter to movie view
+        print("enter")
     }
     
     private func setUpDescription() {
