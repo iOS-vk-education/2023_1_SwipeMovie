@@ -2,7 +2,7 @@
 //  MovieTableViewCell.swift
 //  SwipeMovie
 //
-//  Created by Arseniy Apollonov on 03.12.2023.
+//  Created by Arseniy Apollonov on 20.11.2023.
 //
 
 import UIKit
@@ -27,17 +27,16 @@ class MovieTableViewCell: UITableViewCell {
         return nameLabel
     }()
     
-    let infoButton: UIButton = {
+    let newContentView = UIView()
+    
+    var infoButton: UIButton = {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 22, weight: .regular, scale: .large)
         let infoImage = UIImage(systemName: "info.circle", withConfiguration: imageConfig)
-        let infoButton = UIButton()
+        var infoButton = UIButton()
         infoButton.setImage(infoImage, for: .normal)
-        infoButton.addTarget(MovieTableViewCell.self, action: #selector(infoButtonDidTapped), for: .allEvents)
         infoButton.translatesAutoresizingMaskIntoConstraints = false
         return infoButton
     }()
-    
-    let newContentView = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -72,11 +71,6 @@ class MovieTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc
-    func infoButtonDidTapped() {
-        //
     }
     
     private func addMovieImage() {
