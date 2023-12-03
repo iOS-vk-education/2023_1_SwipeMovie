@@ -10,6 +10,7 @@
 		1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A62B061CD100B33019 /* TabBarController.swift */; };
 		1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A82B061D1600B33019 /* FilmListViewController.swift */; };
 		1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657AA2B061D4100B33019 /* HistoryViewController.swift */; };
+		661092412B1CA58E008B51E5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661092402B1CA58E008B51E5 /* MovieTableViewCell.swift */; };
 		66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAB2AEA98E000468958 /* AppDelegate.swift */; };
 		66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAD2AEA98E000468958 /* SceneDelegate.swift */; };
 		66857BB02AEA98E000468958 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAF2AEA98E000468958 /* MainMenu.swift */; };
@@ -22,6 +23,7 @@
 		1AF657A62B061CD100B33019 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1AF657A82B061D1600B33019 /* FilmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewController.swift; sourceTree = "<group>"; };
 		1AF657AA2B061D4100B33019 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		661092402B1CA58E008B51E5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		66857BA82AEA98E000468958 /* SwipeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66857BAB2AEA98E000468958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66857BAD2AEA98E000468958 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 				1AF657A22B061C1D00B33019 /* MainMenu */,
 				1AF657A12B061C1100B33019 /* History */,
 				1AF657A02B061C0200B33019 /* TabBar */,
+				661092402B1CA58E008B51E5 /* MovieTableViewCell.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
 				1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */,
 				1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */,
+				661092412B1CA58E008B51E5 /* MovieTableViewCell.swift in Sources */,
 				66857BB62AEA98E000468958 /* SwipeMovie.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
