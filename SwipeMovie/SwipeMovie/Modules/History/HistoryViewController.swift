@@ -59,7 +59,7 @@ class HistoryViewController: UIViewController {
         historyTableView.dataSource = self
         
         // register custom cell
-        historyTableView.register(MovieCustomCell.self, forCellReuseIdentifier: "MovieCell")
+        historyTableView.register(HistoryMovieTableViewCell.self, forCellReuseIdentifier: "MovieCell")
         
         // set search bar delegate
         searchController.searchBar.delegate = self
@@ -107,13 +107,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MovieCell", for: indexPath) as?  MovieCustomCell else {
-            return MovieCustomCell()
+            withIdentifier: "MovieCell", for: indexPath) as?  HistoryMovieTableViewCell else {
+            return HistoryMovieTableViewCell()
         }
         
         cell.selectionStyle = .none
         // test
-        cell.lobbyNameLabel.text = "Lobby Name"
+        cell.titleLabel.text = "Lobby Name"
         cell.movieNameLabel.text = "Movie Name"
         cell.movieDescriptionLabel.text = "Movie Description"
         cell.movieImage.image = UIImage(named: "AppIcon")
