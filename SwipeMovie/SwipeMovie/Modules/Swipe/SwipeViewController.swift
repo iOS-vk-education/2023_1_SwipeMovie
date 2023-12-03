@@ -49,7 +49,7 @@ class SwipeViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Monsters, Inc. 0+"
-        label.font  = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .lightGray
         label.textAlignment = .center
         return label
@@ -66,7 +66,7 @@ class SwipeViewController: UIViewController {
     private let buttonInfo: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints  = false
-        let imageInfo =  UIImage(named: "ImageInfo")
+        let imageInfo = UIImage(named: "ImageInfo")
         button.setImage(imageInfo, for: .normal)
         return button
     }()
@@ -74,7 +74,7 @@ class SwipeViewController: UIViewController {
     private let buttonLike: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints  = false
-        let imageLike =  UIImage(named: "ImageLike")
+        let imageLike = UIImage(named: "ImageLike")
         button.setImage(imageLike, for: .normal)
         return button
     }()

@@ -12,7 +12,7 @@ class FinalFilmViewController: UIViewController {
     private let viewGray: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        let backgroundColor: UIColor  = UIColor(named: "Color 1")!
+        let backgroundColor: UIColor = UIColor(named: "Color 1")!
         view.backgroundColor = backgroundColor
         view.layer.cornerRadius = 40.0
         view.layer.masksToBounds = true
@@ -38,7 +38,7 @@ class FinalFilmViewController: UIViewController {
     
     private let labelFilmName: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints  = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Корпорация монстров (2001)"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment  = .center
@@ -50,7 +50,7 @@ class FinalFilmViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Monsters, Inc. 0+"
-        label.font  = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .lightGray
         label.textAlignment = .center
         return label
@@ -75,7 +75,7 @@ class FinalFilmViewController: UIViewController {
         button.setTitle("Открыть страницу фильма", for: .normal)
         let titleColor: UIColor = .white
         button.setTitleColor(titleColor, for: .normal)
-        let backgroundColor: UIColor  = UIColor(named: "Color 2")!
+        let backgroundColor: UIColor = UIColor(named: "Color 2")!
         button.backgroundColor = backgroundColor
         button.layer.cornerRadius = 20.0
         return button
