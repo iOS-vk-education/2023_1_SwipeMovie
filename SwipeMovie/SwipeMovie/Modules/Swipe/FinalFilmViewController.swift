@@ -37,11 +37,11 @@ class FinalFilmViewController: UIViewController {
     }()
     
     private let labelFilmName: UILabel = {
-        let label  = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints  = false
         label.text = "Корпорация монстров (2001)"
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textAlignment  =  .center
+        label.textAlignment  = .center
         label.textColor = .black
         return label
     }()
@@ -57,27 +57,24 @@ class FinalFilmViewController: UIViewController {
     }()
     
     private let buttonGoToMenu: UIButton = {
-        let button  = UIButton()
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         let borderColor: UIColor = UIColor(named: "Color 2")!
         button.setTitle("Выйти в меню", for: .normal)
         let titleColor: UIColor = borderColor
         button.setTitleColor(titleColor, for: .normal)
         button.layer.borderWidth = 2.0
-        
         button.layer.borderColor = borderColor.cgColor
         button.layer.cornerRadius = 20.0
         return button
     }()
 
     private let buttonGoToMovePage: UIButton = {
-        let button  = UIButton()
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         button.setTitle("Открыть страницу фильма", for: .normal)
         let titleColor: UIColor = .white
         button.setTitleColor(titleColor, for: .normal)
-        
         let backgroundColor: UIColor  = UIColor(named: "Color 2")!
         button.backgroundColor = backgroundColor
         button.layer.cornerRadius = 20.0
@@ -86,7 +83,6 @@ class FinalFilmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = UIColor(named: "Color 2")!
         view.addSubview(labelWinner)
         view.addSubview(viewGray)
@@ -103,10 +99,9 @@ class FinalFilmViewController: UIViewController {
         createLabelFilmCategoryConstraint()
         createButtonGoToMovePageConstraint()
         createButtonGoToMenuConstraint()
-        
     }
     
-    func createViewGrayConstraint() {
+    private func createViewGrayConstraint() {
         viewGray.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         viewGray.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         viewGray.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -114,39 +109,38 @@ class FinalFilmViewController: UIViewController {
         viewGray.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
     
-    func createLabelWinnerConstraint() {
+    private func createLabelWinnerConstraint() {
         labelWinner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         labelWinner.bottomAnchor.constraint(equalTo: viewGray.topAnchor).isActive = true
         labelWinner.widthAnchor.constraint(equalToConstant: 315).isActive = true
         labelWinner.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func createImageFilmConstraint() {
+    private func createImageFilmConstraint() {
         imageFilm.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         imageFilm.topAnchor.constraint(equalTo: viewGray.topAnchor, constant: 20).isActive = true
         imageFilm.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
         imageFilm.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.56).isActive = true
     }
     
-    func createlabelFilmNameConstraint() {
+    private func createlabelFilmNameConstraint() {
         labelFilmName.topAnchor.constraint(equalTo: imageFilm.bottomAnchor, constant: 20).isActive = true
         labelFilmName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
     }
     
-    func createLabelFilmCategoryConstraint() {
+    private func createLabelFilmCategoryConstraint() {
         labelFilmCategory.topAnchor.constraint(equalTo: labelFilmName.bottomAnchor).isActive = true
         labelFilmCategory.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    func  createButtonGoToMovePageConstraint() {
+    private func createButtonGoToMovePageConstraint() {
         buttonGoToMovePage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         buttonGoToMovePage.topAnchor.constraint(equalTo: labelFilmCategory.bottomAnchor, constant: 10).isActive = true
         buttonGoToMovePage.widthAnchor.constraint(equalToConstant: 335).isActive = true
         buttonGoToMovePage.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
-    func createButtonGoToMenuConstraint() {
+    private func createButtonGoToMenuConstraint() {
         buttonGoToMenu.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         buttonGoToMenu.topAnchor.constraint(equalTo: labelFilmCategory.bottomAnchor, constant: 70).isActive = true
         buttonGoToMenu.widthAnchor.constraint(equalToConstant: 335).isActive = true
