@@ -32,6 +32,9 @@ class MainMenuViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+            
             configurePlacements()
             configureColors()
             configureForms()
@@ -75,15 +78,16 @@ class MainMenuViewController: UIViewController {
     
         @objc func createLobbyButtonDidTapped () {
             let controller = CreateLobbyController()
-            controller.modalPresentationStyle = .fullScreen
+//            controller.modalPresentationStyle = .fullScreen
 //            present(controller, animated: true, completion: nil)
             navigationController?.pushViewController(controller, animated: true)
         }
     
         @objc func enterLobbyButtonDidTapped () {
             let controller = EnterLobbyController()
-            controller.modalPresentationStyle = .fullScreen
+//            controller.modalPresentationStyle = .fullScreen
 //            present(controller, animated: true, completion: nil)
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
             navigationController?.pushViewController(controller, animated: true)
         }
     // end of this block

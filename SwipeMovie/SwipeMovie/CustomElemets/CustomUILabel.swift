@@ -21,6 +21,10 @@ final class CustomUILabel: UILabel {
     
     // MARK: function of setting up white top title label for many views
     
+    func setText(text: String = "error") {
+        super.text = text
+    }
+    
     func makeTitleLabel(text: String = "error") {
         
         super.textColor = UIColor(named: "swipeMovieWhite")

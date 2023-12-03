@@ -20,6 +20,7 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
         static let marginForCheckBox: CGFloat = 8
         static let spaceBetweenCheckBoxAndLabel: CGFloat = 4
         static let spaceBetweenCells: CGFloat = 4
+        static let marginFromBottomAndTop: CGFloat = 4
     }
     
     // MARK: properties
@@ -53,7 +54,7 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     // ForegroundView methods
     
     private func configureForegroundView() {
-        
+
         makeForegroundView()
         configureForegroundViewConstraints()
     }
@@ -70,12 +71,17 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
         contentView.addSubview(foregroundView)
         
         NSLayoutConstraint.activate([
-            foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight),
-            foregroundView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            foregroundView.topAnchor.constraint(equalTo: contentView.topAnchor,
+                                                constant: ConstantsForLobbyTableCell.marginFromBottomAndTop),
             foregroundView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             foregroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                    constant: ConstantsForAllViews.marginFromSides)
+                                                    constant: ConstantsForAllViews.marginFromSides),
+            foregroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+                                                   constant: -ConstantsForLobbyTableCell.marginFromBottomAndTop)
         ])
+        let constraint = foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight)
+        constraint.priority = UILayoutPriority(999)
+        constraint.isActive = true
     }
     
     // Button methods
