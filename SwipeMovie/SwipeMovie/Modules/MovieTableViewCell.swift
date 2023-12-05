@@ -1,5 +1,5 @@
 //
-//  HistoryTableViewCell.swift
+//  MovieTableViewCell.swift
 //  SwipeMovie
 //
 //  Created by Arseniy Apollonov on 20.11.2023.
