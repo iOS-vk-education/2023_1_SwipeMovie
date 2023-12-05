@@ -9,15 +9,7 @@ import UIKit
 
 final class ListMovieTableViewCell: MovieTableViewCell {
     
-    let movieDescriptionLabel: UILabel = {
-        let descriptionLabel = UILabel()
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.textColor = .gray
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textAlignment = .left
-        return descriptionLabel
-    }()
+    private lazy var movieDescriptionLabel = configureLabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,6 +20,14 @@ final class ListMovieTableViewCell: MovieTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureListCell(imageName: String, title: String, description: String) {
+        if let img = UIImage(named: imageName) {
+            movieImage.image = img
+        }
+        titleLabel.text = title
+        movieDescriptionLabel.text = description
+    }
+
     private func setUpDescription() {
         contentView.addSubview(movieDescriptionLabel)
         NSLayoutConstraint.activate([
