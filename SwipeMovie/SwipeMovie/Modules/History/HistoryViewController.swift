@@ -69,7 +69,12 @@ class HistoryViewController: UIViewController {
     }
     
     @objc
-    func changeButtonDidTapped() {
+    func didTapChangeButton() {
+        //
+    }
+    
+    @objc
+    func didTapInfoButton() {
         //
     }
     
@@ -93,7 +98,7 @@ class HistoryViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Изменить",
                                                                  style: .plain,
                                                                  target: self,
-                                                                 action: #selector(changeButtonDidTapped))
+                                                                 action: #selector(didTapChangeButton))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
     }
 }
@@ -112,14 +117,22 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.selectionStyle = .none
+        
         // test
         cell.titleLabel.text = "Lobby Name"
         cell.movieNameLabel.text = "Movie Name"
         cell.movieDescriptionLabel.text = "Movie Description"
         cell.movieImage.image = UIImage(named: "AppIcon")
         //
+        
+        cell.infoButton.addTarget(
+            self,
+            action: #selector(didTapInfoButton),
+            for: .touchUpInside)
+        
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 118
     }
