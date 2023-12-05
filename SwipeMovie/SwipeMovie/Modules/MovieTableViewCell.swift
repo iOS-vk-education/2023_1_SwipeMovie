@@ -73,6 +73,15 @@ class MovieTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        return label
+    }
+    
     private func addMovieImage() {
         contentView.addSubview(movieImage)
         NSLayoutConstraint.activate([

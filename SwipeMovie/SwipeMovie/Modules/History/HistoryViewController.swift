@@ -118,17 +118,17 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-        // test
-        cell.titleLabel.text = "Lobby Name"
-        cell.movieNameLabel.text = "Movie Name"
-        cell.movieDescriptionLabel.text = "Movie Description"
-        cell.movieImage.image = UIImage(named: "AppIcon")
-        //
-        
         cell.infoButton.addTarget(
             self,
             action: #selector(didTapInfoButton),
             for: .touchUpInside)
+        
+        // test
+        cell.configureHistoryCell(
+            imageName: "AppIcon",
+            lobbyName: "Lobby \(indexPath.row)",
+            movieName: "Movie \(indexPath.row)",
+            description: "Description \(indexPath.row)")
         
         return cell
     }

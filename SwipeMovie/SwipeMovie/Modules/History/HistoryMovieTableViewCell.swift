@@ -9,23 +9,9 @@ import UIKit
 
 final class HistoryMovieTableViewCell: MovieTableViewCell {
     
-    let movieNameLabel: UILabel = {
-        let movieLabel = UILabel()
-        movieLabel.translatesAutoresizingMaskIntoConstraints = false
-        movieLabel.font = UIFont.systemFont(ofSize: 14)
-        movieLabel.textColor = .gray
-        movieLabel.numberOfLines = 0
-        return movieLabel
-    }()
+    private lazy var movieDescriptionLabel = configureLabel()
     
-    let movieDescriptionLabel: UILabel = {
-        let descriptionLabel = UILabel()
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.textColor = .gray
-        descriptionLabel.numberOfLines = 0
-        return descriptionLabel
-    }()
+    private lazy var movieNameLabel = configureLabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,6 +23,15 @@ final class HistoryMovieTableViewCell: MovieTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureHistoryCell(imageName: String, lobbyName: String, movieName: String, description: String) {
+        if let img = UIImage(named: imageName) {
+            movieImage.image = img
+        }
+        titleLabel.text = lobbyName
+        movieNameLabel.text = movieName
+        movieDescriptionLabel.text = description
+    }
+
     private func addMovieLabel() {
         contentView.addSubview(movieNameLabel)
         NSLayoutConstraint.activate([
