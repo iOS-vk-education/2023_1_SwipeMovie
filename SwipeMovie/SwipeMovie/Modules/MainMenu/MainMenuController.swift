@@ -15,6 +15,7 @@ class MainMenuViewController: UIViewController {
         super.loadView()
         self.view = createMainMenuView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpButtonTargets()
@@ -40,5 +41,4 @@ class MainMenuViewController: UIViewController {
     func joinButtonDidTapped() {
         //
     }
-
 }
