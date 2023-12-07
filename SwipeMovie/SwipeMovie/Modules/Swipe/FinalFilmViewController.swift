@@ -12,7 +12,7 @@ class FinalFilmViewController: UIViewController {
     private let viewGray: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        let backgroundColor: UIColor = UIColor(named: "Color 1")!
+        let backgroundColor: UIColor = UIColor(named: "swipeMovieWhite")!
         view.backgroundColor = backgroundColor
         view.layer.cornerRadius = 40.0
         view.layer.masksToBounds = true
@@ -59,7 +59,7 @@ class FinalFilmViewController: UIViewController {
     private let buttonGoToMenu: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let borderColor: UIColor = UIColor(named: "Color 2")!
+        let borderColor: UIColor = UIColor(named: "swipeMovieBlue")!
         button.setTitle("Выйти в меню", for: .normal)
         let titleColor: UIColor = borderColor
         button.setTitleColor(titleColor, for: .normal)
@@ -75,7 +75,7 @@ class FinalFilmViewController: UIViewController {
         button.setTitle("Открыть страницу фильма", for: .normal)
         let titleColor: UIColor = .white
         button.setTitleColor(titleColor, for: .normal)
-        let backgroundColor: UIColor = UIColor(named: "Color 2")!
+        let backgroundColor: UIColor = UIColor(named: "swipeMovieBlue")!
         button.backgroundColor = backgroundColor
         button.layer.cornerRadius = 20.0
         return button
@@ -83,7 +83,7 @@ class FinalFilmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "Color 2")!
+        view.backgroundColor = UIColor(named: "swipeMovieBlue")!
         view.addSubview(labelWinner)
         view.addSubview(viewGray)
         view.addSubview(imageFilm)
