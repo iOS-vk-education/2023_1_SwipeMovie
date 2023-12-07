@@ -55,16 +55,6 @@ class MainMenuView: UIView {
     }()
     
     private let timeLabel: UILabel = {
-        let screenWidth = UIScreen.main.bounds.size.width
-        var fontSize: CGFloat
-        switch screenWidth {
-        case 375:
-            fontSize = 34
-        case 393...414:
-            fontSize = 43
-        default:
-            fontSize = 34
-        }
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 17.0, *) {
