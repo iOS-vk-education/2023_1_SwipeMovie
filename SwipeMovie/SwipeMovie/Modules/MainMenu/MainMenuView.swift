@@ -58,7 +58,7 @@ class MainMenuView: UIView {
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 17.0, *) {
-            timeLabel.font = UIFont.preferredFont(forTextStyle: .extraLargeTitle)
+            timeLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         } else {
             timeLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         }

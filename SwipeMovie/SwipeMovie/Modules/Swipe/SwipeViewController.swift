@@ -12,7 +12,7 @@ class SwipeViewController: UIViewController {
     private let viewGray: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "Color 1")!
+        view.backgroundColor = UIColor(named: "swipeMovieWhite")!
         view.layer.cornerRadius = 40.0
         view.layer.masksToBounds = true
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -82,7 +82,7 @@ class SwipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "Color 2")
+        view.backgroundColor = UIColor(named: "swipeMovieBlue")
         view.addSubview(labelSwipe)
         view.addSubview(viewGray)
         view.addSubview(imageFilm)
