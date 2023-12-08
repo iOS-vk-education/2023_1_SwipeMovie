@@ -25,10 +25,11 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
     
     // MARK: properties
     
-    let filmListLable = UILabel()
-    let foregroundView = UIView()
+    let filmListLable = CustomUILabelBuilderByType(type: .cell)
     
     // MARK: private properties
+    
+    private let foregroundView = CustomForegroundViewBuilderByType(type: .tableCell)
     
     // MARK: methods
 
@@ -55,19 +56,6 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
     
     private func configureForegroundView() {
         
-        makeForegroundView()
-        configureForegroundViewConstraints()
-    }
-    
-    private func makeForegroundView() {
-    
-        foregroundView.backgroundColor = UIColor(named: "swipeMovieWhite")
-        foregroundView.layer.cornerRadius = ConstantsForLobbyTableCell.cellHeight / 2.0
-        foregroundView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureForegroundViewConstraints() {
-        
         contentView.addSubview(foregroundView)
         
         NSLayoutConstraint.activate([
@@ -85,22 +73,6 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
     // Label methods
     
     private func configureLabel() {
-        
-        makeLabel()
-        configureLabelConstraints()
-    }
-    
-    private func makeLabel() {
-        
-        filmListLable.textColor = .black
-        filmListLable.font = UIFont.systemFont(ofSize: ConstantsForLobbyTableCell.fontSize, weight: .regular)
-        filmListLable.numberOfLines = 1
-        filmListLable.lineBreakMode = .byTruncatingTail
-        filmListLable.textAlignment = .left
-        filmListLable.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureLabelConstraints() {
         
         foregroundView.addSubview(filmListLable)
         

@@ -13,7 +13,6 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     
     private enum ConstantsForLobbyTableCell {
         
-        static let fontSize: CGFloat = 17
         static let buttonHeight: CGFloat = 22
         static let cellCornerRadius: CGFloat = 20
         static let marginForCheckBox: CGFloat = 8
@@ -24,7 +23,7 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     
     // MARK: properties
     
-    let filmListLable = UILabel()
+    let filmListLable = CustomUILabelBuilderByType(type: .cell)
     
     let checkBoxButton = UIButton()
     
@@ -39,7 +38,7 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
         
         backgroundColor = UIColor(named: "swipeMovieBlue")
         
-        configureForegroundViewConstraints()
+        configureForegroundView()
         configureButton()
         configureLabel()
     }
@@ -52,7 +51,7 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     
     // ForegroundView methods
     
-    private func configureForegroundViewConstraints() {
+    private func configureForegroundView() {
         
         contentView.addSubview(foregroundView)
         
@@ -100,22 +99,6 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     // Label methods
     
     private func configureLabel() {
-        
-        makeLabel()
-        configureLabelConstraints()
-    }
-    
-    private func makeLabel() {
-        
-        filmListLable.textColor = .black
-        filmListLable.font = UIFont.systemFont(ofSize: ConstantsForLobbyTableCell.fontSize, weight: .regular)
-        filmListLable.numberOfLines = 1
-        filmListLable.lineBreakMode = .byTruncatingTail
-        filmListLable.textAlignment = .left
-        filmListLable.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureLabelConstraints() {
         
         foregroundView.addSubview(filmListLable)
         

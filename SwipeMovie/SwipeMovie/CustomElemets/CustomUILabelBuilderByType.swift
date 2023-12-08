@@ -17,6 +17,7 @@ final class CustomUILabelBuilderByType: UILabel {
         case subtitle
         case caption
         case mediumText
+        case cell
     }
     
     // MARK: private types
@@ -26,6 +27,7 @@ final class CustomUILabelBuilderByType: UILabel {
         static let captionFontSize: CGFloat = 15
         static let titleFontSize: CGFloat = 34
         static let subtitleFontSize: CGFloat = 22
+        static let cellFontSize: CGFloat = 17
     }
     
     // MARK: function of setting up white top title label for many views
@@ -59,6 +61,12 @@ final class CustomUILabelBuilderByType: UILabel {
             super.font = UIFont.systemFont(ofSize: ConstantsForCustomLabel.subtitleFontSize,
                                            weight: .medium)
 
+        case .cell:
+            super.textColor = .black
+            super.font = UIFont.systemFont(ofSize: ConstantsForCustomLabel.cellFontSize,
+                                           weight: .regular)
+            super.numberOfLines = 1
+            super.textAlignment = .left
         }
     }
 
