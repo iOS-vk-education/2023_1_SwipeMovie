@@ -1,5 +1,5 @@
 //
-//  CreateOrEnterLobbyView.swift
+//  WillCreateOrEnterLobbyView.swift
 //  SwipeMovie
 //
 //  Created by Alexander Bobrun on 08.11.2023.
@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
-class CreateLobbyView: UIView {
+class WillCreateLobbyView: UIView {
+    
+    // MARK: types
+    
+    enum ViewType {
+        case create
+        case enter
+    }
     
     // MARK: private types
     
@@ -24,15 +31,10 @@ class CreateLobbyView: UIView {
         static let fullHeight: CGFloat = height + spaceUnderLabel + labelFontSize
         static let spaceBetweenTextFieldsWithLabels: CGFloat = 10
     }
-    
-    enum ViewType {
-        case create
-        case enter
-    }
 
     // MARK: properties
     
-    var bottomButton = CustomUIButton()
+    var bottomButton = CustomUIButtonBuilderByType(title: "", type: .smallRounded)
     var nameTextFieldButton = UIButton()
     var lobbyTextFieldButton = UIButton()
     
@@ -41,30 +43,30 @@ class CreateLobbyView: UIView {
     
     // MARK: private properties
     
-    private var topLabel = CustomUILabel()
-    private var foregroundView = CustomUIView()
+    private var topLabel = CustomUILabelBuilderByType(type: .title )
+    private var foregroundView = CustomForegroundViewBuilderByType(type: .bottomWithoutBorder)
     private var nameStack = UIStackView()
     private var lobbyStack = UIStackView()
     
     // MARK: methods
     
     init(frame: CGRect, type: ViewType) {
-        
         super.init(frame: frame)
-        self.backgroundColor = UIColor(named: "swipeMovieBlue")
+        
+        backgroundColor = UIColor(named: "swipeMovieBlue")
         
         switch type {
         case .create:
             configureForegroundView(bottomTitle: "Введите название лобби",
                                     bottomPlaceHolder: "Название",
                                     buttonTitle: "Создать")
-            topLabel.makeTitleLabel(text: "Создать лобби")
+            topLabel.makeText(text: "Создать лобби")
             
         case .enter:
             configureForegroundView(bottomTitle: "Введите код лобби",
                                     bottomPlaceHolder: "••••••",
                                     buttonTitle: "Присоединиться")
-            topLabel.makeTitleLabel(text: "Присоединиться к лобби")
+            topLabel.makeText(text: "Присоединиться к лобби")
         }
         
         configureCreateLobbyLabel()
@@ -81,9 +83,7 @@ class CreateLobbyView: UIView {
     private func configureForegroundView(bottomTitle: String = "Error",
                                          bottomPlaceHolder: String = "Error",
                                          buttonTitle: String = "Error") {
-        
-        foregroundView.makeForegroundView()
-        
+
         nameStack = makeTextView(textField: nameTextField,
                                  title: "Введите Ваше имя",
                                  placeholder: "Имя",
@@ -96,8 +96,7 @@ class CreateLobbyView: UIView {
                                   button: lobbyTextFieldButton)
         lobbyStack.translatesAutoresizingMaskIntoConstraints = false
         
-        bottomButton.makeButton(title: buttonTitle,
-                                size: .ordinary)
+        bottomButton.setTitle(buttonTitle, for: .normal)
         
         configureConstraintsOfForegroundViewConstraints()
     }

@@ -26,17 +26,16 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
     // MARK: properties
     
     let filmListLable = UILabel()
+    let foregroundView = UIView()
     
     // MARK: private properties
-    
-    private let foregroundView = UIView()
     
     // MARK: methods
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = UIColor(named: "swipeMovieBlue")
+        backgroundColor = UIColor(named: "swipeMovieBlue")
         
         configureForegroundView()
         configureLabel()
@@ -44,6 +43,10 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(text: String) {
+        filmListLable.text = text
     }
     
     // MARK: private methods
@@ -68,17 +71,15 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
         contentView.addSubview(foregroundView)
         
         NSLayoutConstraint.activate([
-            foregroundView.topAnchor.constraint(equalTo: contentView.topAnchor,
+            foregroundView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
                                                 constant: ConstantsForLobbyTableCell.marginFromBottomAndTop),
+            foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight),
             foregroundView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             foregroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: ConstantsForAllViews.marginFromSides),
             foregroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                                    constant: -ConstantsForLobbyTableCell.marginFromBottomAndTop)
         ])
-        let constraint = foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight)
-        constraint.priority = UILayoutPriority(999)
-        constraint.isActive = true
     }
     
     // Label methods

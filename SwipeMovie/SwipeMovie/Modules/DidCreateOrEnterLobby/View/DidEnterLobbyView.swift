@@ -33,11 +33,11 @@ class DidEnteredLobbyView: UIView {
     
     // MARK: private properties
     
-    private var foregroundView = CustomUIView()
+    private var foregroundView = CustomForegroundViewBuilderByType(type: .bottomWithBorder)
     
     // MARK: properties
     
-    var bottomButton = CustomUIButton()
+    var bottomButton = CustomUIButtonBuilderByType(title: "Готово", type: .smallRounded)
     var filmListTableView = UITableView()
     
     // MARK: methods
@@ -77,12 +77,8 @@ class DidEnteredLobbyView: UIView {
     
     private func configureForegroundView() {
         
-        foregroundView.makeForegroundView()
-        foregroundView.makeBlueBordersForForegroundView()
         addSubview(foregroundView)
         
-        bottomButton.makeButton(title: "Готово",
-                                size: .ordinary)
         foregroundView.addSubview(bottomButton)
         
         NSLayoutConstraint.activate([

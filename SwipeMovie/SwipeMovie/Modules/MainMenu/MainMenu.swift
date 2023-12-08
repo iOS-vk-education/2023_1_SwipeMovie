@@ -77,14 +77,14 @@ class MainMenuViewController: UIViewController {
         }
     
         @objc func createLobbyButtonDidTapped () {
-            let controller = CreateLobbyController()
+            let controller = WillCreateLobbyController()
 //            controller.modalPresentationStyle = .fullScreen
 //            present(controller, animated: true, completion: nil)
             navigationController?.pushViewController(controller, animated: true)
         }
     
         @objc func enterLobbyButtonDidTapped () {
-            let controller = EnterLobbyController()
+            let controller = WillEnterLobbyController()
 //            controller.modalPresentationStyle = .fullScreen
 //            present(controller, animated: true, completion: nil)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)

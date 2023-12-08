@@ -14,17 +14,19 @@
 		2038CE3E2B0A8F5100EBE9BC /* DidCreateLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */; };
 		2038CE402B0A8F8500EBE9BC /* DidEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */; };
 		2038CE492B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */; };
-		207C3AEE2B126B7300F82E11 /* TopTitleLobbiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AED2B126B7300F82E11 /* TopTitleLobbiesView.swift */; };
-		207C3AF52B13870000F82E11 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF42B13870000F82E11 /* CustomUIView.swift */; };
-		207C3AF72B13871500F82E11 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF62B13871500F82E11 /* CustomUIButton.swift */; };
-		207C3AFA2B13872F00F82E11 /* CustomUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AF92B13872F00F82E11 /* CustomUILabel.swift */; };
+		207900BB2B1E0CDD0081FB11 /* GuestsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900BA2B1E0CDD0081FB11 /* GuestsListViewController.swift */; };
+		207900BD2B1E0CE90081FB11 /* GuestsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900BC2B1E0CE90081FB11 /* GuestsListView.swift */; };
+		207900BF2B1FC1460081FB11 /* GuestsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900BE2B1FC1460081FB11 /* GuestsListTableViewCell.swift */; };
+		207900C12B22FF920081FB11 /* CustomForegroundViewBuilderByType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900C02B22FF920081FB11 /* CustomForegroundViewBuilderByType.swift */; };
+		207900C32B22FFAA0081FB11 /* CustomUILabelBuilderByType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900C22B22FFAA0081FB11 /* CustomUILabelBuilderByType.swift */; };
+		207900C52B22FFC40081FB11 /* CustomUIButtonBuilderByType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900C42B22FFC40081FB11 /* CustomUIButtonBuilderByType.swift */; };
+		207900C72B2309080081FB11 /* WillCreateLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900C62B2309080081FB11 /* WillCreateLobbyController.swift */; };
+		207900C92B2309250081FB11 /* WillEnterLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900C82B2309250081FB11 /* WillEnterLobbyController.swift */; };
+		207900CB2B2309590081FB11 /* WillCreateOrEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900CA2B2309590081FB11 /* WillCreateOrEnterLobbyView.swift */; };
+		207900CF2B2309EC0081FB11 /* DidCreateLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900CE2B2309EC0081FB11 /* DidCreateLobbyController.swift */; };
+		207900D12B230A2D0081FB11 /* DidEnterLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207900D02B230A2D0081FB11 /* DidEnterLobbyController.swift */; };
 		207C3AFE2B1CB95F00F82E11 /* TopTitleLobbiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */; };
-		209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */; };
 		209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB92AF7B60400ED0A8C /* Constants.swift */; };
-		209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */; };
-		209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */; };
-		209E7EC42AFE695900ED0A8C /* DidCreatedLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC32AFE695900ED0A8C /* DidCreatedLobbyController.swift */; };
-		209E7EC62AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */; };
 		66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAB2AEA98E000468958 /* AppDelegate.swift */; };
 		66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAD2AEA98E000468958 /* SceneDelegate.swift */; };
 		66857BB02AEA98E000468958 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAF2AEA98E000468958 /* MainMenu.swift */; };
@@ -41,17 +43,19 @@
 		2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreateLobbyView.swift; sourceTree = "<group>"; };
 		2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnterLobbyView.swift; sourceTree = "<group>"; };
 		2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreateLobbyTableViewCell.swift; sourceTree = "<group>"; };
-		207C3AED2B126B7300F82E11 /* TopTitleLobbiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleLobbiesView.swift; sourceTree = "<group>"; };
-		207C3AF42B13870000F82E11 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
-		207C3AF62B13871500F82E11 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
-		207C3AF92B13872F00F82E11 /* CustomUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabel.swift; sourceTree = "<group>"; };
+		207900BA2B1E0CDD0081FB11 /* GuestsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsListViewController.swift; sourceTree = "<group>"; };
+		207900BC2B1E0CE90081FB11 /* GuestsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsListView.swift; sourceTree = "<group>"; };
+		207900BE2B1FC1460081FB11 /* GuestsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsListTableViewCell.swift; sourceTree = "<group>"; };
+		207900C02B22FF920081FB11 /* CustomForegroundViewBuilderByType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomForegroundViewBuilderByType.swift; sourceTree = "<group>"; };
+		207900C22B22FFAA0081FB11 /* CustomUILabelBuilderByType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabelBuilderByType.swift; sourceTree = "<group>"; };
+		207900C42B22FFC40081FB11 /* CustomUIButtonBuilderByType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButtonBuilderByType.swift; sourceTree = "<group>"; };
+		207900C62B2309080081FB11 /* WillCreateLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillCreateLobbyController.swift; sourceTree = "<group>"; };
+		207900C82B2309250081FB11 /* WillEnterLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillEnterLobbyController.swift; sourceTree = "<group>"; };
+		207900CA2B2309590081FB11 /* WillCreateOrEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillCreateOrEnterLobbyView.swift; sourceTree = "<group>"; };
+		207900CE2B2309EC0081FB11 /* DidCreateLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreateLobbyController.swift; sourceTree = "<group>"; };
+		207900D02B230A2D0081FB11 /* DidEnterLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnterLobbyController.swift; sourceTree = "<group>"; };
 		207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleLobbiesTableViewCell.swift; sourceTree = "<group>"; };
-		209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLobbyController.swift; sourceTree = "<group>"; };
 		209E7EB92AF7B60400ED0A8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEnterLobbyView.swift; sourceTree = "<group>"; };
-		209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLobbyController.swift; sourceTree = "<group>"; };
-		209E7EC32AFE695900ED0A8C /* DidCreatedLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreatedLobbyController.swift; sourceTree = "<group>"; };
-		209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnteredLobbyController.swift; sourceTree = "<group>"; };
 		66857BA82AEA98E000468958 /* SwipeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66857BAB2AEA98E000468958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66857BAD2AEA98E000468958 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,8 +172,8 @@
 		2038CE432B0A913300EBE9BC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				209E7EC12AFC0E5E00ED0A8C /* EnterLobbyController.swift */,
-				209E7EB72AF7B5F000ED0A8C /* CreateLobbyController.swift */,
+				207900C82B2309250081FB11 /* WillEnterLobbyController.swift */,
+				207900C62B2309080081FB11 /* WillCreateLobbyController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,7 +181,7 @@
 		2038CE442B0A914200EBE9BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				209E7EBF2AFC08AD00ED0A8C /* CreateOrEnterLobbyView.swift */,
+				207900CA2B2309590081FB11 /* WillCreateOrEnterLobbyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,12 +196,10 @@
 		2038CE462B0A91A200EBE9BC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				207900B92B1E0A300081FB11 /* TableCells */,
 				2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */,
-				207C3AEC2B126B3100F82E11 /* InterfaceElements */,
-				2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */,
-				207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */,
 				2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */,
-				202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */,
+				207900BC2B1E0CE90081FB11 /* GuestsListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,26 +207,30 @@
 		2038CE472B0A91A900EBE9BC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				209E7EC32AFE695900ED0A8C /* DidCreatedLobbyController.swift */,
-				209E7EC52AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift */,
+				207900CE2B2309EC0081FB11 /* DidCreateLobbyController.swift */,
+				207900BA2B1E0CDD0081FB11 /* GuestsListViewController.swift */,
+				207900D02B230A2D0081FB11 /* DidEnterLobbyController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		207C3AEC2B126B3100F82E11 /* InterfaceElements */ = {
+		207900B92B1E0A300081FB11 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				207C3AED2B126B7300F82E11 /* TopTitleLobbiesView.swift */,
+				207C3AFD2B1CB95E00F82E11 /* TopTitleLobbiesTableViewCell.swift */,
+				202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */,
+				2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */,
+				207900BE2B1FC1460081FB11 /* GuestsListTableViewCell.swift */,
 			);
-			path = InterfaceElements;
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		207C3AF32B1386D100F82E11 /* CustomElemets */ = {
 			isa = PBXGroup;
 			children = (
-				207C3AF42B13870000F82E11 /* CustomUIView.swift */,
-				207C3AF92B13872F00F82E11 /* CustomUILabel.swift */,
-				207C3AF62B13871500F82E11 /* CustomUIButton.swift */,
+				207900C02B22FF920081FB11 /* CustomForegroundViewBuilderByType.swift */,
+				207900C22B22FFAA0081FB11 /* CustomUILabelBuilderByType.swift */,
+				207900C42B22FFC40081FB11 /* CustomUIButtonBuilderByType.swift */,
 			);
 			path = CustomElemets;
 			sourceTree = "<group>";
@@ -350,28 +356,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				209E7EB82AF7B5F000ED0A8C /* CreateLobbyController.swift in Sources */,
 				2038CE492B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift in Sources */,
-				207C3AEE2B126B7300F82E11 /* TopTitleLobbiesView.swift in Sources */,
+				207900CB2B2309590081FB11 /* WillCreateOrEnterLobbyView.swift in Sources */,
+				207900D12B230A2D0081FB11 /* DidEnterLobbyController.swift in Sources */,
+				207900C52B22FFC40081FB11 /* CustomUIButtonBuilderByType.swift in Sources */,
 				66857BB02AEA98E000468958 /* MainMenu.swift in Sources */,
+				207900C92B2309250081FB11 /* WillEnterLobbyController.swift in Sources */,
 				2038CE3E2B0A8F5100EBE9BC /* DidCreateLobbyView.swift in Sources */,
 				2038CE402B0A8F8500EBE9BC /* DidEnterLobbyView.swift in Sources */,
-				207C3AFA2B13872F00F82E11 /* CustomUILabel.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
 				1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */,
 				66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */,
-				209E7EC02AFC08AE00ED0A8C /* CreateOrEnterLobbyView.swift in Sources */,
 				1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */,
 				1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */,
+				207900C12B22FF920081FB11 /* CustomForegroundViewBuilderByType.swift in Sources */,
+				207900C72B2309080081FB11 /* WillCreateLobbyController.swift in Sources */,
 				66857BB62AEA98E000468958 /* SwipeMovie.xcdatamodeld in Sources */,
-				207C3AF52B13870000F82E11 /* CustomUIView.swift in Sources */,
 				202201292B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift in Sources */,
-				207C3AF72B13871500F82E11 /* CustomUIButton.swift in Sources */,
 				207C3AFE2B1CB95F00F82E11 /* TopTitleLobbiesTableViewCell.swift in Sources */,
-				209E7EC62AFE6BFA00ED0A8C /* DidEnteredLobbyController.swift in Sources */,
-				209E7EC42AFE695900ED0A8C /* DidCreatedLobbyController.swift in Sources */,
+				207900C32B22FFAA0081FB11 /* CustomUILabelBuilderByType.swift in Sources */,
+				207900BF2B1FC1460081FB11 /* GuestsListTableViewCell.swift in Sources */,
+				207900CF2B2309EC0081FB11 /* DidCreateLobbyController.swift in Sources */,
+				207900BD2B1E0CE90081FB11 /* GuestsListView.swift in Sources */,
+				207900BB2B1E0CDD0081FB11 /* GuestsListViewController.swift in Sources */,
 				209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */,
-				209E7EC22AFC0E5E00ED0A8C /* EnterLobbyController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

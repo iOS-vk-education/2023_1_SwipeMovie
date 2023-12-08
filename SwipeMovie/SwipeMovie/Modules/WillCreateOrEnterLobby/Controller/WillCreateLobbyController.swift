@@ -1,5 +1,5 @@
 //
-//  CreateLobbyController.swift
+//  WillCreateLobbyController.swift
 //  SwipeMovie
 //
 //  Created by Alexander Bobrun on 29.10.2023.
@@ -8,23 +8,29 @@
 import Foundation
 import UIKit
 
-final class CreateLobbyController: UIViewController {
+final class WillCreateLobbyController: UIViewController {
     
     // MARK: private properties
     
-    private var createLobbyView = CreateLobbyView(frame: UIScreen.main.bounds, type: .create)
+    private var createLobbyView = WillCreateLobbyView(frame: UIScreen.main.bounds, type: .create)
     
     // MARK: methods
     
     override func loadView() {
+        super.loadView()
+        
         self.view = createLobbyView
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -81,7 +87,7 @@ final class CreateLobbyController: UIViewController {
     
     @objc private func createButtonDidTapped() {
         
-        let controller = DidCreatedLobbyController()
+        let controller = DidCreateLobbyController()
         controller.setTitleLabelText(text: getNameOfLobby(),
                                      code: generateCodeOfLobby())
 //        present(controller, animated: true, completion: nil)

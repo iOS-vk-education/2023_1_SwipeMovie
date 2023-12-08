@@ -9,6 +9,13 @@ import UIKit
 
 class TopTitleLobbiesTableViewCell: UITableViewCell {
     
+    // MARK: types
+    
+     enum TitleType {
+        case create
+        case enter
+    }
+    
     // MARK: private types
     
     private enum ConstantsForTopTitle {
@@ -26,8 +33,11 @@ class TopTitleLobbiesTableViewCell: UITableViewCell {
     
     var codeShareButton = UIButton()
     var filmListsButton = UIButton()
-    var titleLabel = CustomUILabel()
-    var codeLabel = CustomUILabel()
+    
+    // MARK: private properties
+
+    private var titleLabel = CustomUILabelBuilderByType(type: .title)
+    private var codeLabel = CustomUILabelBuilderByType(type: .subtitle)
     
     // MARK: methods
     
@@ -43,56 +53,66 @@ class TopTitleLobbiesTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setNameAndCode(titleText: String, code: String) {
+    func configure(titleText: String, code: String, type: TitleType) {
+        
         titleLabel.text = titleText
         codeLabel.text = code
+        
+        switch type {
+        case .create:
+            filmListsButton.isHidden = false
+            filmListsButton.isEnabled = true
+        case .enter:
+            filmListsButton.isHidden = true
+            filmListsButton.isEnabled = false
+        }
+        
     }
     
     func makeTopView(lobbyName: String, lobbyCode: String) {
             
-        titleLabel.makeTitleLabel(text: lobbyName)
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         
-        let subtitleLabel = CustomUILabel()
-        subtitleLabel.makeSubtitleLabel(text: "Код лобби:")
-        addSubview(subtitleLabel)
+        let subtitleLabel = CustomUILabelBuilderByType(type: .subtitle)
+        subtitleLabel.text = "Код лобби:"
+        contentView.addSubview(subtitleLabel)
             
         let codeView = makeCodeView(lobbyCode: lobbyCode)
-        addSubview(codeView)
+        contentView.addSubview(codeView)
         
-        let tableLabel = CustomUILabel()
-        tableLabel.makeSubtitleLabel(text: "Списки фильмов")
+        let tableLabel = CustomUILabelBuilderByType(type: .subtitle)
+        tableLabel.text = "Списки фильмов"
         tableLabel.font = UIFont.systemFont(ofSize: tableLabel.font.pointSize,
                                             weight: .medium)
-        addSubview(tableLabel)
+        contentView.addSubview(tableLabel)
         
         filmListsButton.setTitle("Изменить", for: .normal)
         filmListsButton.setTitleColor(UIColor(named: "swipeMovieWhite"), for: .normal)
-        addSubview(filmListsButton)
+        contentView.addSubview(filmListsButton)
         filmListsButton.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: topAnchor,
+                titleLabel.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
                                                 constant: ConstantsForTopTitle.marginFromBottomAndTop),
-                titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+                titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 
                 subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
                                                    constant: ConstantsForTopTitle.spaceBetweenTitleAndSubtitle),
-                subtitleLabel.trailingAnchor.constraint(equalTo: centerXAnchor,
+                subtitleLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor,
                                                         constant: -ConstantsForTopTitle.marginFromBorders),
                 
-                codeView.leadingAnchor.constraint(equalTo: centerXAnchor),
+                codeView.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
                 codeView.centerYAnchor.constraint(equalTo: subtitleLabel.centerYAnchor),
                 
                 tableLabel.topAnchor.constraint(equalTo: codeView.bottomAnchor,
                                                 constant: ConstantsForTopTitle.marginFromBottomAndTop),
-                tableLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-                tableLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
+                tableLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                tableLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: ConstantsForAllViews.marginFromSides),
                 
                 filmListsButton.centerYAnchor.constraint(equalTo: tableLabel.centerYAnchor),
-                filmListsButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
+                filmListsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                     constant: -ConstantsForAllViews.marginFromSides)
             ])
     }
@@ -106,7 +126,6 @@ class TopTitleLobbiesTableViewCell: UITableViewCell {
         view.layer.cornerRadius = ConstantsForTopTitle.heightOfCodeView / 2.0
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        codeLabel.makeSubtitleLabel(text: lobbyCode)
         codeLabel.textColor = .systemBlue
         view.addSubview(codeLabel)
         
