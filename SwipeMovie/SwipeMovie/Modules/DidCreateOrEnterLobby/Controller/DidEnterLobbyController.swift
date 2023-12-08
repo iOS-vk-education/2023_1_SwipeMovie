@@ -1,5 +1,5 @@
 //
-//  DidEnteredLobbyController.swift
+//  DidEnterLobbyController.swift
 //  SwipeMovie
 //
 //  Created by Alexander Bobrun on 10.11.2023.
@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-final class DidEnteredLobbyController: UIViewController {
+final class DidEnterLobbyController: UIViewController {
     
     // MARK: properties
     
     // temp data for cells
-    var tempFilmListNames = ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"]
+    private var tempFilmListNames = ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"]
     
     // MARK: private properties
     
-    private var didEnteredLobbyView = DidEnteredLobbyView(frame: UIScreen.main.bounds,
+    private var didEnterLobbyView = DidEnteredLobbyView(frame: UIScreen.main.bounds,
                                                           lobbyName: "Название лобби",
                                                           lobbyCode: "123456")
     
@@ -28,16 +28,20 @@ final class DidEnteredLobbyController: UIViewController {
     // MARK: methods
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.tabBarController?.tabBar.isHidden = true
     }
     
     override func loadView() {
-        self.view = didEnteredLobbyView
+        super.loadView()
+        
+        self.view = didEnterLobbyView
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пожаловаться",
                                                             style: .plain,
@@ -45,17 +49,9 @@ final class DidEnteredLobbyController: UIViewController {
                                                             action: #selector(complaintButtonDidTapped))
         navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
         
-        didEnteredLobbyView.filmListTableView.delegate = self
-        didEnteredLobbyView.filmListTableView.dataSource = self
-        didEnteredLobbyView.filmListTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        didEnteredLobbyView.filmListTableView.register(TopTitleLobbiesTableViewCell.self,
-                                                                       forCellReuseIdentifier: "topTitleCell")
-        didEnteredLobbyView.filmListTableView.register(DidEnterLobbyTableViewCell.self,
-                                                       forCellReuseIdentifier: "filmListCell")
-        didEnteredLobbyView.filmListTableView.estimatedRowHeight = 52
-        didEnteredLobbyView.filmListTableView.rowHeight = UITableView.automaticDimension
+        configureTable()
         
-        didEnteredLobbyView.bottomButton.addTarget(self,
+        didEnterLobbyView.bottomButton.addTarget(self,
                                                    action: #selector(startButtonDidTapped),
                                                    for: .touchUpInside)
     }
@@ -66,6 +62,20 @@ final class DidEnteredLobbyController: UIViewController {
     }
     
     // MARK: private methods
+    
+    private func configureTable() {
+        
+        didEnterLobbyView.filmListTableView.allowsSelection = false
+        didEnterLobbyView.filmListTableView.delegate = self
+        didEnterLobbyView.filmListTableView.dataSource = self
+        didEnterLobbyView.filmListTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        didEnterLobbyView.filmListTableView.register(TopTitleLobbiesTableViewCell.self,
+                                                                       forCellReuseIdentifier: "topTitleCell")
+        didEnterLobbyView.filmListTableView.register(DidEnterLobbyTableViewCell.self,
+                                                       forCellReuseIdentifier: "filmListCell")
+        didEnterLobbyView.filmListTableView.estimatedRowHeight = 52
+        didEnterLobbyView.filmListTableView.rowHeight = UITableView.automaticDimension
+    }
     
     // TODO: add full functionality
     
@@ -82,7 +92,7 @@ final class DidEnteredLobbyController: UIViewController {
     }
 }
 
-extension DidEnteredLobbyController: UITableViewDataSource, UITableViewDelegate {
+extension DidEnterLobbyController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -103,10 +113,10 @@ extension DidEnteredLobbyController: UITableViewDataSource, UITableViewDelegate 
         if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmListCell",
                                                        for: indexPath) as? DidEnterLobbyTableViewCell
-        else { return UITableViewCell() }
+        else { return DidEnterLobbyTableViewCell() }
         
-        cell.filmListLable.text = tempFilmListNames[indexPath.row]
-        
+        cell.configure(text: tempFilmListNames[indexPath.row])
+            
         return cell
             
         } else {
@@ -114,13 +124,10 @@ extension DidEnteredLobbyController: UITableViewDataSource, UITableViewDelegate 
                                                            for: indexPath) as? TopTitleLobbiesTableViewCell
             else { return UITableViewCell() }
             
-            cell.titleLabel.setText(text: lobbyName)
-            cell.codeLabel.setText(text: lobbyCode)
+            cell.configure(titleText: lobbyName, code: lobbyCode, type: .enter)
             cell.codeShareButton.addTarget(self,
                                            action: #selector(shareButtonDidTapped),
                                            for: .touchUpInside)
-            cell.filmListsButton.isHidden = true
-            cell.filmListsButton.isEnabled = false
             
             return cell
         }

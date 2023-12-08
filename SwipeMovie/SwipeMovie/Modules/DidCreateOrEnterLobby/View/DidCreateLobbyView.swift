@@ -24,20 +24,18 @@ class DidCreatedLobbyView: UIView {
     private enum ConstantsForForegroundView {
         
         static let spaceBetweenCaptionAndElements: CGFloat = 5
-        static let textFontSize: CGFloat = 22
-        static let buttonTextFontSize: CGFloat = 17
     }
     
     // MARK: properties
     
-    var bottomButton = CustomUIButton()
-    var guestsListButton = UIButton()
+    var bottomButton = CustomUIButtonBuilderByType(title: "Начать", type: .smallRounded)
+    var guestsListButton = CustomUIButtonBuilderByType(title: "Посмотреть", type: .ordinary)
     var filmListTableView = UITableView()
     
     // MARK: private properties
     
-    private var foregroundView = CustomUIView()
-    private var captionLable = CustomUILabel()
+    private var foregroundView = CustomForegroundViewBuilderByType(type: .bottomWithBorder)
+    private var captionLable = CustomUILabelBuilderByType(type: .caption)
     
     private var areGuestsReady = true
     
@@ -88,33 +86,25 @@ class DidCreatedLobbyView: UIView {
     
     private func configureForegroundView(areGuestsReady: Bool = true, numberOfGuests: Int = 0) {
         
-        foregroundView.makeForegroundView()
-        foregroundView.makeBlueBordersForForegroundView()
-        self.addSubview(foregroundView)
-        
-        bottomButton.makeButton(title: "Начать",
-                                size: .ordinary)
+//        foregroundView.makeForegroundView()
+//        foregroundView.makeBlueBordersForForegroundView()
+        addSubview(foregroundView)
         foregroundView.addSubview(bottomButton)
-        
-        captionLable.makeCaptionLabel()
         foregroundView.addSubview(captionLable)
         
         switch areGuestsReady {
         case true:
-            bottomButton.isEnabled = true
-            bottomButton.backgroundColor = UIColor(named: "swipeMovieBlue")
+            bottomButton.blockButton()
             captionLable.text = "Все гости готовы, \n Вы можете начать"
-            
         case false:
-            bottomButton.isEnabled = false
-            bottomButton.backgroundColor = .systemGray
+            bottomButton.unblockButton()
             captionLable.text = "Пока все гости не будут готовы, \n Вы не сможете начать"
         }
         
-        let guestsNumberLabel = makeGuestsNumberLabel(numberOfGuests: numberOfGuests)
+        let guestsNumberLabel = CustomUILabelBuilderByType(type: .mediumText)
+        guestsNumberLabel.text = "Гости - \(numberOfGuests)"
         foregroundView.addSubview(guestsNumberLabel)
         
-        guestsListButton = makeGuestsListButton()
         foregroundView.addSubview(guestsListButton)
         
         let foregroundViewCornerRadius = foregroundView.layer.cornerRadius
@@ -148,32 +138,5 @@ class DidCreatedLobbyView: UIView {
             captionLable.leadingAnchor.constraint(equalTo: foregroundView.leadingAnchor,
                                                   constant: ConstantsForAllViews.marginFromSides)
         ])
-    }
-    
-    private func makeGuestsNumberLabel(numberOfGuests: Int) -> UILabel {
-        
-        let label = UILabel()
-        
-        label.textColor = UIColor(named: "swipeMovieBlack")
-        label.font = UIFont.systemFont(ofSize: ConstantsForForegroundView.textFontSize,
-                                       weight: .medium)
-        label.text = "Гости - \(numberOfGuests)"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }
-    
-    private func makeGuestsListButton() -> UIButton {
-        
-        let button = UIButton()
-        
-        button.tintColor = .systemBlue
-        button.setTitle("Посмотреть", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: ConstantsForForegroundView.buttonTextFontSize,
-                                                    weight: .regular)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
     }
 }

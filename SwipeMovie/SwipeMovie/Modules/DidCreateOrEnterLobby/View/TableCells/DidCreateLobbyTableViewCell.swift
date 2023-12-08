@@ -15,7 +15,6 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
         
         static let fontSize: CGFloat = 17
         static let buttonHeight: CGFloat = 22
-        static let cellHeight: CGFloat = 44
         static let cellCornerRadius: CGFloat = 20
         static let marginForCheckBox: CGFloat = 8
         static let spaceBetweenCheckBoxAndLabel: CGFloat = 4
@@ -31,16 +30,16 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     
     // MARK: private properties
     
-    private let foregroundView = UIView()
+    private let foregroundView = CustomForegroundViewBuilderByType(type: .tableCell)
     
     // MARK: methods
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = UIColor(named: "swipeMovieBlue")
+        backgroundColor = UIColor(named: "swipeMovieBlue")
         
-        configureForegroundView()
+        configureForegroundViewConstraints()
         configureButton()
         configureLabel()
     }
@@ -53,35 +52,20 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     
     // ForegroundView methods
     
-    private func configureForegroundView() {
-
-        makeForegroundView()
-        configureForegroundViewConstraints()
-    }
-    
-    private func makeForegroundView() {
-    
-        foregroundView.backgroundColor = UIColor(named: "swipeMovieWhite")
-        foregroundView.layer.cornerRadius = ConstantsForLobbyTableCell.cellHeight / 2.0
-        foregroundView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     private func configureForegroundViewConstraints() {
         
         contentView.addSubview(foregroundView)
         
         NSLayoutConstraint.activate([
-            foregroundView.topAnchor.constraint(equalTo: contentView.topAnchor,
+            foregroundView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
                                                 constant: ConstantsForLobbyTableCell.marginFromBottomAndTop),
+//            foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight),
             foregroundView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             foregroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: ConstantsForAllViews.marginFromSides),
             foregroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                                    constant: -ConstantsForLobbyTableCell.marginFromBottomAndTop)
         ])
-        let constraint = foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight)
-        constraint.priority = UILayoutPriority(999)
-        constraint.isActive = true
     }
     
     // Button methods
