@@ -7,7 +7,17 @@
 
 import UIKit
 
-class MoviePageView: UIView {
+final class MoviePageView: UIView {
+    
+    let favoriteButton: UIButton = {
+        let favoriteButton = UIButton()
+        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .regular)
+        let image = UIImage(systemName: "star", withConfiguration: config)
+        favoriteButton.setImage(image, for: .normal)
+        favoriteButton.tintColor = UIColor(named: "swipeMovieBlue")
+        return favoriteButton
+    }()
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -33,7 +43,6 @@ class MoviePageView: UIView {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = UIColor(named: "swipeMovieBlack")
-        label.text = "Monsters inc"
         return label
     }()
     
@@ -44,7 +53,6 @@ class MoviePageView: UIView {
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 20
         imageView.backgroundColor = .blue
-        imageView.image = UIImage(named: "ImageFilm")
         return imageView
     }()
     
@@ -54,21 +62,9 @@ class MoviePageView: UIView {
         imdbLabel.font = UIFont.preferredFont(forTextStyle: .body)
         imdbLabel.numberOfLines = 1
         imdbLabel.textColor = .black
-        imdbLabel.text = "9.5/10 IMDb"
         return imdbLabel
     }()
-    
-    private let favoriteButton: UIButton = {
-        let favoriteButton = UIButton()
-        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .regular)
-        let image = UIImage(systemName: "star", withConfiguration: config)
-        favoriteButton.setImage(image, for: .normal)
-        favoriteButton.tintColor = UIColor(named: "swipeMovieBlue")
-        return favoriteButton
         
-    }()
-    
     private let descriptionTitleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -85,13 +81,6 @@ class MoviePageView: UIView {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         descriptionLabel.textColor = .black
-        // swiftlint: disable line_length
-        descriptionLabel.text = """
-Склизкий гад в сливном бачке, мохнатый зверь, похожий на чудовище из «Аленького цветочка», гигантские мокрицы под кроватью — все они существуют на самом деле.
-
-Полнометражный мультфильм рассказывает о кризисах в мире монстров, их жизни. Но однажды вся мирная жизнь монстров оказывается под угрозой: в их мир попадает ребенок. А с детьми столько хлопот, что они могут довести даже монстров.
-"""
-        // swiftlint: enable line_length
         return descriptionLabel
     }()
     
@@ -99,7 +88,21 @@ class MoviePageView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor(named: "swipeMovieBlue")
-        
+        configureView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
+        titleLabel.text = movieTitle
+        movieImage.image = UIImage(named: movieImageName)
+        imdbLabel.text = "\(imdbRating) IMDb"
+        descriptionLabel.text = movieDescription
+    }
+    
+    private func configureView() {
         setUpScrollView()
         setUpContentView()
         setUpTitleLabel()
@@ -108,10 +111,6 @@ class MoviePageView: UIView {
         setUpIMDbLabel()
         setUpDescriptionTitleLabel()
         setUpDescriptionLabel()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     private func setUpScrollView() {
@@ -181,7 +180,7 @@ class MoviePageView: UIView {
     private func setUpDescriptionLabel() {
         contentView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 10),
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 5),
             descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30),
             descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)

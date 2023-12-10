@@ -31,7 +31,7 @@ class MainMenuViewController: UIViewController {
         createMainMenuView.joinLobbyButton.addTarget(
             self,
             action: #selector(joinButtonDidTapped),
-            for: .allTouchEvents)
+            for: .touchUpInside)
     }
     
     @objc
@@ -42,6 +42,5 @@ class MainMenuViewController: UIViewController {
     
     @objc
     func joinButtonDidTapped() {
-        //
     }
 }
