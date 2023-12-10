@@ -7,38 +7,20 @@
 
 import UIKit
 
-class DidEnterLobbyTableViewCell: UITableViewCell {
+class DidEnterLobbyTableViewCell: BaseForegroundLobbyTableViewCell {
     
     // MARK: private types
     
-    private enum ConstantsForLobbyTableCell {
-        
-        static let fontSize: CGFloat = 17
-        static let buttonHeight: CGFloat = 22
-        static let cellHeight: CGFloat = 44
-        static let cellCornerRadius: CGFloat = 20
-        static let marginForCheckBox: CGFloat = 8
-        static let spaceBetweenCheckBoxAndLabel: CGFloat = 4
-        static let spaceBetweenCells: CGFloat = 4
-        static let marginFromBottomAndTop: CGFloat = 4
+    private enum ConstantsForDidEnterLobbyTableCell {
+    
+        static let labelMargin: CGFloat = 20
     }
     
-    // MARK: properties
-    
-    let filmListLable = CustomUILabelBuilderByType(type: .cell)
-    
-    // MARK: private properties
-    
-    private let foregroundView = CustomForegroundViewBuilderByType(type: .tableCell)
-    
     // MARK: methods
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = UIColor(named: "swipeMovieBlue")
-        
-        configureForegroundView()
+    
         configureLabel()
     }
     
@@ -46,29 +28,7 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(text: String) {
-        filmListLable.text = text
-    }
-    
     // MARK: private methods
-    
-    // ForegroundView methods
-    
-    private func configureForegroundView() {
-        
-        contentView.addSubview(foregroundView)
-        
-        NSLayoutConstraint.activate([
-            foregroundView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
-                                                constant: ConstantsForLobbyTableCell.marginFromBottomAndTop),
-            foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight),
-            foregroundView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            foregroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                    constant: ConstantsForAllViews.marginFromSides),
-            foregroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                                   constant: -ConstantsForLobbyTableCell.marginFromBottomAndTop)
-        ])
-    }
     
     // Label methods
     
@@ -78,7 +38,7 @@ class DidEnterLobbyTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             filmListLable.leadingAnchor.constraint(equalTo: foregroundView.leadingAnchor,
-                                                   constant: ConstantsForLobbyTableCell.cellCornerRadius),
+                                                   constant: ConstantsForDidEnterLobbyTableCell.labelMargin),
             filmListLable.centerYAnchor.constraint(equalTo: foregroundView.centerYAnchor)
         ])
     }

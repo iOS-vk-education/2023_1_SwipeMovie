@@ -12,6 +12,7 @@
 		1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A62B061CD100B33019 /* TabBarController.swift */; };
 		1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A82B061D1600B33019 /* FilmListViewController.swift */; };
 		1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657AA2B061D4100B33019 /* HistoryViewController.swift */; };
+		2012E9602B260997003B005E /* BaseForegroundLobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012E95F2B260997003B005E /* BaseForegroundLobbyTableViewCell.swift */; };
 		202201292B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */; };
 		2038CE3E2B0A8F5100EBE9BC /* DidCreateLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */; };
 		2038CE402B0A8F8500EBE9BC /* DidEnterLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */; };
@@ -46,6 +47,7 @@
 		1AF657A62B061CD100B33019 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1AF657A82B061D1600B33019 /* FilmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewController.swift; sourceTree = "<group>"; };
 		1AF657AA2B061D4100B33019 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		2012E95F2B260997003B005E /* BaseForegroundLobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseForegroundLobbyTableViewCell.swift; sourceTree = "<group>"; };
 		202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnterLobbyTableViewCell.swift; sourceTree = "<group>"; };
 		2038CE3D2B0A8F5100EBE9BC /* DidCreateLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidCreateLobbyView.swift; sourceTree = "<group>"; };
 		2038CE3F2B0A8F8500EBE9BC /* DidEnterLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEnterLobbyView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				202201282B0D58DD00EA1296 /* DidEnterLobbyTableViewCell.swift */,
 				2038CE482B0B967600EBE9BC /* DidCreateLobbyTableViewCell.swift */,
 				207900BE2B1FC1460081FB11 /* GuestsListTableViewCell.swift */,
+				2012E95F2B260997003B005E /* BaseForegroundLobbyTableViewCell.swift */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				207900C92B2309250081FB11 /* WillEnterLobbyController.swift in Sources */,
 				2038CE3E2B0A8F5100EBE9BC /* DidCreateLobbyView.swift in Sources */,
 				2038CE402B0A8F8500EBE9BC /* DidEnterLobbyView.swift in Sources */,
+				2012E9602B260997003B005E /* BaseForegroundLobbyTableViewCell.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
 
 				6694AC362B1269C800F6F3CB /* MainMenuView.swift in Sources */,
