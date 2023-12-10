@@ -17,3 +17,6 @@ line_length:
     true
  ignores_comments:
     true
+
+excluded:
+  - Pods
