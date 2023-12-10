@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-final class WillCreateLobbyController: UIViewController {
+final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
     
     // MARK: private properties
     
-    private var createLobbyView = WillCreateLobbyView(frame: UIScreen.main.bounds, type: .create)
+    private var createLobbyView = WillCreateOrEnterLobbyView(frame: UIScreen.main.bounds, type: .create)
     
     // MARK: methods
     
@@ -37,13 +37,9 @@ final class WillCreateLobbyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
-        
-        setupCleanTextFieldsButtons()
-        createLobbyView.bottomButton.addTarget(self,
-                                               action: #selector(createButtonDidTapped),
-                                               for: .touchUpInside)
+        configureNavigation()
+        configureButtonFunctionality()
+        configureTextFields()
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWholeView))
         view.addGestureRecognizer(recognizer)
@@ -62,6 +58,30 @@ final class WillCreateLobbyController: UIViewController {
     
     private func generateCodeOfLobby() -> String {
         String(Int.random(in: 100000..<1000000))
+    }
+    
+    private func configureNavigation() {
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
+    }
+    
+    private func configureButtonFunctionality() {
+        
+        setupCleanTextFieldsButtons()
+        createLobbyView.bottomButton.addTarget(self,
+                                               action: #selector(createButtonDidTapped),
+                                               for: .touchUpInside)
+    }
+    
+    private func configureTextFields() {
+    
+        createLobbyView.nameTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        createLobbyView.nameTextField.delegate = self
+        
+        createLobbyView.lobbyTextField.keyboardType = .default
+        createLobbyView.lobbyTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        createLobbyView.lobbyTextField.delegate = self
     }
     
     @objc private func didTapWholeView() {
@@ -93,4 +113,17 @@ final class WillCreateLobbyController: UIViewController {
 //        present(controller, animated: true, completion: nil)
         navigationController?.pushViewController(controller, animated: true)
     }
+}
+
+extension WillCreateLobbyController {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else { return false }
+        
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+            
+        return count <= 20
+        }
 }

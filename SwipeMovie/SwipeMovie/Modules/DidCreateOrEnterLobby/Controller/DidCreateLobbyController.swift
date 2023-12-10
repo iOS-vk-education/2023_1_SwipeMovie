@@ -42,22 +42,9 @@ final class DidCreateLobbyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пожаловаться",
-//                                                            style: .plain,
-//                                                            target: self,
-//                                                            action: #selector(complaintButtonDidTapped))
-        navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
-        
+        configureNavigation()
         configureTable()
-        
-        didCreateLobbyView.bottomButton.addTarget(self,
-                                                   action: #selector(startButtonDidTapped),
-                                                   for: .touchUpInside)
-        
-        didCreateLobbyView.guestsListButton.addTarget(self,
-                                                       action: #selector(checkAllGuestsButtonDidTapped),
-                                                       for: .touchUpInside)
+        configureButtonFunctionality()
     }
     
     func setTitleLabelText(text: String, code: String) {
@@ -67,6 +54,12 @@ final class DidCreateLobbyController: UIViewController {
     
     // MARK: private methods
     
+    private func configureNavigation() {
+        
+        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
+        navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
+    }
+    
     private func configureTable() {
         
         didCreateLobbyView.filmListTableView.allowsSelection = false
@@ -74,12 +67,23 @@ final class DidCreateLobbyController: UIViewController {
         didCreateLobbyView.filmListTableView.dataSource = self
         didCreateLobbyView.filmListTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         didCreateLobbyView.filmListTableView.register(TopTitleLobbiesTableViewCell.self,
-                                                                       forCellReuseIdentifier: "topTitleCell")
+                                                      forCellReuseIdentifier: "topTitleCell")
         didCreateLobbyView.filmListTableView.register(DidCreateLobbyTableViewCell.self,
-                                                                       forCellReuseIdentifier: "filmListCell")
+                                                      forCellReuseIdentifier: "filmListCell")
         
         didCreateLobbyView.filmListTableView.estimatedRowHeight = 150
         didCreateLobbyView.filmListTableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    private func configureButtonFunctionality() {
+        
+        didCreateLobbyView.bottomButton.addTarget(self,
+                                                  action: #selector(startButtonDidTapped),
+                                                  for: .touchUpInside)
+        
+        didCreateLobbyView.guestsListButton.addTarget(self,
+                                                      action: #selector(checkAllGuestsButtonDidTapped),
+                                                      for: .touchUpInside)
     }
     
     // TODO: add full functionality
@@ -89,6 +93,7 @@ final class DidCreateLobbyController: UIViewController {
     }
     
     @objc private func checkAllGuestsButtonDidTapped() {
+        
         print("all guests")
         
         let controller = GuestsListViewController()
@@ -96,28 +101,27 @@ final class DidCreateLobbyController: UIViewController {
     }
     
     @objc private func changeFilmListsButtonDidTapped() {
+        
         print("change")
+        // temp data append
         tempFilmListNames.append(String(Int.random(in: 10..<100)))
         didCreateLobbyView.filmListTableView.beginUpdates()
         didCreateLobbyView.filmListTableView.insertRows(at: [IndexPath.init(row: tempFilmListNames.count - 1,
-                                                                             section: 1)],
-                                                         with: .automatic)
+                                                                            section: 1)],
+                                                        with: .automatic)
         didCreateLobbyView.filmListTableView.endUpdates()
     }
     
     // TODO: i don't know, it needs to be fixed
     
     @objc private func shareButtonDidTapped() {
+        
         print("share")
         
         let items: [Any] = [lobbyCode]
         let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         activityController.popoverPresentationController?.sourceView = self.view
         present(activityController, animated: true, completion: nil)
-    }
-    
-    @objc private func complaintButtonDidTapped() {
-        print("complaint")
     }
 }
 
@@ -170,6 +174,7 @@ extension DidCreateLobbyController: UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func didTappedDeleteCellButton(_ sender: UIButton) {
+        
         tempFilmListNames.remove(at: sender.tag)
         didCreateLobbyView.filmListTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 1)], with: .fade)
         didCreateLobbyView.filmListTableView.reloadData()
