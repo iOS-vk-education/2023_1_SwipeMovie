@@ -62,4 +62,3 @@ class BaseForegroundLobbyTableViewCell: UITableViewCell {
         ])
     }
 }
-
