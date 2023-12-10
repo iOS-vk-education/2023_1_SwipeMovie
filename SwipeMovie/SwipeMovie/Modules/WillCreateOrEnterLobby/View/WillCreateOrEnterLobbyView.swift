@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class WillCreateLobbyView: UIView {
+class WillCreateOrEnterLobbyView: UIView {
     
     // MARK: types
     

@@ -42,18 +42,9 @@ final class DidEnterLobbyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пожаловаться",
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(complaintButtonDidTapped))
-        navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
-        
+        configureNavigation()
         configureTable()
-        
-        didEnterLobbyView.bottomButton.addTarget(self,
-                                                   action: #selector(startButtonDidTapped),
-                                                   for: .touchUpInside)
+        configureButtonFunctionality()
     }
     
     func setTitleLabelText(text: String, code: String) {
@@ -63,6 +54,16 @@ final class DidEnterLobbyController: UIViewController {
     
     // MARK: private methods
     
+    private func configureNavigation() {
+        
+        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пожаловаться",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(complaintButtonDidTapped))
+        navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
+    }
+    
     private func configureTable() {
         
         didEnterLobbyView.filmListTableView.allowsSelection = false
@@ -70,11 +71,18 @@ final class DidEnterLobbyController: UIViewController {
         didEnterLobbyView.filmListTableView.dataSource = self
         didEnterLobbyView.filmListTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         didEnterLobbyView.filmListTableView.register(TopTitleLobbiesTableViewCell.self,
-                                                                       forCellReuseIdentifier: "topTitleCell")
+                                                     forCellReuseIdentifier: "topTitleCell")
         didEnterLobbyView.filmListTableView.register(DidEnterLobbyTableViewCell.self,
-                                                       forCellReuseIdentifier: "filmListCell")
+                                                     forCellReuseIdentifier: "filmListCell")
         didEnterLobbyView.filmListTableView.estimatedRowHeight = 52
         didEnterLobbyView.filmListTableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    private func configureButtonFunctionality() {
+        
+        didEnterLobbyView.bottomButton.addTarget(self,
+                                                 action: #selector(startButtonDidTapped),
+                                                 for: .touchUpInside)
     }
     
     // TODO: add full functionality
