@@ -7,38 +7,26 @@
 
 import UIKit
 
-class DidCreateLobbyTableViewCell: UITableViewCell {
+final class DidCreateLobbyTableViewCell: BaseForegroundLobbyTableViewCell {
     
     // MARK: private types
     
     private enum ConstantsForLobbyTableCell {
         
         static let buttonHeight: CGFloat = 22
-        static let cellCornerRadius: CGFloat = 20
         static let marginForCheckBox: CGFloat = 8
         static let spaceBetweenCheckBoxAndLabel: CGFloat = 4
-        static let spaceBetweenCells: CGFloat = 4
-        static let marginFromBottomAndTop: CGFloat = 4
     }
     
     // MARK: properties
     
-    let filmListLable = CustomUILabelBuilderByType(type: .cell)
-    
     let checkBoxButton = UIButton()
-    
-    // MARK: private properties
-    
-    private let foregroundView = CustomForegroundViewBuilderByType(type: .tableCell)
     
     // MARK: methods
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = UIColor(named: "swipeMovieBlue")
-        
-        configureForegroundView()
+    
         configureButton()
         configureLabel()
     }
@@ -48,24 +36,6 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
     }
     
     // MARK: private methods
-    
-    // ForegroundView methods
-    
-    private func configureForegroundView() {
-        
-        contentView.addSubview(foregroundView)
-        
-        NSLayoutConstraint.activate([
-            foregroundView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
-                                                constant: ConstantsForLobbyTableCell.marginFromBottomAndTop),
-//            foregroundView.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.cellHeight),
-            foregroundView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            foregroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                    constant: ConstantsForAllViews.marginFromSides),
-            foregroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                                   constant: -ConstantsForLobbyTableCell.marginFromBottomAndTop)
-        ])
-    }
     
     // Button methods
     
@@ -81,6 +51,7 @@ class DidCreateLobbyTableViewCell: UITableViewCell {
 //        let config = UIImage.SymbolConfiguration(paletteColors: [.white, .systemBlue])
         checkBoxButton.setImage(UIImage(systemName: "xmark.circle.fill")?.withConfiguration(config), for: .normal)
         checkBoxButton.translatesAutoresizingMaskIntoConstraints = false
+        
         checkBoxButton.heightAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.buttonHeight).isActive = true
         checkBoxButton.widthAnchor.constraint(equalToConstant: ConstantsForLobbyTableCell.buttonHeight).isActive = true
     }

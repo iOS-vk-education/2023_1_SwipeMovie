@@ -105,12 +105,15 @@ final class DidCreateLobbyController: UIViewController {
         didCreateLobbyView.filmListTableView.endUpdates()
     }
     
+    // TODO: i don't know, it needs to be fixed
+    
     @objc private func shareButtonDidTapped() {
         print("share")
         
-//        let items: [Any] = [lobbyCode]
-//        let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-//        present(activityController, animated: true, completion: nil)
+        let items: [Any] = [lobbyCode]
+        let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = self.view
+        present(activityController, animated: true, completion: nil)
     }
     
     @objc private func complaintButtonDidTapped() {
