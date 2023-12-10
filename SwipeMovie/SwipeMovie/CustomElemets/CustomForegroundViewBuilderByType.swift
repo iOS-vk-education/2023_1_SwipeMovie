@@ -33,7 +33,7 @@ final class CustomForegroundViewBuilderByType: UIView {
     // MARK: methods
     
     init(type: ViewType) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.null)
         
         super.translatesAutoresizingMaskIntoConstraints = false
         super.backgroundColor = UIColor(named: "swipeMovieWhite")

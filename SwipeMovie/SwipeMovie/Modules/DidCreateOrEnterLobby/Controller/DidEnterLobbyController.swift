@@ -89,6 +89,22 @@ final class DidEnterLobbyController: UIViewController {
     
     @objc private func startButtonDidTapped() {
         print("ready")
+        
+        let alert = UIAlertController(title: "Пожалуйста, подождите, пока все участники будут готовы.", message: "\n \n", preferredStyle: .alert)
+        let indicator = UIActivityIndicatorView(frame: alert.view.bounds)
+        
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        alert.view.addSubview(indicator)
+        
+        NSLayoutConstraint.activate([
+            indicator.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -20),
+            indicator.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor)
+        ])
+        
+        indicator.isUserInteractionEnabled = false
+        indicator.startAnimating()
+        
+        present(alert, animated: true, completion: nil)
     }
     
     @objc private func complaintButtonDidTapped() {

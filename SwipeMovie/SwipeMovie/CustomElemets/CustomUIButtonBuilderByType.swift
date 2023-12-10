@@ -32,7 +32,7 @@ final class CustomUIButtonBuilderByType: UIButton {
     // MARK: function of setting up default buttons for SwipeMovie app for many views
     
     init(title: String, type: ButtonType) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.null)
         
         super.setTitle(title, for: .normal)
         super.translatesAutoresizingMaskIntoConstraints = false

@@ -90,12 +90,13 @@ final class DidCreateLobbyController: UIViewController {
     
     @objc private func startButtonDidTapped() {
         print("started")
+        let controller = SwipeViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc private func checkAllGuestsButtonDidTapped() {
         
         print("all guests")
-        
         let controller = GuestsListViewController()
         present(controller, animated: true, completion: nil)
     }

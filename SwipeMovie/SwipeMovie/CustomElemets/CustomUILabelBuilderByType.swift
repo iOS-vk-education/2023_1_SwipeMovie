@@ -33,7 +33,7 @@ final class CustomUILabelBuilderByType: UILabel {
     // MARK: function of setting up white top title label for many views
     
     init(type: LabelType) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.null)
 
         super.numberOfLines = 0
         super.lineBreakMode = .byTruncatingTail
