@@ -78,4 +78,3 @@ final class CustomUILabelBuilderByType: UILabel {
         super.text = text
     }
 }
-
