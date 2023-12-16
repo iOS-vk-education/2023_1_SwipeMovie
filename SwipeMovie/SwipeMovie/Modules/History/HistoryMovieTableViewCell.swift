@@ -23,10 +23,8 @@ final class HistoryMovieTableViewCell: MovieTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHistoryCell(imageName: String, lobbyName: String, movieName: String, description: String) {
-        if let img = UIImage(named: imageName) {
-            movieImage.image = img
-        }
+    func configureHistoryCell(image: UIImage, lobbyName: String, movieName: String, description: String) {
+        movieImage.image = image
         titleLabel.text = lobbyName
         movieNameLabel.text = movieName
         movieDescriptionLabel.text = description

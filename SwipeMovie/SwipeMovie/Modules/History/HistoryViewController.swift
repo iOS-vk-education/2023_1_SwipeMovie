@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryViewController: UIViewController {
+    
+    // Data for the History Table
+    var historyItems: [HistoryData]?
+    
+    // Reference to managed object context
+    // swiftlint:disable force_cast
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // swiftlint:enable force_cast
     
     let historyTableView: UITableView = {
         let tableView = UITableView()
@@ -66,6 +75,21 @@ class HistoryViewController: UIViewController {
         
         // configure search bar
         configureSearchBar()
+        
+        // Get items from CoreData
+        fetchLobbyData()
+    }
+    
+    func fetchLobbyData() {
+        // fetch the data from CoreData to display in the tableview
+        do {
+            self.historyItems =  try context.fetch(HistoryData.fetchRequest())
+            
+            DispatchQueue.main.async {
+                self.historyTableView.reloadData()
+            }
+        } catch {
+        }
     }
     
     @objc
@@ -107,7 +131,7 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return historyItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,12 +147,16 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             action: #selector(didTapInfoButton),
             for: .touchUpInside)
         
-        // test
-        cell.configureHistoryCell(
-            imageName: "AppIcon",
-            lobbyName: "Lobby \(indexPath.row)",
-            movieName: "Movie \(indexPath.row)",
-            description: "Description \(indexPath.row)")
+        let historyLobby = self.historyItems?[indexPath.row]
+        
+        if let imageData = historyLobby?.movieImage {
+            let image = UIImage(data: imageData)
+            cell.configureHistoryCell(
+                image: (image ?? UIImage(named: "AppIcon"))!,
+                lobbyName: historyLobby?.lobbyName ?? "Lobby Name",
+                movieName: historyLobby?.movieName ?? "Movie Name",
+                description: historyLobby?.movieDescription ?? "Description")
+        }
         
         return cell
     }
