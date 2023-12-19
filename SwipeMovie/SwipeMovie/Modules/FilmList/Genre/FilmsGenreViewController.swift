@@ -28,7 +28,6 @@ final class FilmsGenreViewController: UIViewController {
     override func loadView() {
         super.loadView()
         setUpView()
-        view = contentView
     }
     
     override func viewDidLoad() {
@@ -38,6 +37,7 @@ final class FilmsGenreViewController: UIViewController {
     }
     
     private func setUpView() {
+        view = contentView
         contentView.onCellTap = { [weak self] index in
             guard let self, index < self.response.count else { return }
             

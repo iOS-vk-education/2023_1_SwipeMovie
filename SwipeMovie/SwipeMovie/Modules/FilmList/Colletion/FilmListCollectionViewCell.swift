@@ -10,7 +10,9 @@ import Kingfisher
 
 struct InfoCellModel {
     let name: String
+    
     let description: String
+    
     let previewUrl: URL?
 }
 
@@ -18,12 +20,19 @@ final class FilmListCollectionViewCell: UICollectionViewCell {
     // MARK: - private properties
     private enum Const {
         static let leadingConst: CGFloat = 16
+        
         static let topConst: CGFloat = 14
+        
         static let nameTopConst: CGFloat = 22.5
+        
         static let trailingConst: CGFloat = -15
+        
         static let widhtConstImage: CGFloat = 77
+        
         static let heightConstImage: CGFloat = 58
+        
         static let cornerRadius: CGFloat = 30
+        
         static let bottomConst: CGFloat = -16
     }
     
@@ -31,15 +40,22 @@ final class FilmListCollectionViewCell: UICollectionViewCell {
     
     private let nameOfGenre: UILabel = {
         let name = UILabel()
+        
         name.font = UIFont.systemFont(ofSize: 17)
+        
         name.textColor = .black
+        
         return name
     }()
     private let descriptionOfGenre: UILabel = {
         let name = UILabel()
+        
         name.font = UIFont.systemFont(ofSize: 15)
+        
         name.textColor = .gray
+        
         name.numberOfLines = 2
+        
         return name
     }()
     
@@ -60,12 +76,9 @@ final class FilmListCollectionViewCell: UICollectionViewCell {
     }
     private func setupImage(){
         filmImageView.contentMode = .scaleAspectFill
+        
         filmImageView.clipsToBounds = true
-       // filmImageView.layer.cornerRadius = Const.cornerRadius
     }
-}
-// MARK: - layout
-private extension FilmListCollectionViewCell {
     func setupConstrains() {
         
         [nameOfGenre, descriptionOfGenre, filmImageView].forEach({element in
@@ -87,10 +100,8 @@ private extension FilmListCollectionViewCell {
             descriptionOfGenre.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: Const.leadingConst),
             descriptionOfGenre.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConst)
         ])
-        
     }
 }
-
 extension FilmListCollectionViewCell {
     func updateInfo(with info: InfoCellModel) {
         nameOfGenre.text = info.name

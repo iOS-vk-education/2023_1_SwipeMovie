@@ -78,7 +78,7 @@ extension FilmListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = filmListCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? FilmListCollectionViewCell else {
-            return UICollectionViewCell()
+            return FilmListCollectionViewCell()
         }
         let data = data[indexPath.item]
         
