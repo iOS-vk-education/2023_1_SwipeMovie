@@ -95,9 +95,9 @@ final class MoviePageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
+    func configureMoviePageView(movieTitle: String, image: UIImage, imdbRating: String, movieDescription: String) {
         titleLabel.text = movieTitle
-        movieImage.image = UIImage(named: movieImageName)
+        movieImage.image = image
         imdbLabel.text = "\(imdbRating) IMDb"
         descriptionLabel.text = movieDescription
     }

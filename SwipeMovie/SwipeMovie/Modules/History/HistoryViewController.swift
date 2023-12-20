@@ -99,15 +99,21 @@ class HistoryViewController: UIViewController {
     @objc
     func didTapInfoButton(_ sender: UIButton) {
         
-        print(sender.tag)
+        let movieViewData = historyItems[sender.tag]
         
-//        let controller = MoviePageViewController()
-//        controller.createMoviePageView.configureMoviePageView(
-//            movieTitle: <#T##String#>,
-//            movieImageName: <#T##String#>,
-//            imdbRating: <#T##String#>,
-//            movieDescription: <#T##String#>)
-//        navigationController?.pushViewController(controller, animated: true)
+        let controller = MoviePageViewController()
+        
+        if let imageData = movieViewData.movieImage {
+            if let image = UIImage(data: imageData) {
+                controller.createMoviePageView.configureMoviePageView(
+                    movieTitle: movieViewData.movieName ?? "",
+                    image: image,
+                    imdbRating: movieViewData.imdbRating ?? "",
+                    movieDescription: movieViewData.movieDescription ?? "")
+            }
+        }
+
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     private func configureSearchBar() {
