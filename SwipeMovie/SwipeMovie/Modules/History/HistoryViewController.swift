@@ -97,8 +97,17 @@ class HistoryViewController: UIViewController {
     }
     
     @objc
-    func didTapInfoButton() {
-        //
+    func didTapInfoButton(_ sender: UIButton) {
+        
+        print(sender.tag)
+        
+//        let controller = MoviePageViewController()
+//        controller.createMoviePageView.configureMoviePageView(
+//            movieTitle: <#T##String#>,
+//            movieImageName: <#T##String#>,
+//            imdbRating: <#T##String#>,
+//            movieDescription: <#T##String#>)
+//        navigationController?.pushViewController(controller, animated: true)
     }
     
     private func configureSearchBar() {
@@ -144,8 +153,10 @@ extension HistoryViewController: UITableViewDelegate {
         
         cell.infoButton.addTarget(
             self,
-            action: #selector(didTapInfoButton),
+            action: #selector(didTapInfoButton(_:)),
             for: .touchUpInside)
+        
+        cell.infoButton.tag = indexPath.row
         
         let historyLobby = historyItems[indexPath.row]
         
