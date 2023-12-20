@@ -95,9 +95,9 @@ final class MoviePageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
+    func configureMoviePageView(movieTitle: String, movieImageData: Data, imdbRating: String, movieDescription: String) {
         titleLabel.text = movieTitle
-        movieImage.image = UIImage(named: movieImageName)
+        movieImage.image = UIImage(data: movieImageData)
         imdbLabel.text = "\(imdbRating) IMDb"
         descriptionLabel.text = movieDescription
     }
@@ -149,7 +149,7 @@ final class MoviePageView: UIView {
             movieImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             movieImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30),
             movieImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30),
-            movieImage.heightAnchor.constraint(equalToConstant: (frame.width - 60) * 9 / 16)
+            movieImage.heightAnchor.constraint(equalToConstant: (frame.width - 60) * 570 / 360)
         ])
     }
     

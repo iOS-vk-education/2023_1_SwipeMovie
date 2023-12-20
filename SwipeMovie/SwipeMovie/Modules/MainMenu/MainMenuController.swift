@@ -36,8 +36,6 @@ class MainMenuViewController: UIViewController {
     
     @objc
     func createButtonDidTapped() {
-        let controller = MoviePageViewController()
-        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc
