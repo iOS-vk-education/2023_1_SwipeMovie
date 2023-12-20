@@ -11,7 +11,7 @@ import CoreData
 class HistoryViewController: UIViewController {
     
     // Data for the History Table
-    var historyItems: [HistoryData]?
+    var historyItems: [HistoryData] = []
     
     // Reference to managed object context
     // swiftlint:disable force_cast
@@ -38,7 +38,6 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         configureLeftBarLabel()
-        configureRightBarButton()
         
         self.view.addSubview(historyTableView)
         
@@ -119,19 +118,20 @@ class HistoryViewController: UIViewController {
     }
     
     private func configureRightBarButton() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Изменить",
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: #selector(didTapChangeButton))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Изменить",
+            style: .plain,
+            target: self,
+            action: #selector(didTapChangeButton))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
     }
 }
 
 // MARK: - TableViewDelegate and TableViewDataSource
-extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension HistoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historyItems?.count ?? 0
+        return historyItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -147,22 +147,50 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             action: #selector(didTapInfoButton),
             for: .touchUpInside)
         
-        let historyLobby = self.historyItems?[indexPath.row]
+        let historyLobby = historyItems[indexPath.row]
         
-        if let imageData = historyLobby?.movieImage {
-            let image = UIImage(data: imageData)
-            cell.configureHistoryCell(
-                image: (image ?? UIImage(named: "AppIcon"))!,
-                lobbyName: historyLobby?.lobbyName ?? "Lobby Name",
-                movieName: historyLobby?.movieName ?? "Movie Name",
-                description: historyLobby?.movieDescription ?? "Description")
+        if let imageData = historyLobby.movieImage {
+            if let movieImage = UIImage(data: imageData) {
+                cell.configureHistoryCell(
+                    image: movieImage,
+                    lobbyName: historyLobby.lobbyName ?? "",
+                    movieName: historyLobby.movieName ?? "",
+                    description: historyLobby.movieDescription ?? "")
+            }
         }
-        
         return cell
     }
+}
+
+// MARK: - UITableViewDataSource
+extension HistoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 118
+    }
+    
+    // delete cell
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+         return "Удалить"
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let lobbyToRemove = historyItems[indexPath.row]
+            self.context.delete(lobbyToRemove)
+            do {
+                try self.context.save()
+            } catch {
+            }
+            self.fetchLobbyData()
+        }
     }
 }
 

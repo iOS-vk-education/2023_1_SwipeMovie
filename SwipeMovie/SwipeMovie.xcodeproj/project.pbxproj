@@ -12,11 +12,11 @@
 		1AF657A72B061CD100B33019 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A62B061CD100B33019 /* TabBarController.swift */; };
 		1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657A82B061D1600B33019 /* FilmListViewController.swift */; };
 		1AF657AB2B061D4100B33019 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF657AA2B061D4100B33019 /* HistoryViewController.swift */; };
+		660673ED2B333600001E26E4 /* HistoryData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660673EB2B333600001E26E4 /* HistoryData+CoreDataClass.swift */; };
+		660673EE2B333600001E26E4 /* HistoryData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660673EC2B333600001E26E4 /* HistoryData+CoreDataProperties.swift */; };
 		6610923B2B1C987B008B51E5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610923A2B1C987B008B51E5 /* MovieTableViewCell.swift */; };
 		6610923D2B1C99FD008B51E5 /* HistoryMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610923C2B1C99FD008B51E5 /* HistoryMovieTableViewCell.swift */; };
 		6610923F2B1C9CD8008B51E5 /* ListMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610923E2B1C9CD8008B51E5 /* ListMovieTableViewCell.swift */; };
-		664D9D972B2E4616007E6448 /* HistoryData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D9D952B2E4616007E6448 /* HistoryData+CoreDataClass.swift */; };
-		664D9D982B2E4616007E6448 /* HistoryData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D9D962B2E4616007E6448 /* HistoryData+CoreDataProperties.swift */; };
 		665DD9152B0BC476000C0E55 /* HistoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665DD9142B0BC476000C0E55 /* HistoryCellModel.swift */; };
 		66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAB2AEA98E000468958 /* AppDelegate.swift */; };
 		66857BAE2AEA98E000468958 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66857BAD2AEA98E000468958 /* SceneDelegate.swift */; };
@@ -33,11 +33,11 @@
 		1AF657A62B061CD100B33019 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1AF657A82B061D1600B33019 /* FilmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewController.swift; sourceTree = "<group>"; };
 		1AF657AA2B061D4100B33019 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		660673EB2B333600001E26E4 /* HistoryData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		660673EC2B333600001E26E4 /* HistoryData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6610923A2B1C987B008B51E5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		6610923C2B1C99FD008B51E5 /* HistoryMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMovieTableViewCell.swift; sourceTree = "<group>"; };
 		6610923E2B1C9CD8008B51E5 /* ListMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieTableViewCell.swift; sourceTree = "<group>"; };
-		664D9D952B2E4616007E6448 /* HistoryData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryData+CoreDataClass.swift"; path = "SwipeMovie/Modules/HistoryData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		664D9D962B2E4616007E6448 /* HistoryData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryData+CoreDataProperties.swift"; path = "SwipeMovie/Modules/HistoryData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		665DD9142B0BC476000C0E55 /* HistoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellModel.swift; sourceTree = "<group>"; };
 		66857BA82AEA98E000468958 /* SwipeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66857BAB2AEA98E000468958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,8 +142,8 @@
 		66857B9F2AEA98E000468958 = {
 			isa = PBXGroup;
 			children = (
-				664D9D952B2E4616007E6448 /* HistoryData+CoreDataClass.swift */,
-				664D9D962B2E4616007E6448 /* HistoryData+CoreDataProperties.swift */,
+				660673EB2B333600001E26E4 /* HistoryData+CoreDataClass.swift */,
+				660673EC2B333600001E26E4 /* HistoryData+CoreDataProperties.swift */,
 				66857BAA2AEA98E000468958 /* SwipeMovie */,
 				66857BA92AEA98E000468958 /* Products */,
 			);
@@ -265,8 +265,8 @@
 				66857BB02AEA98E000468958 /* MainMenuController.swift in Sources */,
 				66857BAC2AEA98E000468958 /* AppDelegate.swift in Sources */,
 				6694AC362B1269C800F6F3CB /* MainMenuView.swift in Sources */,
-				664D9D972B2E4616007E6448 /* HistoryData+CoreDataClass.swift in Sources */,
-				664D9D982B2E4616007E6448 /* HistoryData+CoreDataProperties.swift in Sources */,
+				660673ED2B333600001E26E4 /* HistoryData+CoreDataClass.swift in Sources */,
+				660673EE2B333600001E26E4 /* HistoryData+CoreDataProperties.swift in Sources */,
 				0461219F2B081D7D00ECCF64 /* FinalFilmViewController.swift in Sources */,
 				1AF657A92B061D1600B33019 /* FilmListViewController.swift in Sources */,
 				0461219D2B081D0F00ECCF64 /* SwipeViewController.swift in Sources */,
