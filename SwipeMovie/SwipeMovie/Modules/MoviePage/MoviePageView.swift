@@ -102,6 +102,15 @@ final class MoviePageView: UIView {
         descriptionLabel.text = movieDescription
     }
     
+    func fetchViewData() -> MoviePageModel {
+        let moviePageData = MoviePageModel(
+            movieName: titleLabel.text ?? "",
+            movieDescription: descriptionLabel.text ?? "",
+            imdbRating: imdbLabel.text ?? "",
+            movieImage: movieImage.image ?? UIImage(named: "AppIcon")!)
+        return moviePageData
+    }
+    
     private func configureView() {
         setUpScrollView()
         setUpContentView()
