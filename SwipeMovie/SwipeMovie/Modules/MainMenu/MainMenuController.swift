@@ -36,11 +36,15 @@ class MainMenuViewController: UIViewController {
     
     @objc
     func createButtonDidTapped() {
-        let controller = MoviePageViewController()
+        let controller = WillCreateLobbyController()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc
     func joinButtonDidTapped() {
+        let controller = WillEnterLobbyController()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
