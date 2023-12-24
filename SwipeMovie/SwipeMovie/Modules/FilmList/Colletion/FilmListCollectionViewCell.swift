@@ -17,12 +17,14 @@ struct InfoCellModel {
 final class FilmListCollectionViewCell: UICollectionViewCell {
     // MARK: - private properties
     private enum Const {
-        static let leadingConst: CGFloat = 15
-        static let topConst: CGFloat = 10
+        static let leadingConst: CGFloat = 16
+        static let topConst: CGFloat = 14
+        static let nameTopConst: CGFloat = 22.5
         static let trailingConst: CGFloat = -15
-        static let widhtConstImage: CGFloat = 60
-        static let heightConstImage: CGFloat = 60
+        static let widhtConstImage: CGFloat = 77
+        static let heightConstImage: CGFloat = 58
         static let cornerRadius: CGFloat = 30
+        static let bottomConst: CGFloat = -16
     }
     
     private let filmImageView = UIImageView()
@@ -59,7 +61,7 @@ final class FilmListCollectionViewCell: UICollectionViewCell {
     private func setupImage(){
         filmImageView.contentMode = .scaleAspectFill
         filmImageView.clipsToBounds = true
-        filmImageView.layer.cornerRadius = Const.cornerRadius
+       // filmImageView.layer.cornerRadius = Const.cornerRadius
     }
 }
 // MARK: - layout
@@ -75,8 +77,9 @@ private extension FilmListCollectionViewCell {
             filmImageView.heightAnchor.constraint(equalToConstant: Const.heightConstImage),
             filmImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.topConst),
             filmImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingConst),
+            filmImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Const.bottomConst),
             
-            nameOfGenre.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.topConst),
+            nameOfGenre.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.nameTopConst),
             nameOfGenre.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConst),
             nameOfGenre.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: Const.leadingConst),
             

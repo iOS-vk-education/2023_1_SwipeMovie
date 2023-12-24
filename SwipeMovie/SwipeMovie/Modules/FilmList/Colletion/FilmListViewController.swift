@@ -9,6 +9,7 @@ import UIKit
 
 final class FilmListViewController: UIViewController {
     
+    private let scroll = UIScrollView()
     private let contentView = FilmListView()
     private let service: FilmListService
     private let genre: String
@@ -35,6 +36,7 @@ final class FilmListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
+
         
         service.loadFilms(genre: genre) { [weak self] result in
             DispatchQueue.main.async {

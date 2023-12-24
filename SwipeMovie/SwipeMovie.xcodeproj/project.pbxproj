@@ -408,6 +408,167 @@
             path = Pods;
             sourceTree = "<group>";
         };
+        0461219B2B081CEE00ECCF64 /* Swipe */ = {
+            isa = PBXGroup;
+            children = (
+                0461219C2B081D0F00ECCF64 /* SwipeViewController.swift */,
+                0461219E2B081D7D00ECCF64 /* FinalFilmViewController.swift */,
+            );
+            path = Swipe;
+            sourceTree = "<group>";
+        };
+        1A1500072B14CD0700FB7730 /* Colletion */ = {
+            isa = PBXGroup;
+            children = (
+                1A15000D2B14CD7300FB7730 /* Service */,
+                1AF657A82B061D1600B33019 /* FilmListViewController.swift */,
+                1A1500092B14CD4300FB7730 /* FilmListView.swift */,
+                1A15000B2B14CD5B00FB7730 /* FilmListCollectionViewCell.swift */,
+            );
+            path = Colletion;
+            sourceTree = "<group>";
+        };
+        1A1500082B14CD0F00FB7730 /* Genre */ = {
+            isa = PBXGroup;
+            children = (
+                1A1500172B14CE6C00FB7730 /* Service */,
+                1A1500132B14CE0C00FB7730 /* FilmsGenreViewController.swift */,
+                1A1500152B14CE4800FB7730 /* FilmsGenreView.swift */,
+                1A45EBDF2B14DC3F0018E429 /* FilmGenreCollectionViewCell.swift */,
+            );
+            path = Genre;
+            sourceTree = "<group>";
+        };
+        1A15000D2B14CD7300FB7730 /* Service */ = {
+            isa = PBXGroup;
+            children = (
+                1A15000E2B14CD8D00FB7730 /* FilmListService.swift */,
+                1A1500112B14CDB700FB7730 /* FilmResponse.swift */,
+            );
+            path = Service;
+            sourceTree = "<group>";
+        };
+        1A1500172B14CE6C00FB7730 /* Service */ = {
+            isa = PBXGroup;
+            children = (
+                1A1500182B14CE7700FB7730 /* FilmGenreService.swift */,
+                1A15001A2B14CE9900FB7730 /* FilmGenreResponse.swift */,
+            );
+            path = Service;
+            sourceTree = "<group>";
+        };
+        1AF6579F2B061BF500B33019 /* Modules */ = {
+            isa = PBXGroup;
+            children = (
+                0461219B2B081CEE00ECCF64 /* Swipe */,
+                1AF657A32B061C2300B33019 /* FilmList */,
+                1AF657A22B061C1D00B33019 /* MainMenu */,
+                1AF657A12B061C1100B33019 /* History */,
+                1AF657A02B061C0200B33019 /* TabBar */,
+            );
+            path = Modules;
+            sourceTree = "<group>";
+        };
+        1AF657A02B061C0200B33019 /* TabBar */ = {
+            isa = PBXGroup;
+            children = (
+                1AF657A62B061CD100B33019 /* TabBarController.swift */,
+            );
+            path = TabBar;
+            sourceTree = "<group>";
+        };
+        1AF657A12B061C1100B33019 /* History */ = {
+            isa = PBXGroup;
+            children = (
+                1AF657AA2B061D4100B33019 /* HistoryViewController.swift */,
+            );
+            path = History;
+            sourceTree = "<group>";
+        };
+        1AF657A22B061C1D00B33019 /* MainMenu */ = {
+            isa = PBXGroup;
+            children = (
+                66857BAF2AEA98E000468958 /* MainMenuController.swift */,
+                6694AC352B1269C800F6F3CB /* MainMenuView.swift */,
+            );
+            path = MainMenu;
+            sourceTree = "<group>";
+        };
+        1AF657A32B061C2300B33019 /* FilmList */ = {
+            isa = PBXGroup;
+            children = (
+                1A1500082B14CD0F00FB7730 /* Genre */,
+                1A1500072B14CD0700FB7730 /* Colletion */,
+            );
+            path = FilmList;
+            sourceTree = "<group>";
+        };
+        1AF657A42B061C3200B33019 /* Resourses */ = {
+            isa = PBXGroup;
+            children = (
+                66857BB42AEA98E000468958 /* SwipeMovie.xcdatamodeld */,
+                66857BBC2AEA98E200468958 /* Info.plist */,
+                66857BB92AEA98E200468958 /* LaunchScreen.storyboard */,
+                66857BB72AEA98E200468958 /* Assets.xcassets */,
+                1A1500052B14CCE100FB7730 /* ApiConstants.swift */,
+            );
+            path = Resourses;
+            sourceTree = "<group>";
+        };
+        1AF657A52B061C8600B33019 /* Applications */ = {
+            isa = PBXGroup;
+            children = (
+                66857BAD2AEA98E000468958 /* SceneDelegate.swift */,
+                66857BAB2AEA98E000468958 /* AppDelegate.swift */,
+            );
+            path = Applications;
+            sourceTree = "<group>";
+        };
+        53BC92AB79B1647181560F4C /* Frameworks */ = {
+            isa = PBXGroup;
+            children = (
+                D8D0121739CEFEBC6510B3AB /* Pods_SwipeMovie.framework */,
+            );
+            name = Frameworks;
+            sourceTree = "<group>";
+        };
+        66857B9F2AEA98E000468958 = {
+            isa = PBXGroup;
+            children = (
+                66857BAA2AEA98E000468958 /* SwipeMovie */,
+                66857BA92AEA98E000468958 /* Products */,
+                A3DA9F6475EAEC28CBF683A8 /* Pods */,
+                53BC92AB79B1647181560F4C /* Frameworks */,
+            );
+            sourceTree = "<group>";
+        };
+        66857BA92AEA98E000468958 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                66857BA82AEA98E000468958 /* SwipeMovie.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+        66857BAA2AEA98E000468958 /* SwipeMovie */ = {
+            isa = PBXGroup;
+            children = (
+                1AF657A52B061C8600B33019 /* Applications */,
+                1AF657A42B061C3200B33019 /* Resourses */,
+                1AF6579F2B061BF500B33019 /* Modules */,
+            );
+            path = SwipeMovie;
+            sourceTree = "<group>";
+        };
+        A3DA9F6475EAEC28CBF683A8 /* Pods */ = {
+            isa = PBXGroup;
+            children = (
+                CC3920BF529D315246CDB280 /* Pods-SwipeMovie.debug.xcconfig */,
+                ACD65611EC79A858C39E051D /* Pods-SwipeMovie.release.xcconfig */,
+            );
+            path = Pods;
+            sourceTree = "<group>";
+        };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -513,6 +674,64 @@
             shellPath = /bin/sh;
             shellScript = "
 ";
+        };
+        AD5C6C197CA7C2E00C3BF74E /* [CP] Check Pods Manifest.lock */ = {
+            isa = PBXShellScriptBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            inputFileListPaths = (
+            );
+            inputPaths = (
+                "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+                "${PODS_ROOT}/Manifest.lock",
+            );
+            name = "[CP] Check Pods Manifest.lock";
+            outputFileListPaths = (
+            );
+            outputPaths = (
+                "$(DERIVED_FILE_DIR)/Pods-SwipeMovie-checkManifestLockResult.txt",
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+            showEnvVarsInLog = 0;
+        };
+        02C1613A23CBA066A646475E /* [CP] Embed Pods Frameworks */ = {
+            isa = PBXShellScriptBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            inputFileListPaths = (
+                "${PODS_ROOT}/Target Support Files/Pods-SwipeMovie/Pods-SwipeMovie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+            );
+            name = "[CP] Embed Pods Frameworks";
+            outputFileListPaths = (
+                "${PODS_ROOT}/Target Support Files/Pods-SwipeMovie/Pods-SwipeMovie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwipeMovie/Pods-SwipeMovie-frameworks.sh\"\n";
+            showEnvVarsInLog = 0;
+        };
+        66857BC22AEA9E0100468958 /* SwiftLint */ = {
+            isa = PBXShellScriptBuildPhase;
+            alwaysOutOfDate = 1;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            inputFileListPaths = (
+            );
+            inputPaths = (
+            );
+            name = SwiftLint;
+            outputFileListPaths = (
+            );
+            outputPaths = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n\n";
         };
         AD5C6C197CA7C2E00C3BF74E /* [CP] Check Pods Manifest.lock */ = {
             isa = PBXShellScriptBuildPhase;

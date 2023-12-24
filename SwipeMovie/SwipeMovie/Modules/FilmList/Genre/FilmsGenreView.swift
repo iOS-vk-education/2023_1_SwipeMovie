@@ -25,7 +25,7 @@ final class FilmsGenreView: UIView {
         static let leadingConstant: CGFloat = 15
         static let trailingConstant: CGFloat = -15
         static let cornerRadiusCell: CGFloat = 20
-        static let heightCollectionCell: CGFloat = 73
+        static let heightCollectionCell: CGFloat = 106
         static let spacingBetweenCells: CGFloat = 12
     }
     
@@ -46,6 +46,7 @@ final class FilmsGenreView: UIView {
         
         filmListCollectionView.dataSource = self
         filmListCollectionView.delegate = self
+        filmListCollectionView.showsVerticalScrollIndicator = false 
         
         filmListCollectionView.register(FilmGenreCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }

@@ -16,8 +16,8 @@ struct InfoCellModelGenre {
 final class FilmGenreCollectionViewCell: UICollectionViewCell {
     // MARK: - private properties
     private enum Const {
-        static let leadingConst: CGFloat = 15
-        static let topConst: CGFloat = 10
+        static let leadingConst: CGFloat = 16
+        static let topConst: CGFloat = 22.5
         static let trailingConst: CGFloat = -15
         static let cornerRadius: CGFloat = 30
     }
@@ -49,7 +49,6 @@ final class FilmGenreCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(descriptionOfGenre)
         contentView.addSubview(buttonGenre)
         contentView.backgroundColor = UIColor(named: "swipeMovieCollectionViewCell")
-        
         
         setupConstrains()
     }

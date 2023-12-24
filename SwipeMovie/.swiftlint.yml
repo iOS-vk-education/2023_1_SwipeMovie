@@ -17,6 +17,5 @@ line_length:
     true
  ignores_comments:
     true
-
-excluded:
+excluded: # paths to ignore during linting. Takes precedence over included.
   - Pods
