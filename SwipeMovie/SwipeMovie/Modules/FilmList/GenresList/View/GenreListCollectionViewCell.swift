@@ -1,8 +1,8 @@
 //
-//  GenreListCollectionViewCell.swift
-//  SwipeMovie
+// GenreListCollectionViewCell.swift
+// SwipeMovie
 //
-//  Created by Егор Иванов on 24.12.2023.
+// Created by Егор Иванов on 24.12.2023.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ final class GenreListCollectionViewCell: UICollectionViewCell {
     // MARK: - private properties
     private enum Const {
         static let leadingConst: CGFloat = 16
-        static let topConst: CGFloat = 22.5
+        static let topConst: CGFloat = -10
         static let trailingConst: CGFloat = -15
         static let cornerRadius: CGFloat = 30
     }
@@ -20,19 +20,22 @@ final class GenreListCollectionViewCell: UICollectionViewCell {
         let name = UILabel()
         name.font = UIFont.systemFont(ofSize: 17)
         name.textColor = .black
+        name.text = "Жанр фильма"
         return name
     }()
     private let descriptionOfGenre: UILabel = {
         let name = UILabel()
         name.font = UIFont.systemFont(ofSize: 15)
         name.textColor = .gray
+        name.text = "Описание"
         name.numberOfLines = 2
         return name
     }()
     
-    private let buttonGenre: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Все фильмы > ", for: .normal)
+    private let buttonGenre: UILabel = {
+        let button = UILabel()
+        button.text = "Все фильмы >"
+        button.textColor = .systemBlue
         return button
     }()
     
@@ -67,7 +70,7 @@ private extension GenreListCollectionViewCell {
             buttonGenre.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             buttonGenre.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Const.trailingConst),
             
-            nameOfGenre.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.topConst),
+            nameOfGenre.topAnchor.constraint(equalTo: buttonGenre.topAnchor, constant: Const.topConst),
             nameOfGenre.trailingAnchor.constraint(equalTo: buttonGenre.leadingAnchor, constant: -10),
             nameOfGenre.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Const.leadingConst),
             
