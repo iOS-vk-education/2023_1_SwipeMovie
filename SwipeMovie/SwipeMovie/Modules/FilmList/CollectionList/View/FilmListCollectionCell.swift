@@ -27,21 +27,30 @@ class FilmListCollectionViewCell: UICollectionViewCell {
         static let bottomConst: CGFloat = -16
     }
     
-    private let filmImageView = UIImageView()
+    private let filmImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "AppIcon")
+        
+        return image
+    }()
     
-    private let nameOfGenre: UILabel = {
+    private let nameOfFilm: UILabel = {
         let name = UILabel()
         
         name.font = UIFont.systemFont(ofSize: 17)
+        
+        name.text = "Фильм"
         
         name.textColor = .black
         
         return name
     }()
-    private let descriptionOfGenre: UILabel = {
+    private let descriptionFilm: UILabel = {
         let name = UILabel()
         
         name.font = UIFont.systemFont(ofSize: 15)
+        
+        name.text = "Описание фильма"
         
         name.textColor = .gray
         
@@ -53,8 +62,8 @@ class FilmListCollectionViewCell: UICollectionViewCell {
     // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(nameOfGenre)
-        contentView.addSubview(descriptionOfGenre)
+        contentView.addSubview(nameOfFilm)
+        contentView.addSubview(descriptionFilm)
         contentView.addSubview(filmImageView)
         contentView.backgroundColor = UIColor(named: "swipeMovieWhite")
         
@@ -72,7 +81,7 @@ class FilmListCollectionViewCell: UICollectionViewCell {
     }
     func setupConstrains() {
         
-        [nameOfGenre, descriptionOfGenre, filmImageView].forEach({element in
+        [nameOfFilm, descriptionFilm, filmImageView].forEach({element in
             element.translatesAutoresizingMaskIntoConstraints = false
         })
         
@@ -83,13 +92,13 @@ class FilmListCollectionViewCell: UICollectionViewCell {
             filmImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingConst),
             filmImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Const.bottomConst),
             
-            nameOfGenre.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.nameTopConst),
-            nameOfGenre.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConst),
-            nameOfGenre.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: Const.leadingConst),
+            nameOfFilm.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.nameTopConst),
+            nameOfFilm.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConst),
+            nameOfFilm.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: Const.leadingConst),
             
-            descriptionOfGenre.topAnchor.constraint(equalTo: nameOfGenre.bottomAnchor),
-            descriptionOfGenre.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: Const.leadingConst),
-            descriptionOfGenre.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConst)
+            descriptionFilm.topAnchor.constraint(equalTo: nameOfFilm.bottomAnchor),
+            descriptionFilm.leadingAnchor.constraint(equalTo: filmImageView.trailingAnchor, constant: Const.leadingConst),
+            descriptionFilm.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConst)
         ])
     }
 }
