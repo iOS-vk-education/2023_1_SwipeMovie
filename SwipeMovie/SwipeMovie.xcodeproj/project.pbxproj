@@ -366,12 +366,21 @@
 			path = CustomElemets;
 			sourceTree = "<group>";
 		};
+		660673FE2B377B35001E26E4 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				6610923A2B1C987B008B51E5 /* MovieTableViewCell.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		66857B9F2AEA98E000468958 = {
 			isa = PBXGroup;
 			children = (
 				66857BAA2AEA98E000468958 /* SwipeMovie */,
 				66857BA92AEA98E000468958 /* Products */,
-				1A36EAEF2B3881FF00512ABF /* Recovered References */,
+				660673FE2B377B35001E26E4 /* Recovered References */,
+
 			);
 			sourceTree = "<group>";
 		};
@@ -533,12 +542,11 @@
 				207900BD2B1E0CE90081FB11 /* GuestsListView.swift in Sources */,
 				207900BB2B1E0CDD0081FB11 /* GuestsListViewController.swift in Sources */,
 				209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */,
-				1A36EB052B388E2300512ABF /* FilmListCollectionCell.swift in Sources */,
 				661092412B1CA58E008B51E5 /* MovieTableViewCell.swift in Sources */,
 				665DD9152B0BC476000C0E55 /* HistoryCellModel.swift in Sources */,
 				66857BB62AEA98E000468958 /* SwipeMovie.xcdatamodeld in Sources */,
 				6610923D2B1C99FD008B51E5 /* HistoryMovieTableViewCell.swift in Sources */,
-				1A36EB072B388FD600512ABF /* FilmListModel.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
