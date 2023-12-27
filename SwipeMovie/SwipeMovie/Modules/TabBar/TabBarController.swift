@@ -32,13 +32,13 @@ final class TabBarController {
         UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         //
         let tabBarController = UITabBarController()
-        let filmListTabBarController = createTabBarController(controller: FilmListViewController(),
+        let filmListTabBarController = createTabBarController(controller: GenreListViewController(),
                                                               title: "Списки фильмов",
                                                               nameImage: "film.fill",
                                                               tag: 0)
         let mainMenuTabBarController = createTabBarController(controller: MainMenuViewController(),
                                                               title: "Главное меню",
-                                                              nameImage: "checkmark.rectangle.stack.fill",
+                                                              nameImage: "house.fill",
                                                               tag: 1)
         let historyTabBarController = createTabBarController(controller: HistoryViewController(),
                                                              title: "История",

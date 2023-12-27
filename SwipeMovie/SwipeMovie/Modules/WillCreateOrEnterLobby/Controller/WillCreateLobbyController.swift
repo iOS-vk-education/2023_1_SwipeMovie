@@ -12,6 +12,8 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
     
     // MARK: private properties
     
+    private let createLobbyModel = WillCreateOrEnterLobbyModel()
+    
     private var createLobbyView = WillCreateOrEnterLobbyView(frame: UIScreen.main.bounds, type: .create)
     
     // MARK: methods
@@ -50,14 +52,9 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
     // TODO: this is temp function
     
     private func getNameOfLobby() -> String {
+        
         createLobbyView.lobbyTextField.text == "" || createLobbyView.lobbyTextField.text == nil ? "No name"
         : createLobbyView.lobbyTextField.text!
-    }
-    
-    // TODO: this is temp function
-    
-    private func generateCodeOfLobby() -> String {
-        String(Int.random(in: 100000..<1000000))
     }
     
     private func configureNavigation() {
@@ -75,7 +72,8 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
     }
     
     private func configureTextFields() {
-    
+        
+        createLobbyView.nameTextField.text = createLobbyModel.name
         createLobbyView.nameTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         createLobbyView.nameTextField.delegate = self
         
@@ -90,8 +88,8 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
     
     private func setupCleanTextFieldsButtons() {
         createLobbyView.nameTextFieldButton.addTarget(self,
-                                                       action: #selector(clearNameTextFieldButtonDidTapped),
-                                                       for: .touchUpInside)
+                                                      action: #selector(clearNameTextFieldButtonDidTapped),
+                                                      for: .touchUpInside)
         createLobbyView.lobbyTextFieldButton.addTarget(self,
                                                        action: #selector(clearLobbyTextFieldButtonDidTapped),
                                                        for: .touchUpInside)
@@ -107,11 +105,25 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
     
     @objc private func createButtonDidTapped() {
         
+        UserManager.shared.user.name = createLobbyView.nameTextField.text ?? "ErrorName"
+        UserManager.shared.sendUser()
+        LobbyManager.shared.lobby.firstLobbySetUp(name: "", code: createLobbyModel.code)
+        LobbyManager.shared.getLobby(code: createLobbyModel.code, completion: {})
+        if self.createLobbyView.lobbyTextField.text == "" {
+            let alert = UIAlertController(title: "Предупреждение",
+                                          message: "Вы ввели пустое название лобби, пожалуйста, введите другое.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+            
         let controller = DidCreateLobbyController()
-        controller.setTitleLabelText(text: getNameOfLobby(),
-                                     code: generateCodeOfLobby())
+        LobbyManager.shared.lobby.name = self.getNameOfLobby()
+        controller.setTitleLabelText(text: LobbyManager.shared.lobby.name,
+                                     code: LobbyManager.shared.lobby.code)
+        LobbyManager.shared.createLobby()
 //        present(controller, animated: true, completion: nil)
-        navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

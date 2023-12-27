@@ -12,14 +12,13 @@ final class GuestsListViewController: UIViewController {
     
     // MARK: properties
     
-    // temp data for cells
-    private var guestsList = [["Guest1", true], ["Guest2", true], ["Guest3", false],
-                              ["Guest4", true], ["Guest5", true], ["Guest6", true],
-                              ["Guest7", false]]
-    
     // MARK: private properties
     
     private var guestsListView = GuestsListView(frame: UIScreen.main.bounds)
+    
+    private var timer: Timer?
+    
+    private var keysArray = Array(LobbyManager.shared.lobby.guests.keys)
     
     // MARK: methods
     
@@ -40,17 +39,39 @@ final class GuestsListViewController: UIViewController {
         
         guestsListView.guestsListTableView.delegate = self
         guestsListView.guestsListTableView.dataSource = self
+        guestsListView.guestsListTableView.allowsSelection = false
         guestsListView.guestsListTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         guestsListView.guestsListTableView.register(GuestsListTableViewCell.self,
                                                     forCellReuseIdentifier: "guestsListCell")
         guestsListView.exitButton.addTarget(self,
                                             action: #selector(exitButtonDidTapped),
                                             for: .touchUpInside)
+        timer = Timer.scheduledTimer(timeInterval: 5.0,
+                                     target: self,
+                                     selector: #selector(reloadTableData),
+                                     userInfo: nil,
+                                     repeats: true)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        timer?.invalidate()
+        timer = nil
     }
     
     @objc
     private func exitButtonDidTapped() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    private func reloadTableData() {
+        keysArray = Array(LobbyManager.shared.lobby.guests.keys)
+        print("reload")
+        print(LobbyManager.shared.lobby.guests)
+        guestsListView.guestsListTableView.reloadSections([0], with: .automatic)
     }
 }
 
@@ -61,7 +82,7 @@ extension GuestsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guestsList.count
+        keysArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,12 +91,10 @@ extension GuestsListViewController: UITableViewDataSource, UITableViewDelegate {
                                                        for: indexPath) as? GuestsListTableViewCell
         else { return GuestsListTableViewCell() }
             
-        // гарантируем, что имеем дело со String
-        cell.configure(text: (guestsList[indexPath.row][0] as? String)!)
-   
-        if guestsList[indexPath.row][1] as? Bool ?? false {
+        cell.configure(text: UserManager.shared.userAndName[keysArray[indexPath.row]] ?? "")
+        
+        if LobbyManager.shared.lobby.guests[keysArray[indexPath.row]] ?? false {
             cell.guestIsReady()
-            
         } else {
             cell.guestIsNotReady()
         }

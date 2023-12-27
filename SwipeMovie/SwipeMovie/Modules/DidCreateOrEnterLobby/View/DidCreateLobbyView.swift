@@ -36,30 +36,34 @@ class DidCreatedLobbyView: UIView {
     
     private var foregroundView = CustomForegroundViewBuilderByType(type: .bottomWithBorder)
     private var captionLable = CustomUILabelBuilderByType(type: .caption)
-    
-    private var areGuestsReady = true
+    private var guestsNumberLabel = CustomUILabelBuilderByType(type: .mediumText)
     
     // MARK: methods
     
-    init(frame: CGRect, lobbyName: String, lobbyCode: String) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(named: "swipeMovieBlue")
+        backgroundColor = UIColor(named: "swipeMovieBlue")
         configureTableView()
-        configureForegroundView(areGuestsReady: areGuestsReady,
-                                numberOfGuests: 1)
+        configureForegroundView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateGuestNumber(number: Int) {
+        guestsNumberLabel.text = "Гости - \(number)"
+    }
+    
     func guestsAreReady() {
-        areGuestsReady = true
+        bottomButton.blockButton()
+        captionLable.text = "Все гости готовы, \n Вы можете начать"
     }
     
     func guestsAreNotReady() {
-        areGuestsReady = false
+        bottomButton.unblockButton()
+        captionLable.text = "Пока вы не выберете фильмы \n или все гости не будут готовы, \n Вы не сможете начать"
     }
     
     // MARK: private methods
@@ -83,8 +87,7 @@ class DidCreatedLobbyView: UIView {
     }
     
     // function of setting up white foreground of this view and it's constraints
-    
-    private func configureForegroundView(areGuestsReady: Bool = true, numberOfGuests: Int = 0) {
+    private func configureForegroundView() {
         
 //        foregroundView.makeForegroundView()
 //        foregroundView.makeBlueBordersForForegroundView()
@@ -92,17 +95,9 @@ class DidCreatedLobbyView: UIView {
         foregroundView.addSubview(bottomButton)
         foregroundView.addSubview(captionLable)
         
-        switch areGuestsReady {
-        case true:
-            bottomButton.blockButton()
-            captionLable.text = "Все гости готовы, \n Вы можете начать"
-        case false:
-            bottomButton.unblockButton()
-            captionLable.text = "Пока все гости не будут готовы, \n Вы не сможете начать"
-        }
+        captionLable.text = "Все гости готовы, \n Вы можете начать"
         
-        let guestsNumberLabel = CustomUILabelBuilderByType(type: .mediumText)
-        guestsNumberLabel.text = "Гости - \(numberOfGuests)"
+        guestsNumberLabel.text = "Гости - 1"
         foregroundView.addSubview(guestsNumberLabel)
         
         foregroundView.addSubview(guestsListButton)

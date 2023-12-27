@@ -18,6 +18,8 @@ class HistoryViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    private var resultsKeys = Array(LobbyResultManager.shared.resultsDictionary.keys)
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
@@ -28,6 +30,8 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        resultsKeys = Array(LobbyResultManager.shared.resultsDictionary.keys)
+        
         configureLeftBarLabel()
         configureRightBarButton()
         
@@ -107,7 +111,7 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return resultsKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -125,10 +129,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         // test
         cell.configureHistoryCell(
-            imageName: "AppIcon",
-            lobbyName: "Lobby \(indexPath.row)",
-            movieName: "Movie \(indexPath.row)",
-            description: "Description \(indexPath.row)")
+            imageURL: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.1.imageURL ?? "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df",
+            lobbyName: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.0 ?? "",
+            movieName: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.1.name ?? "",
+            description: "")
         
         return cell
     }

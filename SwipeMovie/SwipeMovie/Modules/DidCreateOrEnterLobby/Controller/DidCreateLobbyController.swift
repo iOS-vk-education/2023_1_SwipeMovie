@@ -12,18 +12,17 @@ final class DidCreateLobbyController: UIViewController {
     
     // MARK: properties
     
-    // temp data for cells
-    private var tempFilmListNames = ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"]
-    
     // MARK: private properties
     
-    private var didCreateLobbyView = DidCreatedLobbyView(frame: UIScreen.main.bounds,
-                                                          lobbyName: "Название лобби",
-                                                          lobbyCode: "123456")
+    private var didCreateLobbyView = DidCreatedLobbyView(frame: UIScreen.main.bounds)
     
     private var lobbyName = "No name"
     
     private var lobbyCode = "000000"
+    
+    private var timer: Timer?
+    
+    private var keysArray = Array(FilmsListManager.shared.filmsListDictionary.keys)
     
     // MARK: methods
     
@@ -45,6 +44,25 @@ final class DidCreateLobbyController: UIViewController {
         configureNavigation()
         configureTable()
         configureButtonFunctionality()
+        didCreateLobbyView.guestsAreNotReady()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.0,
+                                     target: self,
+                                     selector: #selector(reloadTableLabelsAndButton),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        timer?.invalidate()
+        timer = nil
     }
     
     func setTitleLabelText(text: String, code: String) {
@@ -86,10 +104,28 @@ final class DidCreateLobbyController: UIViewController {
                                                       for: .touchUpInside)
     }
     
-    // TODO: add full functionality
+    @objc private func reloadTableLabelsAndButton() {
+        
+        keysArray = Array(FilmsListManager.shared.filmsListDictionary.keys)
+        didCreateLobbyView.filmListTableView.reloadSections([1], with: .automatic)
+        
+        print("reloadLabel \(LobbyManager.shared.lobby.guests)")
+        didCreateLobbyView.updateGuestNumber(number: LobbyManager.shared.lobby.guests.count)
+        
+        if !LobbyManager.shared.lobby.filmLists.isEmpty {
+            for (_, statement) in LobbyManager.shared.lobby.guests where statement == false {
+                didCreateLobbyView.guestsAreNotReady()
+                return
+            }
+            didCreateLobbyView.guestsAreReady()
+        }
+    }
     
     @objc private func startButtonDidTapped() {
+        
         print("started")
+        LobbyManager.shared.iAmHosting()
+        LobbyManager.shared.startLobby()
         let controller = SwipeViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
@@ -101,19 +137,33 @@ final class DidCreateLobbyController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    var flag = true
+    
     @objc private func changeFilmListsButtonDidTapped() {
         
+        let controller = ChangeGenresListViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
         print("change")
         // temp data append
-        tempFilmListNames.append(String(Int.random(in: 10..<100)))
-        didCreateLobbyView.filmListTableView.beginUpdates()
-        didCreateLobbyView.filmListTableView.insertRows(at: [IndexPath.init(row: tempFilmListNames.count - 1,
-                                                                            section: 1)],
-                                                        with: .automatic)
-        didCreateLobbyView.filmListTableView.endUpdates()
+//        if flag {
+//            LobbyManager.shared.addFilmListToLobby(filmListId: "x3D2Un5kn3AiPlSDaeXY")
+//            flag.toggle()
+//        } else {
+//            LobbyManager.shared.addFilmListToLobby(filmListId: "Gy88GSgMaQnTPIMLzmMS")
+//        }
+//        
+//        FilmsListManager.shared.getFilmsListNames(id: LobbyManager.shared.lobby.filmLists.last ?? "")
+//        keysArray = Array(FilmsListManager.shared.filmsListDictionary.keys)
+//        didCreateLobbyView.filmListTableView.reloadData()
+//        didCreateLobbyView.filmListTableView.reloadSections([1], with: .automatic)
+//        didCreateLobbyView.filmListTableView.beginUpdates()
+//        didCreateLobbyView.filmListTableView.insertRows(at: [IndexPath.init(row: keysArray.count - 1,
+//                                                                            section: 1)],
+//                                                        with: .automatic)
+//        didCreateLobbyView.filmListTableView.endUpdates()
     }
     
-    // TODO: i don't know, it needs to be fixed
+    // MARK: i don't know, it needs to be fixed
     
     @objc private func shareButtonDidTapped() {
         
@@ -135,7 +185,7 @@ extension DidCreateLobbyController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 1 {
-            return tempFilmListNames.count
+            return keysArray.count
             
         } else {
             return 1
@@ -149,7 +199,7 @@ extension DidCreateLobbyController: UITableViewDataSource, UITableViewDelegate {
                                                            for: indexPath) as? DidCreateLobbyTableViewCell
             else { return DidCreateLobbyTableViewCell() }
             
-            cell.filmListLable.text = tempFilmListNames[indexPath.row]
+            cell.filmListLable.text = FilmsListManager.shared.filmsListDictionary[keysArray[indexPath.row]]?.name ?? ""
             cell.checkBoxButton.tag = indexPath.row
             cell.checkBoxButton.addTarget(self,
                                           action: #selector(didTappedDeleteCellButton(_:)),
@@ -176,8 +226,11 @@ extension DidCreateLobbyController: UITableViewDataSource, UITableViewDelegate {
     
     @objc func didTappedDeleteCellButton(_ sender: UIButton) {
         
-        tempFilmListNames.remove(at: sender.tag)
+        print(keysArray)
+        LobbyManager.shared.deleteFilmListFromLobby(filmListId: keysArray.remove(at: sender.tag))
+        print(keysArray)
         didCreateLobbyView.filmListTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 1)], with: .fade)
         didCreateLobbyView.filmListTableView.reloadData()
+        didCreateLobbyView.filmListTableView.reloadSections([1], with: .automatic)
     }
 }

@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +13,69 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAj-lc-TYY">
+                                <rect key="frame" x="38" y="381" width="317" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwipeMovie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yg-OP-5yJ">
+                                        <rect key="frame" x="0.0" y="8" width="317" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="cpE-Hi-V1F"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" name="swipeMovieWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="4w1-LS-1L6">
+                                        <rect key="frame" x="20" y="50" width="267.33333333333331" height="20.333333333333329"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rRD-IB-x7m">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
+                                                <color key="color" name="swipeMovieWhite"/>
+                                            </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фильм для любой компании!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMY-ZW-17q">
+                                                <rect key="frame" x="37.000000000000014" y="0.0" width="230.33333333333337" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="swipeMovieWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4w1-LS-1L6" secondAttribute="bottom" constant="19.666666666666671" id="0mT-h6-e30"/>
+                                    <constraint firstItem="4Yg-OP-5yJ" firstAttribute="centerX" secondItem="WAj-lc-TYY" secondAttribute="centerX" id="5Pq-Jq-32V"/>
+                                    <constraint firstItem="4Yg-OP-5yJ" firstAttribute="leading" secondItem="WAj-lc-TYY" secondAttribute="leading" id="7in-dT-vGn"/>
+                                    <constraint firstItem="4Yg-OP-5yJ" firstAttribute="top" secondItem="WAj-lc-TYY" secondAttribute="topMargin" id="JWt-bA-mU4"/>
+                                    <constraint firstItem="4w1-LS-1L6" firstAttribute="top" secondItem="4Yg-OP-5yJ" secondAttribute="bottom" id="aDc-RO-rML"/>
+                                    <constraint firstItem="4w1-LS-1L6" firstAttribute="leading" secondItem="WAj-lc-TYY" secondAttribute="leading" constant="20" id="nK8-NU-iJv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="swipeMovieBlue"/>
+                        <constraints>
+                            <constraint firstItem="WAj-lc-TYY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Pdh-ud-GlL"/>
+                            <constraint firstItem="WAj-lc-TYY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="322" id="YRE-6J-USC"/>
+                            <constraint firstItem="WAj-lc-TYY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="nNn-gn-VSK"/>
+                            <constraint firstItem="WAj-lc-TYY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ymT-Uv-zoY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="swipeMovieBlue">
+            <color red="0.27399998903274536" green="0.55199998617172241" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="swipeMovieWhite">
+            <color red="0.9179999828338623" green="0.94900000095367432" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

@@ -9,6 +9,14 @@ import UIKit
 
 class MainMenuViewController: UIViewController {
     
+    private let uuu = UserManager.shared
+    
+    private let lll = LobbyManager.shared
+    
+    private let rrr = LobbyResultManager.shared
+    
+    private let fff = FilmsListManager.shared
+    
     private var createMainMenuView = MainMenuView(frame: UIScreen.main.bounds)
     
     override func loadView() {
@@ -18,9 +26,10 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         setUpButtonTargets()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
+        setUpNavigation()
+        FilmsListManager.shared.getAllFilmListsAndFilms()
     }
     
     func setUpButtonTargets() {
@@ -34,17 +43,22 @@ class MainMenuViewController: UIViewController {
             for: .touchUpInside)
     }
     
+    func setUpNavigation() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
+    }
+    
     @objc
     func createButtonDidTapped() {
         let controller = WillCreateLobbyController()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc
     func joinButtonDidTapped() {
         let controller = WillEnterLobbyController()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
