@@ -186,7 +186,8 @@ extension DidEnterLobbyController: UITableViewDataSource, UITableViewDelegate {
                                                        for: indexPath) as? DidEnterLobbyTableViewCell
         else { return DidEnterLobbyTableViewCell() }
         
-            cell.configure(text:FilmsListManager.shared.filmsListDictionary[keysArray[indexPath.row]]?.name ?? "")
+            cell.configure(text:
+                            FilmsListManager.shared.filmsListDictionary[keysArray[indexPath.row]]?.name ?? "")
             
         return cell
             
