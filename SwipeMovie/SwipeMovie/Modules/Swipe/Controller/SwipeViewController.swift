@@ -61,6 +61,11 @@ class SwipeViewController: UIViewController {
     @objc private func infoButtonDidTapped() {
         print("info")
         let controller = MoviePageViewController()
+        
+        controller.createMoviePageView.configureMoviePageView(
+            imageURL: film.imageURL,
+            movieName: film.name,
+            description: film.description)
         present(controller, animated: true)
     }
     

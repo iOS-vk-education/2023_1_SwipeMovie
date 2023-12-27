@@ -27,7 +27,11 @@ class FilmListCollectionViewCell: UICollectionViewCell {
         static let bottomConst: CGFloat = -16
     }
     
-    private var filmImageView = UIImageView()
+    private var filmImageView: UIImageView = {
+        let filmImageView = UIImageView()
+        filmImageView.layer.cornerRadius = 10
+        return filmImageView
+    }()
     
     private var nameOfGenre: UILabel = {
         let name = UILabel()
