@@ -95,11 +95,17 @@ final class MoviePageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
-        titleLabel.text = movieTitle
-        movieImage.image = UIImage(named: movieImageName)
-        imdbLabel.text = "\(imdbRating) IMDb"
-        descriptionLabel.text = movieDescription
+//    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
+//        titleLabel.text = movieTitle
+//        movieImage.image = UIImage(named: movieImageName)
+//        imdbLabel.text = "\(imdbRating) IMDb"
+//        descriptionLabel.text = movieDescription
+//    }
+    
+    func configureMoviePageView(imageURL: String, movieName: String, description: String) {
+        movieImage.load(url: URL(string: imageURL)!)
+        titleLabel.text = movieName
+        descriptionLabel.text = description
     }
     
     private func configureView() {

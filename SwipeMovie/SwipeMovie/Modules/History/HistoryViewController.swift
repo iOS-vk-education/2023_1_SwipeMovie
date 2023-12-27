@@ -89,8 +89,26 @@ class HistoryViewController: UIViewController {
     }
     
     @objc
-    func didTapInfoButton() {
-        //
+    func didTapInfoButton(_ sender: UIButton) {
+        
+        let controller = MoviePageViewController()
+        
+        var movieViewData: (String, Film)
+        
+        if isSearching {
+            movieViewData = searchedLobbies[sender.tag]
+            controller.createMoviePageView.configureMoviePageView(
+                imageURL: movieViewData.1.imageURL,
+                movieName: movieViewData.1.name,
+                description: movieViewData.1.description)
+        } else {
+            controller.createMoviePageView.configureMoviePageView(
+                imageURL: LobbyResultManager.shared.resultsDictionary[resultsKeys[sender.tag]]?.1.imageURL ?? "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df",
+                movieName: LobbyResultManager.shared.resultsDictionary[resultsKeys[sender.tag]]?.1.name ?? "",
+                description: LobbyResultManager.shared.resultsDictionary[resultsKeys[sender.tag]]?.1.description ?? "")
+        }
+                
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     private func configureSearchBar() {
@@ -139,8 +157,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.infoButton.addTarget(
             self,
-            action: #selector(didTapInfoButton),
+            action: #selector(didTapInfoButton(_:)),
             for: .touchUpInside)
+        
+        cell.infoButton.tag = indexPath.row
         
         // test
         if isSearching {

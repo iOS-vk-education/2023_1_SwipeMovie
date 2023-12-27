@@ -86,6 +86,4 @@ final class FilmManager {
             print(self.allFilms)
         }
     }
-    
-    
 }
