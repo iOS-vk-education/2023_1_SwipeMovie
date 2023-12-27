@@ -21,6 +21,7 @@ final class MoviePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = createMoviePageView
+        createMoviePageView.favoriteButton.isHidden = true
     }
     
     private func setUpFavoriteButtonTarget() {
