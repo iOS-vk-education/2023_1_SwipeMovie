@@ -87,7 +87,7 @@ final class MoviePageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(named: "swipeMovieBlue")
+        self.backgroundColor = UIColor(named: "swipeMovieWhite")
         configureView()
     }
     
