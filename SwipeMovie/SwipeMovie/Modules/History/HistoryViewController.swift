@@ -16,6 +16,13 @@ class HistoryViewController: UIViewController {
         return tableView
     }()
     
+    // properties for searchBar
+    private var lobbyData: [(String, Film)] = []
+    
+    private var isSearching = false
+    
+    private var searchedLobbies: [(String, Film)] = []
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     private var resultsKeys = Array(LobbyResultManager.shared.resultsDictionary.keys)
@@ -31,6 +38,9 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         resultsKeys = Array(LobbyResultManager.shared.resultsDictionary.keys)
+        
+        // for searchBar
+        lobbyData = LobbyResultManager.shared.lobbyData
         
         configureLeftBarLabel()
         configureRightBarButton()
@@ -111,7 +121,11 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultsKeys.count
+        if isSearching {
+            return searchedLobbies.count
+        } else {
+            return resultsKeys.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,11 +142,18 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             for: .touchUpInside)
         
         // test
-        cell.configureHistoryCell(
-            imageURL: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.1.imageURL ?? "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df",
-            lobbyName: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.0 ?? "",
-            movieName: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.1.name ?? "",
-            description: "")
+        if isSearching {
+            cell.configureHistoryCell(imageURL: searchedLobbies[indexPath.row].1.imageURL,
+                                      lobbyName: searchedLobbies[indexPath.row].0,
+                                      movieName: searchedLobbies[indexPath.row].1.name,
+                                      description: searchedLobbies[indexPath.row].1.description)
+        } else {
+            cell.configureHistoryCell(
+                imageURL: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.1.imageURL ?? "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df",
+                lobbyName: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.0 ?? "",
+                movieName: LobbyResultManager.shared.resultsDictionary[resultsKeys[indexPath.row]]?.1.name ?? "",
+                description: "")
+        }
         
         return cell
     }
@@ -145,6 +166,14 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - SearchBarDelegate
 extension HistoryViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //
+        searchedLobbies = lobbyData.filter({$0.0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        isSearching = true
+        historyTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        searchBar.text = ""
+        historyTableView.reloadData()
     }
 }
