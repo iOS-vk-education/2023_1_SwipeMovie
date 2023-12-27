@@ -23,8 +23,8 @@ final class MoviePageView: UIView {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = UIColor(named: "swipeMovieWhite")
-        scrollView.layer.cornerRadius = 40
-        scrollView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+//        scrollView.layer.cornerRadius = 40
+//        scrollView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         scrollView.showsVerticalScrollIndicator = true
         scrollView.alwaysBounceVertical = true
         return scrollView
