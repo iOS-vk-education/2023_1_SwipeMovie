@@ -43,7 +43,7 @@ class HistoryViewController: UIViewController {
         lobbyData = LobbyResultManager.shared.lobbyData
         
         configureLeftBarLabel()
-        configureRightBarButton()
+//        configureRightBarButton()
         
         self.view.addSubview(historyTableView)
         
@@ -59,6 +59,7 @@ class HistoryViewController: UIViewController {
         
         historyTableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.backgroundColor = UIColor(named: "swipeMovieBlue")
+        searchController.searchBar.setValue("Отменить", forKey: "cancelButtonText")
         
         // constrain the table view
         NSLayoutConstraint.activate([

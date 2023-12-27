@@ -22,7 +22,7 @@ class MovieTableViewCell: UITableViewCell {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 17)
-        nameLabel.textColor = UIColor(named: "swipeMovieBlack")
+        nameLabel.textColor = .black
         nameLabel.numberOfLines = 1
         return nameLabel
     }()
