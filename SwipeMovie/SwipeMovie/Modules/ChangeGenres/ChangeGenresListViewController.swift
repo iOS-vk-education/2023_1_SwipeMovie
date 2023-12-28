@@ -19,6 +19,8 @@ class ChangeGenresListViewController: UIViewController {
     }
     private func setUpNavigationBar() {
         navigationItem.title = "Списки фильмов"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

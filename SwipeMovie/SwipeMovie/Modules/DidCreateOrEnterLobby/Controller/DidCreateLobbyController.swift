@@ -46,6 +46,7 @@ final class DidCreateLobbyController: UIViewController {
         configureButtonFunctionality()
         didCreateLobbyView.guestsAreNotReady()
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +75,8 @@ final class DidCreateLobbyController: UIViewController {
     
     private func configureNavigation() {
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
         navigationController?.navigationBar.tintColor = UIColor(named: "swipeMovieWhite")
         navigationController?.navigationBar.barTintColor = UIColor(named: "swipeMovieBlue")
     }

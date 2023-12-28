@@ -34,6 +34,7 @@ class FinalFilmViewController: UIViewController {
         finalFilmView.imageFilm.load(url: URL(string: FilmManager.shared.filmsDictionary[LobbyManager.shared.lobby.finalFilm]?.imageURL ?? "") ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df")!)
         LobbyManager.shared.addFilmToHistory() {
             UserManager.shared.user.historyItems.append(LobbyManager.shared.lobby.likedFilms[0])
+            UserManager.shared.user.historyItems = Array(Set(UserManager.shared.user.historyItems))
             UserManager.shared.sendUser()
         }
         finalFilmView.buttonGoToMenu.addTarget(self,
@@ -47,6 +48,7 @@ class FinalFilmViewController: UIViewController {
     @objc private func goToMenuButtonDidTapped() {
         print("go to menu")
         UserManager.shared.user.historyItems.append(LobbyManager.shared.lobby.likedFilms[0])
+        UserManager.shared.user.historyItems = Array(Set(UserManager.shared.user.historyItems))
         UserManager.shared.sendUserOnce() {
             
             if LobbyManager.shared.isHost {
