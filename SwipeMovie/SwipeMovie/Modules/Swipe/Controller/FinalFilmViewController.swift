@@ -44,16 +44,20 @@ class FinalFilmViewController: UIViewController {
     @objc private func goToMenuButtonDidTapped() {
         print("go to menu")
         UserManager.shared.user.historyItems.append(LobbyManager.shared.lobby.likedFilms[0])
-        UserManager.shared.sendUser()
-        if LobbyManager.shared.isHost {
-            LobbyManager.shared.deleteLobby(code: LobbyManager.shared.lobby.code)
+        UserManager.shared.sendUserOnce() {
+            
+            if LobbyManager.shared.isHost {
+                LobbyManager.shared.deleteLobby(code: LobbyManager.shared.lobby.code)
+            }
+            LobbyManager.shared.resetAll()
+            FilmsListManager.shared.filmsList = FilmsList()
+            FilmsListManager.shared.filmsListDictionary = [:]
+            UserManager.shared.getUserOnce() {
+                self.navigationController!.popToRootViewController(animated: true)
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+            }
         }
-        LobbyManager.shared.resetAll()
-        FilmsListManager.shared.filmsList = FilmsList()
-        FilmsListManager.shared.filmsListDictionary = [:]
-        navigationController!.popToRootViewController(animated: true)
-        tabBarController?.tabBar.isHidden = false
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @objc private func goToMovieButtonDidTapped() {

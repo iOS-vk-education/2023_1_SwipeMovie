@@ -156,10 +156,22 @@ final class DidEnterLobbyController: UIViewController {
     
     @objc private func complaintButtonDidTapped() {
         print("complaint")
+        let alert = UIAlertController(title: "Жалоба",
+                                      message: "Пожаловаться на название лобби?",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .default))
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     @objc private func shareButtonDidTapped() {
         print("share")
+        
+        let items: [Any] = [lobbyCode]
+        let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = self.view
+        present(activityController, animated: true, completion: nil)
     }
 }
 

@@ -153,7 +153,7 @@ final class LobbyManager {
         }
         if isHost {
             let filmId = filmsInLobby.map { $0.id }
-            updateDB(field: "likedFilms", value: filmId)
+            updateDB(field: "likedFilms", value: Array(Set(filmId)))
         }
         complition()
     }

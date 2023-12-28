@@ -53,6 +53,32 @@ final class UserManager {
             for lobbyResultId in self.user.historyItems {
                 LobbyResultManager.shared.getLobbyResult(lobbyResultId: lobbyResultId)
             }
+            print("i updated user")
+        }
+    }
+    
+    func sendUserOnce(completion: () -> Void) {
+        do {
+            try dataBase.collection("user").document(user.id).setData(from: user)
+        } catch {
+            print("Error adding messages to Firestore: \(error.localizedDescription)")
+        }
+        completion()
+    }
+    
+    func getUserOnce(completion: @escaping () -> Void) {
+
+        dataBase.collection("user").document(self.user.id).getDocument { (querySnapshot, error) in
+            guard let document = querySnapshot, document.exists else {
+                print("Error fetching User: \(String(describing: error)) or User doesn't exist")
+                return
+            }
+            let dataDescription = document.data()
+            self.user.historyItems = dataDescription?["historyItems"] as? [String] ?? []
+            for lobbyResultId in self.user.historyItems {
+                LobbyResultManager.shared.getLobbyResult(lobbyResultId: lobbyResultId)
+            }
+            completion()
         }
     }
     
