@@ -46,8 +46,8 @@
 		20966AAA2B3B7A2000A0BE4B /* ChangeGenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966AA92B3B7A2000A0BE4B /* ChangeGenresModel.swift */; };
 		20966AAC2B3B7A2500A0BE4B /* ChangeGenresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966AAB2B3B7A2500A0BE4B /* ChangeGenresCollectionCell.swift */; };
 		20966AAE2B3B7A2900A0BE4B /* ChangeGenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966AAD2B3B7A2900A0BE4B /* ChangeGenresView.swift */; };
+		20966AB02B3D66E900A0BE4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20966AAF2B3D66E900A0BE4B /* GoogleService-Info.plist */; };
 		209E7EBA2AF7B60400ED0A8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E7EB92AF7B60400ED0A8C /* Constants.swift */; };
-		20D684D12B35E9BD00DF228B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20D684D02B35E9BD00DF228B /* GoogleService-Info.plist */; };
 		20D684D42B35EB9000DF228B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 20D684D32B35EB9000DF228B /* FirebaseAuth */; };
 		20D684D62B35EB9000DF228B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 20D684D52B35EB9000DF228B /* FirebaseFirestore */; };
 		20D684D82B35EB9000DF228B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20D684D72B35EB9000DF228B /* FirebaseFirestoreSwift */; };
@@ -114,8 +114,8 @@
 		20966AA92B3B7A2000A0BE4B /* ChangeGenresModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeGenresModel.swift; sourceTree = "<group>"; };
 		20966AAB2B3B7A2500A0BE4B /* ChangeGenresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeGenresCollectionCell.swift; sourceTree = "<group>"; };
 		20966AAD2B3B7A2900A0BE4B /* ChangeGenresView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeGenresView.swift; sourceTree = "<group>"; };
+		20966AAF2B3D66E900A0BE4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		209E7EB92AF7B60400ED0A8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		20D684D02B35E9BD00DF228B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20D684DC2B360CFB00DF228B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		20D684E02B36128000DF228B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20D684E22B36134900DF228B /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				66857BB42AEA98E000468958 /* SwipeMovie.xcdatamodeld */,
-				20D684D02B35E9BD00DF228B /* GoogleService-Info.plist */,
+				20966AAF2B3D66E900A0BE4B /* GoogleService-Info.plist */,
 				66857BBC2AEA98E200468958 /* Info.plist */,
 				66857BB92AEA98E200468958 /* LaunchScreen.storyboard */,
 				66857BB72AEA98E200468958 /* Assets.xcassets */,
@@ -587,7 +587,7 @@
 			files = (
 				66857BBB2AEA98E200468958 /* LaunchScreen.storyboard in Resources */,
 				66857BB82AEA98E200468958 /* Assets.xcassets in Resources */,
-				20D684D12B35E9BD00DF228B /* GoogleService-Info.plist in Resources */,
+				20966AB02B3D66E900A0BE4B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,7 +831,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie.obb";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie.obb1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -860,7 +860,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie.obb";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-vk-education.SwipeMovie.obb1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

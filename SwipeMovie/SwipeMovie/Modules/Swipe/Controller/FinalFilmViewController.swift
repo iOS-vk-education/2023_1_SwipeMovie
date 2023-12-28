@@ -32,7 +32,10 @@ class FinalFilmViewController: UIViewController {
         
         finalFilmView.labelFilmName.text = FilmManager.shared.filmsDictionary[LobbyManager.shared.lobby.finalFilm]?.name
         finalFilmView.imageFilm.load(url: URL(string: FilmManager.shared.filmsDictionary[LobbyManager.shared.lobby.finalFilm]?.imageURL ?? "") ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df")!)
-        LobbyManager.shared.addFilmToHistory()
+        LobbyManager.shared.addFilmToHistory() {
+            UserManager.shared.user.historyItems.append(LobbyManager.shared.lobby.likedFilms[0])
+            UserManager.shared.sendUser()
+        }
         finalFilmView.buttonGoToMenu.addTarget(self,
                                                action: #selector(goToMenuButtonDidTapped),
                                                for: .touchUpInside)

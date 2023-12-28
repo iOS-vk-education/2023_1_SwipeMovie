@@ -29,9 +29,16 @@ class HistoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        historyTableView.reloadData()
         searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
             string: "Поиск",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        historyTableView.reloadData()
     }
     
     override func viewDidLoad() {

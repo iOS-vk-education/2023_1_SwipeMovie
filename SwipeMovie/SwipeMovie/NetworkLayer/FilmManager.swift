@@ -19,6 +19,8 @@ final class FilmManager {
     
     var allFilms: [String: [Film]] = [:]
     
+    var imageURLAndUIImageDictionary: [URL: UIImage] = [:]
+    
     // MARK: private properties
     
     private let dataBase = Firestore.firestore()

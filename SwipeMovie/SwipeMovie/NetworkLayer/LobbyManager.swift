@@ -234,6 +234,22 @@ final class LobbyManager {
         }
     }
     
+    func addFilmToHistory(completion: @escaping () -> Void) {
+        
+        dataBase.collection("lobby").document(lobby.code).getDocument { (querySnapshot, error) in
+            guard let document = querySnapshot else {
+                print("Error fetching documents: \(String(describing: error))")
+                return
+            }
+
+            let dataDescription = document.data()
+            print(dataDescription)
+            self.lobby.likedFilms = [dataDescription?["likedFilms"]] as? [String] ?? []
+            print(self.lobby.likedFilms)
+            completion()
+        }
+    }
+    
     // MARK: private methods
     
     private func updateDB(field: String, value: Any) {

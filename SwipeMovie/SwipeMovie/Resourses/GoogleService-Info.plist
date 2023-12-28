@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAZH8VTlWNvmdWVg6Dl4x7HYkAvo9C_Vm0</string>
+	<string>AIzaSyAQGd36tBNBlIQ-D0ObNAsVUZJiRzEKd9A</string>
 	<key>GCM_SENDER_ID</key>
-	<string>675785556721</string>
+	<string>652173417499</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>iOS-vk-education.SwipeMovie.obb</string>
+	<string>iOS-vk-education.SwipeMovie.obb1</string>
 	<key>PROJECT_ID</key>
-	<string>swipemovie-53353</string>
+	<string>swipemovie-40e4e</string>
 	<key>STORAGE_BUCKET</key>
-	<string>swipemovie-53353.appspot.com</string>
+	<string>swipemovie-40e4e.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:675785556721:ios:924751e9ef3acc27489f50</string>
+	<string>1:652173417499:ios:1369d3cece269628ed6cbe</string>
 </dict>
 </plist>
