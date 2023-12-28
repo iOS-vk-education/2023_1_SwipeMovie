@@ -97,8 +97,6 @@ class HistoryViewController: UIViewController {
         // configure search bar
         configureSearchBar()
         
-        
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
     }
