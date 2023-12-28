@@ -25,6 +25,7 @@ final class FilmListView: UIView {
     }
     var filmsListId = ""
     var allFilms: [Film] = []
+    
     // MARK: - INIT
     init(filmsListId: String) {
         super.init(frame: .zero)
