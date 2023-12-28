@@ -156,7 +156,7 @@ final class MoviePageView: UIView {
             movieImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             movieImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30),
             movieImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30),
-            movieImage.heightAnchor.constraint(equalToConstant: (frame.width - 60) * 9 / 16)
+            movieImage.heightAnchor.constraint(equalToConstant: (frame.width - 60) * 16 / 9)
         ])
     }
     
