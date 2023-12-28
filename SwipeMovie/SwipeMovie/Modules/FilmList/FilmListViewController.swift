@@ -22,7 +22,7 @@ class FilmListViewController: UIViewController {
         setUpNavigationBar()
     }
     private func setUpNavigationBar() {
-        navigationItem.title = "Списки фильмов"
+        navigationItem.title = "Все фильмы"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
