@@ -9,7 +9,7 @@ import UIKit
 
 final class MoviePageViewController: UIViewController {
     
-    private var createMoviePageView = MoviePageView(frame: UIScreen.main.bounds)
+    var createMoviePageView = MoviePageView(frame: UIScreen.main.bounds)
     
     private var isFavoriteButtonTapped = false
     
@@ -20,12 +20,13 @@ final class MoviePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createMoviePageView.configureMoviePageView(
-            movieTitle: "Monsters Inc",
-            movieImageName: "AppIcon",
-            imdbRating: "9.5/10",
-            movieDescription: "Description")
-        setUpFavoriteButtonTarget()
+        
+        createMoviePageView.favoriteButton.isHidden = true
+//        createMoviePageView.configureMoviePageView(movieTitle: "Monsters Inc",
+//                                                   movieImageName: "AppIcon",
+//                                                   imdbRating: "",
+//                                                   movieDescription: "Description")
+//        setUpFavoriteButtonTarget()
     }
     
     private func setUpFavoriteButtonTarget() {

@@ -21,15 +21,15 @@ final class TabBarController {
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppeaerance
         UITabBar.appearance().standardAppearance = tabBarAppeaerance
         // fix bug when navbar color is changing when you scrolling table view
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.configureWithOpaqueBackground()
-        navigationBarAppearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor(named: "swipeMovieWhite") ?? .white
-        ]
-        navigationBarAppearance.backgroundColor = UIColor(named: "swipeMovieBlue")
-        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+//        let navigationBarAppearance = UINavigationBarAppearance()
+//        navigationBarAppearance.configureWithOpaqueBackground()
+//        navigationBarAppearance.titleTextAttributes = [
+//            NSAttributedString.Key.foregroundColor: UIColor(named: "swipeMovieWhite") ?? .white
+//        ]
+//        navigationBarAppearance.backgroundColor = UIColor(named: "swipeMovieBlue")
+//        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+//        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         //
         let tabBarController = UITabBarController()
         let filmListTabBarController = createTabBarController(controller: GenreListViewController(),

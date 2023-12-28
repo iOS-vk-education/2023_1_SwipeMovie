@@ -19,6 +19,11 @@ final class LobbyResultManager {
     
     var resultsDictionary: [String: (String, Film)] = [:]
     
+    // new feature for searchBar
+
+    var lobbyData: [(String, Film)] = []
+
+    
     // MARK: private properties
     
     private let dataBase = Firestore.firestore()
@@ -43,6 +48,8 @@ final class LobbyResultManager {
                 let film = FilmManager.shared.filmsDictionary[dataDescription?["film"] as? String ?? ""] ?? Film()
                 let name = dataDescription?["name"] as? String ?? ""
                 self.resultsDictionary[lobbyResultId] = (name, film)
+                // add elements for easy setUp searchBar logic
+                self.lobbyData.append((name, film))
             }
         }
     }

@@ -70,6 +70,7 @@ class WillCreateOrEnterLobbyView: UIView {
         }
         
         configureCreateLobbyLabel()
+        bottomButton.blockButton1()
     }
     
     required init?(coder: NSCoder) {

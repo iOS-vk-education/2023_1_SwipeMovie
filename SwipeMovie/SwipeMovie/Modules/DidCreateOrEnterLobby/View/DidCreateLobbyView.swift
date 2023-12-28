@@ -57,12 +57,12 @@ class DidCreatedLobbyView: UIView {
     }
     
     func guestsAreReady() {
-        bottomButton.blockButton()
+        bottomButton.unblockButton1()
         captionLable.text = "Все гости готовы, \n Вы можете начать"
     }
     
     func guestsAreNotReady() {
-        bottomButton.unblockButton()
+        bottomButton.blockButton1()
         captionLable.text = "Пока вы не выберете фильмы \n или все гости не будут готовы, \n Вы не сможете начать"
     }
     

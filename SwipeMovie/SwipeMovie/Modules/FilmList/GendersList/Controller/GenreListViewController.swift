@@ -37,6 +37,8 @@ class GenreListViewController: UIViewController {
             let cell = self?.contentView.filmListCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? GenreListCollectionViewCell
             let filmListViewController = FilmListViewController()
             filmListViewController.filmsListId = cell?.idOfFilmList ?? ""
+            self?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+            self?.navigationItem.backBarButtonItem?.tintColor = UIColor(named: "swipeMovieWhite")
             self?.navigationController?.pushViewController(filmListViewController, animated: true)
         }
     }

@@ -45,6 +45,12 @@ class FinalFilmViewController: UIViewController {
         print("go to menu")
         UserManager.shared.user.historyItems.append(LobbyManager.shared.lobby.likedFilms[0])
         UserManager.shared.sendUser()
+        if LobbyManager.shared.isHost {
+            LobbyManager.shared.deleteLobby(code: LobbyManager.shared.lobby.code)
+        }
+        LobbyManager.shared.resetAll()
+        FilmsListManager.shared.filmsList = FilmsList()
+        FilmsListManager.shared.filmsListDictionary = [:]
         navigationController!.popToRootViewController(animated: true)
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -52,5 +58,15 @@ class FinalFilmViewController: UIViewController {
     
     @objc private func goToMovieButtonDidTapped() {
         print("go to movie page")
+        
+        let controller = MoviePageViewController()
+
+               controller.createMoviePageView.configureMoviePageView(
+                   imageURL: FilmManager.shared.filmsDictionary[LobbyManager.shared.lobby.finalFilm]?.imageURL ?? "https://firebasestorage.googleapis.com/v0/b/swipemovie-53353.appspot.com/o/IMG_1010.PNG?alt=media&token=2d4b188e-db49-494a-98b7-cffeb71ef2df",
+                   movieName: FilmManager.shared.filmsDictionary[LobbyManager.shared.lobby.finalFilm]?.name ?? "Film",
+                   description: FilmManager.shared.filmsDictionary[LobbyManager.shared.lobby.finalFilm]?.description ?? "Film")
+
+               present(controller, animated: true)
+
     }
 }

@@ -53,7 +53,7 @@ final class FilmListView: UIView {
         NSLayoutConstraint.activate([
             filmListCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Const.leadingConstant),
             filmListCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Const.trailingConstant),
-            filmListCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 22),
+            filmListCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             filmListCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -76,6 +76,7 @@ extension FilmListView: UICollectionViewDataSource {
 extension FilmListView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: filmListCollectionView.bounds.width, height: Const.heightCollectionCell)
+//        return CGSize(width: filmListCollectionView.bounds.width, height: Const.heightCollectionCell)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Const.spacingBetweenCells

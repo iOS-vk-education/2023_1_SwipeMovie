@@ -13,7 +13,7 @@ final class LobbyManager {
 
     // MARK: properties
     
-    static let shared = LobbyManager()
+    static var shared = LobbyManager()
     
     var lobby = Lobby()
     
@@ -33,8 +33,31 @@ final class LobbyManager {
         
     }
     
+    func resetAll() {
+        LobbyManager.shared = LobbyManager()
+    }
+    
     func iAmHosting() {
         isHost.toggle()
+    }
+    
+    func isExists(code: String, completionFalse: @escaping () -> Void, completionTrue: @escaping () -> Void) {
+        let docRef = dataBase.collection("lobby").document(code)
+        docRef.getDocument { (documentSnapshot, error)  in
+            if let documentSnapshot = documentSnapshot{
+                if !documentSnapshot.exists {
+                    completionFalse()
+                } else {
+                    completionTrue()
+                }
+            } else {
+                completionFalse()
+            }
+        }
+    }
+    
+    func deleteLobby(code: String) {
+        dataBase.collection("lobby").document(code).delete()
     }
     
     func getLobby(code: String, completion: @escaping () -> Void) {

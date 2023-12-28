@@ -13,7 +13,7 @@ final class FilmsListManager {
     
     // MARK: properties
     
-    static let shared = FilmsListManager()
+    static var shared = FilmsListManager()
     
     var filmsList = FilmsList()
     

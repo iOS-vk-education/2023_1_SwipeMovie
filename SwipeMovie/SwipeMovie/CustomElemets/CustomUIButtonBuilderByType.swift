@@ -69,12 +69,12 @@ final class CustomUIButtonBuilderByType: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func blockButton() {
+    func unblockButton1() {
         super.isEnabled = true
         super.backgroundColor = UIColor(named: "swipeMovieBlue")
     }
     
-    func unblockButton() {
+    func blockButton1() {
         super.isEnabled = false
         super.backgroundColor = .systemGray
     }

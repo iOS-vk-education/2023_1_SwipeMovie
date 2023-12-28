@@ -23,8 +23,8 @@ final class MoviePageView: UIView {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = UIColor(named: "swipeMovieWhite")
-        scrollView.layer.cornerRadius = 40
-        scrollView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+//        scrollView.layer.cornerRadius = 40
+//        scrollView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         scrollView.showsVerticalScrollIndicator = true
         scrollView.alwaysBounceVertical = true
         return scrollView
@@ -87,7 +87,8 @@ final class MoviePageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(named: "swipeMovieBlue")
+//        self.backgroundColor = UIColor(named: "swipeMovieBlue")
+        self.backgroundColor = UIColor(named: "swipeMovieWhite")
         configureView()
     }
     
@@ -95,12 +96,18 @@ final class MoviePageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
-        titleLabel.text = movieTitle
-        movieImage.image = UIImage(named: movieImageName)
-        imdbLabel.text = "\(imdbRating) IMDb"
-        descriptionLabel.text = movieDescription
-    }
+//    func configureMoviePageView(movieTitle: String, movieImageName: String, imdbRating: String, movieDescription: String) {
+//        titleLabel.text = movieTitle
+//        movieImage.image = UIImage(named: movieImageName)
+//        imdbLabel.text = "\(imdbRating) IMDb"
+//        descriptionLabel.text = movieDescription
+//    }
+    
+    func configureMoviePageView(imageURL: String, movieName: String, description: String) {
+            movieImage.load(url: URL(string: imageURL)!)
+            titleLabel.text = movieName
+            descriptionLabel.text = description
+        }
     
     private func configureView() {
         setUpScrollView()

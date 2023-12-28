@@ -43,6 +43,9 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
         configureButtonFunctionality()
         configureTextFields()
         
+        createLobbyView.lobbyTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        createLobbyView.nameTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWholeView))
         view.addGestureRecognizer(recognizer)
     }
@@ -82,6 +85,14 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
         createLobbyView.lobbyTextField.delegate = self
     }
     
+    @objc private func textFieldsDidChange() {
+        if createLobbyView.lobbyTextField.text?.count ?? 0 > 0 && createLobbyView.lobbyTextField.text?.count ?? 0 > 0 {
+            createLobbyView.bottomButton.unblockButton1()
+        } else {
+            createLobbyView.bottomButton.blockButton1()
+        }
+    }
+    
     @objc private func didTapWholeView() {
         view.endEditing(true)
     }
@@ -95,12 +106,16 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
                                                        for: .touchUpInside)
     }
     
+    
+    
     @objc private func clearNameTextFieldButtonDidTapped() {
         createLobbyView.nameTextField.text = ""
+        createLobbyView.bottomButton.blockButton1()
     }
     
     @objc private func clearLobbyTextFieldButtonDidTapped() {
         createLobbyView.lobbyTextField.text = ""
+        createLobbyView.bottomButton.blockButton1()
     }
     
     @objc private func createButtonDidTapped() {
@@ -109,13 +124,6 @@ final class WillCreateLobbyController: UIViewController, UITextFieldDelegate {
         UserManager.shared.sendUser()
         LobbyManager.shared.lobby.firstLobbySetUp(name: "", code: createLobbyModel.code)
         LobbyManager.shared.getLobby(code: createLobbyModel.code, completion: {})
-        if self.createLobbyView.lobbyTextField.text == "" {
-            let alert = UIAlertController(title: "Предупреждение",
-                                          message: "Вы ввели пустое название лобби, пожалуйста, введите другое.",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true, completion: nil)
-        }
             
         let controller = DidCreateLobbyController()
         LobbyManager.shared.lobby.name = self.getNameOfLobby()

@@ -43,6 +43,11 @@ final class WillEnterLobbyController: UIViewController, UITextFieldDelegate {
         configureButtonFunctionality()
         
         configureTextFields()
+
+        enterLobbyView.bottomButton.blockButton1()
+        
+        enterLobbyView.lobbyTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        enterLobbyView.nameTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWholeView))
         view.addGestureRecognizer(recognizer)
@@ -95,32 +100,50 @@ final class WillEnterLobbyController: UIViewController, UITextFieldDelegate {
     
     @objc private func clearNameTextFieldButtonDidTapped() {
         enterLobbyView.nameTextField.text = ""
+        enterLobbyView.bottomButton.blockButton1()
     }
     
     @objc private func clearLobbyTextFieldButtonDidTapped() {
         enterLobbyView.lobbyTextField.text = ""
+        enterLobbyView.bottomButton.blockButton1()
+    }
+    
+    @objc private func textFieldsDidChange() {
+        if enterLobbyView.lobbyTextField.text?.count ?? 0 > 5 && enterLobbyView.lobbyTextField.text?.count ?? 0 > 0 {
+            enterLobbyView.bottomButton.unblockButton1()
+        } else {
+            enterLobbyView.bottomButton.blockButton1()
+        }
     }
     
     @objc private func enterButtonDidTapped() {
         
-        let controller = DidEnterLobbyController()
-        var flag = true
-        
-        UserManager.shared.user.name = self.enterLobbyView.nameTextField.text ?? "ErrorName"
-        UserManager.shared.sendUser()
-        
-        LobbyManager.shared.getLobby(code: getCodeOfLobby()) {
-            if flag {
-                LobbyManager.shared.lobby.guests[UserManager.shared.user.id] = false
-                LobbyManager.shared.addUserToLobby()
-
-                controller.setTitleLabelText(text: LobbyManager.shared.lobby.name,
-                                             code: LobbyManager.shared.lobby.code)
-                
-                self.navigationController?.pushViewController(controller, animated: true)
-                flag.toggle()
-            }
-        }
+        LobbyManager.shared.isExists(code: getCodeOfLobby(), completionFalse: {
+            let alert = UIAlertController(title: "Предупреждение",
+                                          message: "Данное лобби не существует.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        },
+                                     completionTrue: {
+            let controller = DidEnterLobbyController()
+            var flag = true
+            
+            UserManager.shared.user.name = self.enterLobbyView.nameTextField.text ?? "ErrorName"
+            UserManager.shared.sendUser()
+            
+            LobbyManager.shared.getLobby(code: self.getCodeOfLobby()) {
+                if flag {
+                    LobbyManager.shared.lobby.guests[UserManager.shared.user.id] = false
+                    LobbyManager.shared.addUserToLobby()
+                    
+                    controller.setTitleLabelText(text: LobbyManager.shared.lobby.name,
+                                                 code: LobbyManager.shared.lobby.code)
+                    
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    flag.toggle()
+                }
+            }})
     }
     
     @objc private func didTapWholeView() {
